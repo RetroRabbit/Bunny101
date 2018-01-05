@@ -4,36 +4,39 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import Login from '../login'
 import './index.css'
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import RaisedButton from 'material-ui/RaisedButton';
+import TextField from 'material-ui/TextField';
+import RegisterComponent from './registerComponent';
+
+
 
 const Register = props => (
     <div>
-        <div class="registerForm">
-            <h1 class="step-one">Step One</h1>
-            <h1 class="the-basics">Step The basics</h1>
+    <div class="registerForm">
+    <MuiThemeProvider>
 
-            <form>
-            <label>
-            Your Name
-            <input type="text"  />
-            </label>
+    <div class="centerForm">
+    <p class="step-one">Step One</p>
+    <p class="the-basics">
+         Step The basics
+    </p>
+          <TextField class="form-field-white email-copy"  floatingLabelText="Your Name"/><br/>
 
-            <label>
-            Email
-            <input type="text"  />
-        </label>
+          <TextField floatingLabelText="Email" class="email-copy" type="email"/>
+          <br />
 
-        <label>
-        Password
-        <input type="text"  />
-        </label>
-        
-        <input type="submit" value="Submit" />
-      </form>
+          <TextField floatingLabelText="Password" type="password"/>
+          <br />
 
-            <button onClick={() => props.changePage()}>Next Step</button>
-        </div>
+          <button class="rectangle-button " type="button">NEXT STEP</button><br/>
+        </div> 
+    </MuiThemeProvider>
+
+</div>
     </div>
 )
+
 
 const mapStateToProps = state => {
 
@@ -46,5 +49,6 @@ const mapDispatchToProps = dispatch => bindActionCreators({
 
 export default connect(
     mapStateToProps,
-    mapDispatchToProps
+    mapDispatchToProps,
+    RegisterComponent
 )(Register)

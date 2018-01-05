@@ -1,8 +1,8 @@
 
    .registerForm
    {	
-    border-radius: 12px;	
-    margin: auto;
+       border-radius: 12px;	
+       margin: auto;
        height: 644px;	
        width: 533px;	
        border-radius: 12px;
@@ -12,7 +12,9 @@
 
 
 .step-one
- {	height: 67px;
+ {	
+margin-bottom: 10%;
+    height: 67px;
     width: 424px;	
     color: #FFFFFF;	
     font-family: "Avenir Next";	
@@ -33,3 +35,35 @@
      letter-spacing: 2px;	
      line-height: 49px
  }
+
+ .form-field-white 
+ {	
+     height: 38px;	
+     width: 390px;
+ }
+
+ .rectangle-button 
+ {	
+    margin-top: 35px;
+     height: 57px;	
+     width: 197px;	
+     border-radius: 5px;	
+     background-color: #0DABAF;	
+     box-shadow: 0 2px 6px 0 rgba(0,0,0,0.25);
+     margin-left:10%;
+ }
+
+ .centerForm
+{
+    margin-left:23%;
+}
+
+.email-copy
+ {	
+     height: 30px;	
+     width: 201px;	
+     color: #F3F3F3;	
+     font-family: "Avenir Next";	
+     font-size: 20px;	
+     line-height: 27px;
+    }
