@@ -1,0 +1,95 @@
+.loginForms{
+    height: 644px;	
+    width: 533px;	
+    border-radius: 12px;	
+    background-color: #FDFDFD;
+    margin: auto;
+    margin-top: 60px;
+    margin-bottom: 60px;
+}
+
+.btnContainer {
+    margin-left: 20% !important; 
+    margin-top: 13% !important;
+}
+
+.btn {
+	height: 57px !important;
+	width: 197px !important;
+	border-radius: 5px !important;
+	background-color: #FB6902 !important;
+	
+    color: #FFFFFF !important;	
+    font-size: 22px !important;		
+    text-align: center !important;
+    margin: auto !important;
+    cursor: pointer;
+}
+
+.theForm{
+    margin-left: 13%;
+    margin-top: 45px;
+}
+
+.field{
+    font-size: 20px !important;
+    width: 100% !important;
+    height: 38px !important;
+    margin-top: 10px !important;
+}
+
+.heading1{
+    padding-top: 30px;
+  
+}
+
+#welcome{
+    height: 35px;	
+    width: 424px;	
+    color: #004853;	
+    font-family: "Helvetica";	
+    font-size: 30px;	
+    font-weight: 500;	
+    line-height: 41px;	
+    text-align: center;
+    margin-bottom: 0px;
+    margin-left: 10%;
+}
+
+#chatterbox{
+    height: 67px;	
+    width: 424px;	
+    color: #004853;	
+    font-family: "Helvetica";	
+    font-size: 35px;		
+    margin-top: 8px;
+    text-align: center;
+    margin-left: 18%;
+}
+
+#icon{
+    margin-left: 21%;
+}
+
+.signUpBackground{
+    margin-top: 79px;
+    height: 19.5%;	
+    width: 533px;	
+    border-radius: 0 0 12px 12px;	
+    background-color: #01B9BD;
+}
+
+.signUpLink{
+    height: 27px;	
+    width: 286px;	
+    color: #FFFFFF;	
+    font-size: 20px;	
+    line-height: 27px;	
+    margin-left: 23%;
+    padding-top: 50px;
+    cursor: pointer;
+}
+
+.textField{
+    width: 390px;
+}
