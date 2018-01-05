@@ -3,31 +3,37 @@ import { push } from 'react-router-redux'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import Register from '../register'
-import Body from '../body'
+import Header from '../header'
+import Sidebar from '../sidebar'
+import Chat from '../chat'
 
-const Login = props => (
+const Body = props => (
     <div>
-        <div class="forms">
-            <div>
-                <p>Welcome to the</p>
-                <p>CHATTERBOX</p>
+        <div class="header">
+            <Header />
+        </div>
+        
+        <div class="chat">
+            <Chat />
+
+            <div class="sidebar">
+                <Sidebar />
             </div>
-            <button class="btn" onClick={() => props.changePage()}>LOGIN</button>
         </div>
     </div>
 )
 
 const mapStateToProps = state => {
-    
+
 }
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-    changePage: () => push('/body')
+    changePage: () => push('/register')
 
 }, dispatch)
 
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(Login)
+)(Body)
 
