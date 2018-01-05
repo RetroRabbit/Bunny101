@@ -5,19 +5,37 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import Register from '../register'
 import Body from '../body'
+import TextField from 'material-ui/TextField'
+import RaisedButton from 'material-ui/RaisedButton'
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
+import Icon from './FullLogo.png'
+
+import "./index.css"
 
 const Login = props => (
-    <div>
-        <div class="forms">
-            <div>
-                <p>Welcome to the</p>
-                <p>CHATTERBOX</p>
+    
+    <div class="loginForms">
+        <div class="heading1">
+            <p id="welcome">Welcome to the</p>
+            <img src={Icon} id="icon"/>        
+        
+            <div class="theForm">
+                <form>
+                    <MuiThemeProvider>
+                        <div class="textField">
+                            <TextField placeholder="Email" class="field" /><br /><br />
+                        </div>
+                        <TextField placeholder="Password" type="password" class="field" /><br/>
+                        <div class="btnContainer">
+                            <button type="button" onClick={() => props.changeToBody()} class="btn">LOGIN</button> 
+                        </div>
+                    </MuiThemeProvider>
+                </form> 
             </div>
-            <button class="btn" onClick={() => props.changePage()}>LOGIN</button>
-
-            <div>
-                <button class="" onClick={() => props.changePage2()}>No account yet? Get setup now</button>
-            </div>
+            
+        </div>
+        <div class="signUpBackground">
+            <p class="btnGrey" onClick={() => props.changeToRegister()} class="signUpLink" >No account yet? Get setup now</p>
         </div>
     </div>
 )
@@ -27,8 +45,8 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-    changePage: () => push('/body'),
-    changePage2: () => push('/register')
+    changeToBody: () => push('/body'),
+    changeToRegister: () => push('/register')
 
 }, dispatch)
 
