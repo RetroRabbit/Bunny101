@@ -3,14 +3,34 @@ import { push } from 'react-router-redux'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import Login from '../login'
-import "./index.css"
+import './index.css'
 
 const Register = props => (
     <div>
-        <div className="forms registerForm">
-            <h1>Step One</h1>
-            <h1>Step The basics</h1>
-            <button onClick={() => props.changePage()}>Login</button>
+        <div class="registerForm">
+            <h1 class="step-one">Step One</h1>
+            <h1 class="the-basics">Step The basics</h1>
+
+            <form>
+            <label>
+            Your Name
+            <input type="text"  />
+            </label>
+
+            <label>
+            Email
+            <input type="text"  />
+        </label>
+
+        <label>
+        Password
+        <input type="text"  />
+        </label>
+        
+        <input type="submit" value="Submit" />
+      </form>
+
+            <button onClick={() => props.changePage()}>Next Step</button>
         </div>
     </div>
 )
