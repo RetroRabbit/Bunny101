@@ -7,4 +7,34 @@ body {
   width: 533px;	
   border-radius: 12px;	
   background-color: #FDFDFD;
+  margin: auto;
 }
+
+.btn {
+	height: 57px;
+	width: 197px;
+	border-radius: 5px;
+	background-color: #FB6902;
+	box-shadow: 0 2px 6px 0 rgba(0,0,0,0.25);
+  color: #FFFFFF;	
+  font-size: 22px;		
+  text-align: center;
+  margin: auto;
+}
+
+ .header{
+  height: 103px;	
+  width: 1440px;	
+  background-color: #01B9BD;
+ }
+
+ .sidebar {
+	height: 939px;
+	width: 411px;
+	background-color: #FFFFFF;
+	box-shadow: 0 2px 12px 3px rgba(0,0,0,0.14);
+}
+
+ .chat{
+  background-color: #FFFFFF;
+ }
