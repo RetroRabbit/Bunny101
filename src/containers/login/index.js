@@ -14,30 +14,28 @@ import "./index.css"
 
 const Login = props => (
     
-    <div>
-        <div class="loginForms">
-            <div class="heading1">
-                <p id="welcome">Welcome to the</p>
-                <img src={Icon} id="icon"/>        
+    <div class="loginForms">
+        <div class="heading1">
+            <p id="welcome">Welcome to the</p>
+            <img src={Icon} id="icon"/>        
+        
+            <div class="theForm">
+                <form>
+                    <MuiThemeProvider>
+                        <div class="textField">
+                            <TextField placeholder="Email" class="field" /><br /><br />
+                        </div>
+                        <TextField placeholder="Password" type="password" class="field" /><br/>
+                        <div class="btnContainer">
+                            <button type="button" onClick={() => props.changeToBody()} class="btn">LOGIN</button> 
+                        </div>
+                    </MuiThemeProvider>
+                </form> 
+            </div>
             
-                <div class="theForm">
-                    <form>
-                        <MuiThemeProvider>
-                            <div class="textField">
-                                <TextField placeholder="Email" class="field" /><br /><br />
-                            </div>
-                            <TextField placeholder="Password" type="password" class="field" /><br/>
-                            <div class="btnContainer">
-                                <button type="button" onClick={() => props.changePage()} class="btn">LOGIN</button> 
-                            </div>
-                        </MuiThemeProvider>
-                    </form> 
-                </div>
-                
-            </div>
-            <div class="signUpBackground">
-                <p class="btnGrey" onClick={() => props.changePage2()} class="signUpLink" >No account yet? Get setup now</p>
-            </div>
+        </div>
+        <div class="signUpBackground">
+            <p class="btnGrey" onClick={() => props.changeToRegister()} class="signUpLink" >No account yet? Get setup now</p>
         </div>
     </div>
 )
@@ -47,8 +45,8 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-    changePage: () => push('/body'),
-    changePage2: () => push('/register')
+    changeToBody: () => push('/body'),
+    changeToRegister: () => push('/register')
 
 }, dispatch)
 

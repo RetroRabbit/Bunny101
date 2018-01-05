@@ -8,22 +8,21 @@
     margin-bottom: 60px;
 }
 
-.btnContainer {
+.btnContainer{
     margin-left: 20% !important; 
     margin-top: 13% !important;
 }
 
-.btn {
-	height: 57px !important;
-	width: 197px !important;
-	border-radius: 5px !important;
-	background-color: #FB6902 !important;
-	
-    color: #FFFFFF !important;	
-    font-size: 22px !important;		
-    text-align: center !important;
-    margin: auto !important;
-    cursor: pointer;
+.btn{
+height: 57px !important;
+width: 197px !important;
+border-radius: 5px !important;
+background-color: #FB6902 !important;
+color: #FFFFFF !important;	
+font-size: 22px !important;		
+text-align: center !important;
+margin: auto !important;
+cursor: pointer;
 }
 
 .theForm{
@@ -39,8 +38,7 @@
 }
 
 .heading1{
-    padding-top: 30px;
-  
+    padding-top: 30px; 
 }
 
 #welcome{
