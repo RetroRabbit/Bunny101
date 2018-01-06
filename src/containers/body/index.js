@@ -12,14 +12,18 @@ const Body = props => (
         <div class="header">
             <Header />
         </div>
-        
-        <div class="chat">
-            <Chat />
+        <div class="body">
 
             <div class="sidebar">
-                <Sidebar />
+                    <Sidebar />
+                    
+                </div>
+                <div class="chat">
+                <Chat />
             </div>
+
         </div>
+        
     </div>
 )
 

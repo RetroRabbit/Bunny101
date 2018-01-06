@@ -1,5 +1,7 @@
 import React from 'react';
 import { Route } from 'react-router-dom'
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+
 import Login from '../login'
 import Register from '../register'
 import Body from '../body'
@@ -7,9 +9,11 @@ import Header from '../header'
 import Sidebar from '../sidebar'
 import Chat from '../chat'
 
+
 const App = () => (
+    <MuiThemeProvider>
     <div>
-        <main>
+        <div>
             <Route exact path="/" component={Login} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/register" component={Register} />
@@ -17,8 +21,9 @@ const App = () => (
             <Route exact path="/header" component={Header} />
             <Route exact path="/sidebar" component={Sidebar} />
             <Route exact path="/chat" component={Chat} />
-        </main>
+        </div>
     </div>
+    </MuiThemeProvider>
 )
 
 export default App;
