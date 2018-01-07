@@ -7,16 +7,19 @@ import Body from '../body'
 import './index.css'
 
 const Header = () => (
-    <div>
+    <div id="header">
 	
 		<div class="rectangle-1">
 			<p class="btnft" >NEW CHAT</p>
 		</div>
 		
-		<div class="rectangle-2">
+		<div align="center" class="rectangle-2">
 			<p class="btnft">NEW GROUP</p>
 		</div>
-		<p class="headerf">Eddie Logan</p>
+		<p class="headerf chatname">Eddie Logan</p>
+		
+		
+		
     </div>
 )
 

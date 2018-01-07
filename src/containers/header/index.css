@@ -1,19 +1,30 @@
+#header{
+	overflow: hidden;
+	padding: 15px;
+}
 
 .rectangle-1{
-	height: 5.27%;
-	width: 9.93%;
+	height: 54px;
+	width: 143px;
 	border-radius: 5px;
 	background-color: #0DABAF;	
 	box-shadow: 0 2px 6px 0 rgba(0,0,0,0.25);
 	
-}
+	float: left;
+	margin: 10px;
+	}
 
 .rectangle-2{
-	height: 5.27%;
-	width: 11.53%;
+	height: 54px;
+	width: 166px;
 	border-radius: 5px;
 	background-color: #0DABAF;	
 	box-shadow: 0 2px 6px 0 rgba(0,0,0,0.25);
+	
+	float: left;
+	margin-left: 5px;
+	margin-top: 10px;
+	
 }
 
 .headerf{
@@ -32,4 +43,8 @@
 	font-weight: 500;
 	line-height: 25px;
 	text-align: center;
+}
+
+.chatname{
+    float: right;
 }
