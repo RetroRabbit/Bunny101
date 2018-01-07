@@ -13,3 +13,24 @@
 html {
     background-color: #ffffff;
 }
+.line-copy {
+	box-sizing: border-box;
+	height: 2.28px;
+	width: 18px;
+	border: 3px solid #979797;
+	transform: rotate(90deg);
+}
+
+.line {
+	box-sizing: border-box;
+	height: 2.28px;
+	width: 18px;
+	border: 3px solid #979797;
+}
+
+.oval-2 {
+	height: 54px;
+	width: 54px;
+    background-color: #D8D8D8;
+    border-radius: 100px;
+}

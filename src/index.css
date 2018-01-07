@@ -6,17 +6,18 @@ body {
 
  .header{
   height: 103px;	
-  width: 1440px;	
+  width: 100%;	
   background-color: #01B9BD;
  }
 
  .sidebar {
-	height: 939px;
+	height: 100%;
 	width: 411px;
 	background-color: #FFFFFF;
 	box-shadow: 0 2px 12px 3px rgba(0,0,0,0.14);
 }
 
- .chat{
-  background-color: #FFFFFF;
+.chat {
+  float:right;
+  width: 50%;
  }

@@ -13,8 +13,11 @@ const Chat = () => (
  <div className="msgContainer">
      <Account_Screen />
      <div>
-           <p>plus sign </p>
-          <TextField name="msgInput" type="textbox" class="msgInput" placeholder="Enter message here"/>
+           <div className="oval-2">
+           <hr className="line"/>
+           <hr className="line-copy"/>
+           </div>
+          <TextField name="msgInput" type="textbox" className="msgInput" placeholder="Enter message here"/>
      </div>
      </div>
 
