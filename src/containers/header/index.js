@@ -17,8 +17,7 @@ const Header = () => (
 			<p class="btnft">NEW GROUP</p>
 		</div>
 		<p class="headerf chatname">Eddie Logan</p>
-		
-		
+
 		
     </div>
 )
