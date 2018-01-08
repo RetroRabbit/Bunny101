@@ -21,8 +21,6 @@ const Chat = props => (
             </div>
         </div>
     </div>
-function displayText()
-{
-    console.log("I work well");
-}
+) 
+
 export default Chat;

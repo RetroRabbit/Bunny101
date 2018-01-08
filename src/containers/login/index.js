@@ -49,7 +49,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => bindActionCreators({
     changeToBody: () => push('/body'),
     changeToRegister: () => push('/register')
-
+}, dispatch)
 
 export default connect(
     mapStateToProps,

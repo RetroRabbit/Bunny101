@@ -17,10 +17,15 @@ body {
   width: 411px;
   background-color: #FFFFFF;
   box-shadow: 0 2px 12px 3px rgba(0,0,0,0.14);
+  position: absolute;
+  top: 110px;
 }
 
 .chat {
   float: right;
   width: 50%;
   background-color: #FFFFFF;
+  position: absolute;
+  right: 20px;
+  top: 110px;
 }
