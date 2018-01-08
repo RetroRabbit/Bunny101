@@ -19,28 +19,29 @@ const styles = {
   
 const Register = props => (
     <div>
-    <div class="registerForm">
-    <MuiThemeProvider>
+        <div class="registerForm">
 
-    <div class="centerForm">
-    <br/>
-    <br/>
-    <h1 class="step-one centerWithin">Step One</h1>
-    <p class="the-basics"> The basics </p>
-          <TextField floatingLabelStyle={styles.floatingLabelStyle}  class="form-field-white email-copy"  floatingLabelText="Your Name"/><br/>
+        <MuiThemeProvider>
+        <div class="centerForm">
+        <br/><br/>
 
-          <TextField floatingLabelStyle={styles.floatingLabelStyle} floatingLabelText="Email" class="email-copy" type="email"/>
-          <br />
+        <h1 class="step-one centerWithin">Step One</h1>
 
-          <TextField floatingLabelStyle={styles.floatingLabelStyle} floatingLabelText="Password" class="placeholdercolor" type="password"/>
-          <br />
+        <p class="the-basics"> The basics </p>
 
-          <button class="rectangle-button textColor" type="button">NEXT STEP</button><br/>
-        </div> 
-    </MuiThemeProvider>
+            <TextField floatingLabelStyle={styles.floatingLabelStyle}  class="form-field-white email-copy"  floatingLabelText="Your Name"/><br/>
 
-</div>
+            <TextField floatingLabelStyle={styles.floatingLabelStyle} floatingLabelText="Email" class="email-copy" type="email"/>
+            <br />
+
+            <TextField floatingLabelStyle={styles.floatingLabelStyle} floatingLabelText="Password" class="placeholdercolor" type="password"/>
+            <br />
+
+            <button class="rectangle-button textColor" type="button">NEXT STEP</button><br/>
+            </div> 
+        </MuiThemeProvider>
     </div>
+</div>
 )
 
 
