@@ -4,8 +4,8 @@
     border-radius: 12px;	
     background-color: #FDFDFD;
     margin: auto;
-    margin-top: 60px;
-    margin-bottom: 60px;
+    margin-top: 172px;
+    margin-bottom: 208px;
 }
 
 .btnContainer{
@@ -23,6 +23,8 @@
     text-align: center !important;
     margin: auto !important;
     cursor: pointer;
+    border-width: 0px;
+    box-shadow: 0 2px 6px 0 rgba(0,0,0,0.25);
 }
 
 .theForm{

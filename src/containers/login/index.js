@@ -13,10 +13,11 @@ import Icon from './FullLogo.png';
 import './index.css';
 
 const Login = props => (
+
     <div class="loginForms">
         <div class="heading1">
             <p id="welcome">Welcome to the</p>
-            <img src={Icon} id="icon" />
+            <img src={Icon} id="icon"/>
 
             <div class="theForm">
                 <form>
@@ -29,9 +30,7 @@ const Login = props => (
                         <TextField placeholder="Password" type="password" class="field" />
                         <br />
                         <div class="btnContainer">
-                            <button type="button" onClick={() => props.changeToBody()} class="btn">
-                                LOGIN
-                            </button>
+                            <button type="button" onClick={() => props.changeToBody()} class="btn">LOGIN</button>
                         </div>
                     </MuiThemeProvider>
                 </form>
@@ -43,17 +42,18 @@ const Login = props => (
             </p>
         </div>
     </div>
-);
+)
 
-const mapStateToProps = state => {};
+const mapStateToProps = state => {
 
-const mapDispatchToProps = dispatch =>
-    bindActionCreators(
-        {
-            changeToBody: () => push('/body'),
-            changeToRegister: () => push('/register')
-        },
-        dispatch
-    );
+}
 
-export default connect(mapStateToProps, mapDispatchToProps)(Login);
+const mapDispatchToProps = dispatch => bindActionCreators({
+    changeToBody: () => push('/body'),
+    changeToRegister: () => push('/registerProfilePic')})
+
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(Login)

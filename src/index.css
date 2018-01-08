@@ -1,21 +1,26 @@
 body {
   background-color: #004853;
   font-family: "Helvetica";
+  margin: 0px;
+  margin-top: -16px;
 }
 
- .header{
+.header {
   height: 103px;	
-  width: 1440px;	
+  width: 100%;	
   background-color: #01B9BD;
- }
-
- .sidebar {
-	height: 939px;
-	width: 411px;
-	background-color: #FFFFFF;
-	box-shadow: 0 2px 12px 3px rgba(0,0,0,0.14);
+  top: 0px;
 }
 
- .chat{
+.sidebar {
+  height: 100%;
+  width: 411px;
   background-color: #FFFFFF;
- }
+  box-shadow: 0 2px 12px 3px rgba(0,0,0,0.14);
+}
+
+.chat {
+  float: right;
+  width: 50%;
+  background-color: #FFFFFF;
+}
