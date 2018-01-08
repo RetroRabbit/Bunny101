@@ -31,7 +31,21 @@
 	font-family: sans-serif;
 	color: white;
 }
-.btnft{
+#btn-chat{
+	font-family: sans-serif;
+	color: white;
+	
+	height: 25px;
+	width: 146px;
+	color: #FFFFFF;
+	font-family: sans-serif;
+	font-size: 18px;
+	font-weight: 500;
+	line-height: 25px;
+	text-align: center;
+}
+
+#btn-group{
 	font-family: sans-serif;
 	color: white;
 	
@@ -46,7 +60,8 @@
 }
 
 #account-settings{
-	float: right-side;
+	float: right;
+	padding-top: 10px;
 }
 
 .chatname{
@@ -63,7 +78,6 @@
     border: 3px solid white;
 	
 	margin-left: 10px;
-	
 	float: left;
 }
 

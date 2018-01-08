@@ -4,17 +4,21 @@ import Login from '../login'
 import Register from '../register'
 import Body from '../body'
 
+import _profileimg1 from './ic_account_circle_black_48dp.png'
+import _profileimg2 from './ic_schedule_black_48dp.png'
+
+
 import './index.css'
 
 const Header = () => (
     <div id="header">
 	
 		<div class="rectangle-1">
-			<p class="btnft" >NEW CHAT</p>
+			<p id="btn-chat" >NEW CHAT</p>
 		</div>
 		
 		<div class="rectangle-2">
-			<p class="btnft">NEW GROUP</p>
+			<p id="btn-group">NEW GROUP</p>
 		</div>
 		
 		<div id="account-settings">
@@ -22,11 +26,11 @@ const Header = () => (
 			<p class="chatname">Eddie Logan</p>
 
 			<div class="account-square-1">
-				<p class="acsq-1">11</p>
+				<img src={_profileimg1} alt={"logo"} height="100%" width="100%"></img>
 			</div>
 		
 			<div class="account-square-2">
-				<p class="acsq-2">22</p>
+				<img src={_profileimg2} alt={"logo"} height="100%" width="100%"></img>
 			</div>
 			
 		</div>
