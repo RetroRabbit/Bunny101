@@ -26,7 +26,7 @@ const Login = props => (
                         </div>
                         <div class="skipForNowContainer">
                             <button type="button" onClick={() => props.changeToRegisterFirstChat()} class="btnNextStep">NEXT STEP</button> 
-                            <p onClick={() => props.changeToRegisterStepThree()} class="skipForNow">Skip for now</p>
+                            <p onClick={() => props.changeToRegisterFirstChat()} class="skipForNow">Skip for now</p>
                         </div>
                     </MuiThemeProvider>
                 </form> 
