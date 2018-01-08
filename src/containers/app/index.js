@@ -6,7 +6,7 @@ import Body from '../body'
 import Header from '../header'
 import Sidebar from '../sidebar'
 import Chat from '../chat'
-import Register_Step2 from '../register_step2'
+import RegisterStepTwo from '../registerStepTwo'
 
 const App = () => (
     <div>
@@ -18,7 +18,7 @@ const App = () => (
             <Route exact path="/header" component={Header} />
             <Route exact path="/sidebar" component={Sidebar} />
             <Route exact path="/chat" component={Chat} />
-            <Route exact path="/register_step2" component={Register_Step2} />
+            <Route exact path="/registerStepTwo" component={RegisterStepTwo} />
         </main>
     </div>
 )

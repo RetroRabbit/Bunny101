@@ -15,18 +15,18 @@ const Login = props => (
     
     <div class="registerForms">
         <div class="heading1">
-            <p class="step-two">Step Two</p>  
-            <p class="profile-picture">PROFILE PICTURE</p>     
+            <p class="stepTwo">Step Two</p>  
+            <p class="profilePicture">PROFILE PICTURE</p>     
         
             <div class="theForm1">
                 <form>
                     <MuiThemeProvider>
-                        <div class="ProfileCircle">
+                        <div class="profileCircle">
                             <button type="button" class="btnProfilePic"><p class="plus">+</p></button>
                         </div>
-                        <div class="btnContainer2">
+                        <div class="skipForNowContainer">
                             <button type="button" onClick={() => props.changeToRegisterStepThree()} class="btnNextStep">NEXT STEP</button> 
-                            <p onClick={() => props.changeToRegisterStepThree()} class="skipForNow" >Skip for now</p>
+                            <p onClick={() => props.changeToRegisterStepThree()} class="skipForNow">Skip for now</p>
                         </div>
                     </MuiThemeProvider>
                 </form> 

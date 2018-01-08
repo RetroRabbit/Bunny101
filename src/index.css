@@ -5,23 +5,22 @@ body {
   margin-top: -16px;
 }
 
- .header{
+.header {
   height: 103px;	
   width: 100%;	
   background-color: #01B9BD;
   top: 0px;
  }
 
- .sidebar {
-	height: 100%;
-	width: 411px;
-	background-color: #FFFFFF;
-	box-shadow: 0 2px 12px 3px rgba(0,0,0,0.14);
+.sidebar {
+  height: 100%;
+  width: 411px;
+  background-color: #FFFFFF;
+  box-shadow: 0 2px 12px 3px rgba(0,0,0,0.14);
 }
 
- .chat{
+.chat {
   float: right;
   width: 50%;
   background-color: #FFFFFF;
-
  }

@@ -46,7 +46,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => bindActionCreators({
     changeToBody: () => push('/body'),
-    changeToRegister: () => push('/register_step2')
+    changeToRegister: () => push('/registerStepTwo')
 
 }, dispatch)
 

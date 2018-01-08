@@ -8,7 +8,7 @@
     margin-bottom: 208px;
 }
 
-.step-two {	
+.stepTwo {	
     height: 40px;	
     width: 100%;	
     color: #FFFFFF;	
@@ -19,7 +19,7 @@
     margin-bottom: 0px;
 }
 
-.profile-picture {	
+.profilePicture {	
     height: 67px;	
     width: 100%;	
     color: #FFFFFF;		
@@ -31,7 +31,7 @@
     text-align: center;
 }
 
-.ProfileCircle {
+.profileCircle {
     width: 269px;
     height: 269px;
     border-radius: 200px;
@@ -60,10 +60,9 @@
     margin-top: -5px;
 }
 
-.btnContainer2 {
+.skipForNowContainer {
     width: 100%;
     margin-top: 63px;
-
 }
 
 .btnNextStep {
