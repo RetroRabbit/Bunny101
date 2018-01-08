@@ -1,0 +1,89 @@
+.registerForms {
+    height: 644px;	
+    width: 533px;	
+    border-radius: 12px;	
+    background-color: #01B9BD;
+    margin: auto;
+    margin-top: 172px;
+    margin-bottom: 208px;
+}
+
+.step-two {	
+    height: 40px;	
+    width: 100%;	
+    color: #FFFFFF;	
+    font-size: 30px;	
+    font-weight: 50;	
+    line-height: 41px;	
+    text-align: center;
+    margin-bottom: 0px;
+}
+
+.profile-picture {	
+    height: 67px;	
+    width: 100%;	
+    color: #FFFFFF;		
+    font-size: 36px;	
+    margin-top: 0px;
+    margin-bottom: 24px;
+    letter-spacing: 2px;	
+    line-height: 49px;	
+    text-align: center;
+}
+
+.ProfileCircle {
+    width: 269px;
+    height: 269px;
+    border-radius: 200px;
+    background-color: #FFFFFF;
+    margin: auto;
+}
+
+.btnProfilePic {
+    height: 72px;
+    width: 72px;
+    border-radius: 200px;
+    border-width: 0px;
+    background-color: #D8D8D8;
+    font-size: 56px;
+    color: #979797;
+    text-align: center;
+    margin-top: 99px;
+    margin-left: 99px;
+    cursor: pointer;
+}
+
+.plus {
+    font-size: 50px; 
+    font-weight: 100;
+    margin: auto;
+    margin-top: -5px;
+}
+
+.btnContainer2 {
+    width: 100%;
+    margin-top: 63px;
+
+}
+
+.btnNextStep {
+    height: 57px;	
+    width: 197px;	
+    border-radius: 5px;	
+    border-width: 0px;
+    background-color: #0DABAF;
+    color: white;
+    font-size: 22px;	
+    box-shadow: 0 2px 6px 0 rgba(0,0,0,0.25);
+    margin-left: 31%;
+    cursor: pointer;
+}
+
+.skipForNow {
+   font-size: 20px;
+   color: #FFFFFF;
+   text-align: center;
+   margin-top: 10px;
+   cursor: pointer;
+   font-weight: 10;
+}
