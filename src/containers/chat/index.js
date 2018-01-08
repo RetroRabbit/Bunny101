@@ -9,19 +9,20 @@ import { withStyles } from 'material-ui/styles';
 import Paper from 'material-ui/Paper';
 import Grid from 'material-ui/Grid';
 import './index.css'
+import Button from 'material-ui/Button/Button';
 
 const Chat = () => (
     <div>
         <div className="msgContainer">
-            <New_Chat />   
+            <Account_Screen />   
         </div>
         <div>
             <div className="input_container">
-                <div className="oval-2">
-                    <hr className="line"/>
-                    <hr className="line-copy"/>
+                <button className="oval-2"><a className="plus_sign">+</a></button>
+                <br/>
+                <div className="inputSpace">
+                    <TextField name="msgInput" type="textbox" className="msgInput" placeholder="Enter message here"/>
                 </div>
-                <TextField name="msgInput" type="textbox" className="msgInput" placeholder="Enter message here"/>
             </div>
         </div>
     </div>

@@ -4,7 +4,7 @@
     font-size: 16px;	
     
 }
-.msgBox1{
+.received-message-box{
     height: auto;	
     width: fit-content;	
     border-radius: 24px;	
@@ -12,14 +12,14 @@
     padding-left: 8px;
     padding-right: 8px;
 }
-.msgBox2{
+.sent-message-box{
     height: auto;	
     width: fit-content;	
     border-radius: 24px;	
     background-color: #007D80;
     padding: 10px;
 }
-.txtTime{
+.received-time{
     height: 18px;	
     width: 35px;	
     color: #75BECA;	
@@ -29,7 +29,7 @@
     text-align: center;
 }
 
-.txtTime2{	
+.sent-time{	
     color: #75BECA;	
     font-family: "Avenir Next";	
     font-size: 13px;	

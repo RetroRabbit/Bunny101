@@ -5,10 +5,16 @@
 
 .msgInput {
     height: 43px;	
-    width: 717px;
-    width: 50%;	
+    width: 70%;
     border-radius: 24px;	
-    background-color: #EFF2F3;
+	background-color: #EFF2F3;
+	margin-left: -5px;
+    margin-top: 5px;
+}
+
+.inputSpace {
+	margin-left: -5px;
+	margin-top: 5px;	
 }
 
 html {
@@ -34,5 +40,13 @@ html {
 	height: 54px;
 	width: 54px;
     background-color: #D8D8D8;
-    border-radius: 100px;
+	border: none;
+	border-radius: 100px;
+}
+
+.plus_sign {
+	font-size: 50px;
+	font-weight: 100;
+	margin: auto;
+	color: #979797;
 }
