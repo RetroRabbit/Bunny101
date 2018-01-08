@@ -8,28 +8,36 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
 import RegisterComponent from './registerComponent';
+import {orange500, blue500, blue100, fullWhite} from 'material-ui/styles/colors';
 
+const styles = {
+    floatingLabelStyle: {
+      color:  fullWhite,
+    },
+  };
 
-
+  
 const Register = props => (
     <div>
     <div class="registerForm">
     <MuiThemeProvider>
 
     <div class="centerForm">
-    <p class="step-one">Step One</p>
+    <br/>
+    <br/>
+    <h1 class="step-one centerWithin">Step One</h1>
     <p class="the-basics">
-         Step The basics
+         The basics
     </p>
-          <TextField class="form-field-white email-copy"  floatingLabelText="Your Name"/><br/>
+          <TextField floatingLabelStyle={styles.floatingLabelStyle}  class="form-field-white email-copy"  floatingLabelText="Your Name"/><br/>
 
-          <TextField floatingLabelText="Email" class="email-copy" type="email"/>
+          <TextField floatingLabelStyle={styles.floatingLabelStyle} floatingLabelText="Email" class="email-copy" type="email"/>
           <br />
 
-          <TextField floatingLabelText="Password" type="password"/>
+          <TextField floatingLabelStyle={styles.floatingLabelStyle} floatingLabelText="Password" class="placeholdercolor" type="password"/>
           <br />
 
-          <button class="rectangle-button " type="button">NEXT STEP</button><br/>
+          <button class="rectangle-button textColor" type="button">NEXT STEP</button><br/>
         </div> 
     </MuiThemeProvider>
 

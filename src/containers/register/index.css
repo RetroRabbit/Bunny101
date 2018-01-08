@@ -6,14 +6,13 @@
        height: 644px;	
        width: 533px;	
        border-radius: 12px;
-         background-color: #01B9BD;
+    background-color: #01B9BD;
   }
-
-
 
 .step-one
  {	
-margin-bottom: 10%;
+     
+    margin-bottom: -15%;
     height: 67px;
     width: 424px;	
     color: #FFFFFF;	
@@ -21,19 +20,20 @@ margin-bottom: 10%;
     font-size: 30px;	
     font-weight: 500;	
     line-height: 41px;	
-    text-align: center;
 }
 
 .the-basics
  {	
+     margin-right:-30px;
      height: 67px;	
      width: 424px;	
      color: #FFFFFF;	
      font-family: "Avenir Next";	
-     font-size: 36px;	
-     font-weight: 500;	
+     font-size: 46px;	
+     font-weight: 510;	
      letter-spacing: 2px;	
-     line-height: 49px
+     line-height: 49px;
+     margin-bottom: -5%;
  }
 
  .form-field-white 
@@ -44,12 +44,13 @@ margin-bottom: 10%;
 
  .rectangle-button 
  {	
-    margin-top: 35px;
-     height: 57px;	
-     width: 197px;	
-     border-radius: 5px;	
-     background-color: #0DABAF;	
-     box-shadow: 0 2px 6px 0 rgba(0,0,0,0.25);
+    margin-top: 35px !important;
+     height: 57px !important;	
+     width: 197px !important;	
+     border-radius: 5px !important;	
+     border-width:0px !important;
+     background-color: #0DABAF !important;	
+     box-shadow: 0 2px 6px 0 rgba(0,0,0,0.25) !important;
      margin-left:10%;
  }
 
@@ -66,4 +67,14 @@ margin-bottom: 10%;
      font-family: "Avenir Next";	
      font-size: 20px;	
      line-height: 27px;
+    }
+
+    .centerWithin
+    {
+        margin-left:13%;
+    }
+
+    .textColor
+    {
+        color:  #F3F3F3;
     }
