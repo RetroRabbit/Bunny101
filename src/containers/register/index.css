@@ -6,12 +6,11 @@
        height: 644px;	
        width: 533px;	
        border-radius: 12px;
-    background-color: #01B9BD;
+       background-color: #01B9BD;
   }
 
 .step-one
  {	
-     
     margin-bottom: -15%;
     height: 67px;
     width: 424px;	
@@ -44,7 +43,7 @@
 
  .rectangle-button 
  {	
-    margin-top: 35px !important;
+     margin-top: 35px !important;
      height: 57px !important;	
      width: 197px !important;	
      border-radius: 5px !important;	
@@ -54,27 +53,27 @@
      margin-left:10%;
  }
 
- .centerForm
+.centerForm
 {
     margin-left:23%;
 }
 
 .email-copy
- {	
+{	
      height: 30px;	
      width: 201px;	
      color: #F3F3F3;	
      font-family: "Avenir Next";	
      font-size: 20px;	
-     line-height: 27px;
-    }
+     line-height: 27px;    
+}
 
-    .centerWithin
-    {
-        margin-left:13%;
-    }
+.centerWithin
+{
+    margin-left:13%;
+}
 
-    .textColor
-    {
-        color:  #F3F3F3;
-    }
+.textColor   
+{
+    color:  #F3F3F3;
+}

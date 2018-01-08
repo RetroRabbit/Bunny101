@@ -26,9 +26,7 @@ const Register = props => (
     <br/>
     <br/>
     <h1 class="step-one centerWithin">Step One</h1>
-    <p class="the-basics">
-         The basics
-    </p>
+    <p class="the-basics"> The basics </p>
           <TextField floatingLabelStyle={styles.floatingLabelStyle}  class="form-field-white email-copy"  floatingLabelText="Your Name"/><br/>
 
           <TextField floatingLabelStyle={styles.floatingLabelStyle} floatingLabelText="Email" class="email-copy" type="email"/>
