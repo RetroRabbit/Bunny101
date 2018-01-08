@@ -6,14 +6,14 @@ import TextField from 'material-ui/TextField';
 import { withStyles } from 'material-ui/styles';
 import './index.css'
 
-const Chat = () => (
+const Chat = props => (
     <div className="main-container">
         <div className="message-container">
             <Account_Screen />   
         </div>
         <div>
             <div className="input-container">
-                <button className="add-button"><a className="plus_sign">+</a></button>
+                <button onClick={props.displayText} className="add-button"><a className="plus_sign">+</a></button>
                 <br/>
                 <div className="input-Space">
                     <TextField name="message-input" type="textbox" className="message-input" placeholder="Enter message here"/>
@@ -22,5 +22,8 @@ const Chat = () => (
         </div>
     </div>
 )
-
+function displayText()
+{
+    console.log("I work well");
+}
 export default Chat;
