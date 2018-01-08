@@ -22,9 +22,11 @@ const Login = props => (
                 <form>
                     <MuiThemeProvider>
                         <div class="textField">
-                            <TextField placeholder="Email" class="field" /><br /><br />
+                            <TextField placeholder="Email" class="field" fullWidth="true" />
                         </div>
-                        <TextField placeholder="Password" type="password" class="field" /><br/>
+                        <div class="textField">
+                            <TextField placeholder="Password" type="password" class="field" fullWidth="true" />
+                        </div>
                         <div class="btnContainer">
                             <button type="button" onClick={() => props.changeToBody()} class="btn">LOGIN</button>
                         </div>
