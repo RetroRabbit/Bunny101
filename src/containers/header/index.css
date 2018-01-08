@@ -3,29 +3,15 @@
 	padding: 15px;
 }
 
-#buttonChat{
+.buttonRectangular{
 	height: 54px;
 	width: 133px;
+	
 	border-radius: 5px;
 	background-color: #0DABAF;	
 	box-shadow: 0 2px 6px 0 rgba(0,0,0,0.25);
 	float: left;
-	margin: 10px;
-	font-family: sans-serif;
-	color: white;
-	font-size: 17px;
-	border: none;
-}
-
-#buttonGroup{
-	height: 54px;
-	width: 146px;
-	border-radius: 5px;
-	background-color: #0DABAF;	
-	box-shadow: 0 2px 6px 0 rgba(0,0,0,0.25);
-	float: left;
-	margin-left: 5px;
-	margin-top: 10px;
+	margin: 5px;
 	font-family: sans-serif;
 	color: white;
 	font-size: 17px;
@@ -44,25 +30,13 @@
 	margin-right: 1px;
 }
 
-#buttonProfile{
+.buttonCircular{
 	border-radius: 50%;
 	width: 50px;
 	height: 50px;
 	background-color: white;
-	margin-left: 5px;
+	margin: 5px;
 	float: left;
 	border: none;
 	padding: 0px;
 }
-
-#buttonAbout{
-	border-radius: 50%;
-	width: 50px;
-	height: 50px;
-	background-color: white;
-	margin-left: 10px;
-	float: left;
-	border: none;
-	padding: 0px;
-}
-

@@ -9,18 +9,18 @@ import './index.css'
 
 const Header = () => (
     <div id="header">
-		<button id="buttonChat">NEW CHAT</button>
+		<button class="buttonRectangular">NEW CHAT</button>
 		
-		<button id="buttonGroup">NEW GROUP</button>
+		<button class="buttonRectangular">NEW GROUP</button>
 		
 		<div id="accountSettings">
 			<p id="chatName">Eddie Logan</p>
 			
-			<button id="buttonProfile">
+			<button class="buttonCircular">
 				<img src={imageProfile} height="100%" width="100%"></img>
 			</button>
 			
-			<button id="buttonAbout">
+			<button class="buttonCircular">
 				<img src={imageAbout} alt={"logo"} height="100%" width="100%"></img>
 			</button>
 		</div>
