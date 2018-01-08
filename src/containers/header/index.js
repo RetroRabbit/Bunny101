@@ -13,26 +13,25 @@ import './index.css'
 const Header = () => (
     <div id="header">
 	
-		<div class="rectangle-1">
-			<p id="btn-chat" >NEW CHAT</p>
-		</div>
+		<button class="rectangle-1">
+			NEW CHAT
+		</button>
 		
-		<div class="rectangle-2">
-			<p id="btn-group">NEW GROUP</p>
-		</div>
+		<button class="rectangle-2">
+			NEW GROUP
+		</button>
 		
 		<div id="account-settings">
 			
 			<p class="chatname">Eddie Logan</p>
 
-			<div class="account-square-1">
-				<img src={_profileimg1} alt={"logo"} height="100%" width="100%"></img>
-			</div>
-		
-			<div class="account-square-2">
-				<img src={_profileimg2} alt={"logo"} height="100%" width="100%"></img>
-			</div>
+			<button id="btn-square1">
+				<img src={_profileimg1} height="100%" width="100%"></img>
+			</button>
 			
+			<button id="btn-square1">
+				<img src={_profileimg2} alt={"logo"} height="100%" width="100%"></img>
+			</button>
 		</div>
 		
     </div>
