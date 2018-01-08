@@ -16,7 +16,7 @@
 
 .rectangle-2{
 	height: 54px;
-	width: 166px;
+	width: 146px;
 	border-radius: 5px;
 	background-color: #0DABAF;	
 	box-shadow: 0 2px 6px 0 rgba(0,0,0,0.25);
@@ -45,6 +45,39 @@
 	text-align: center;
 }
 
-.chatname{
-    float: right;
+#account-settings{
+	float: right-side;
 }
+
+.chatname{
+	font-family: sans-serif;
+	color: white;
+    float: left;
+}
+
+.account-square-1{
+	border-radius: 50%;
+	width: 50px;
+    height: 50px;
+    background-color: #FB6902;
+    border: 3px solid white;
+	
+	margin-left: 10px;
+	
+	float: left;
+}
+
+.account-square-2{
+	border-radius: 50%;
+	width: 50px;
+    height: 50px;
+    background-color: #FB6902;
+    border: 3px solid white;
+	
+	margin-left: 10px;
+	
+	float: left;
+}
+
+
+

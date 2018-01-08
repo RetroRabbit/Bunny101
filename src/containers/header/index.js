@@ -13,11 +13,23 @@ const Header = () => (
 			<p class="btnft" >NEW CHAT</p>
 		</div>
 		
-		<div align="center" class="rectangle-2">
+		<div class="rectangle-2">
 			<p class="btnft">NEW GROUP</p>
 		</div>
-		<p class="headerf chatname">Eddie Logan</p>
+		
+		<div id="account-settings">
+			
+			<p class="chatname">Eddie Logan</p>
 
+			<div class="account-square-1">
+				<p class="acsq-1">11</p>
+			</div>
+		
+			<div class="account-square-2">
+				<p class="acsq-2">22</p>
+			</div>
+			
+		</div>
 		
     </div>
 )
