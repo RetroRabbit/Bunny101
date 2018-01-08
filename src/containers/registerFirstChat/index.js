@@ -22,7 +22,7 @@ const FirstChat = props => (
                 <form>
                     <MuiThemeProvider>
                         <div class="fiendEmailContainer">
-                            <TextField defaultValue="Friends Email" class="friendEmail" style={{ width: 400 }} /><br /><br />
+                            <TextField placeholder="Friends Email" class="friendEmail" fullWidth="true" /><br /><br />
                         </div>
                         <div class="skipForNowContainer">
                             <button type="button" onClick={() => props.changeToBody()} class="btnNextStep">NEXT STEP</button> 
