@@ -6,6 +6,7 @@ import Body from '../body'
 import Header from '../header'
 import Sidebar from '../sidebar'
 import Chat from '../chat'
+import Settings from '../settings'
 import RegisterProfilePic from '../registerProfilePic'
 import RegisterFirstChat from '../registerFirstChat'
 
