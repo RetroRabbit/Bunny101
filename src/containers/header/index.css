@@ -3,90 +3,66 @@
 	padding: 15px;
 }
 
-.rectangle-1{
+#buttonChat{
 	height: 54px;
 	width: 133px;
 	border-radius: 5px;
 	background-color: #0DABAF;	
 	box-shadow: 0 2px 6px 0 rgba(0,0,0,0.25);
-	
 	float: left;
 	margin: 10px;
-	
 	font-family: sans-serif;
 	color: white;
 	font-size: 17px;
-	
 	border: none;
-	}
+}
 
-.rectangle-2{
+#buttonGroup{
 	height: 54px;
 	width: 146px;
 	border-radius: 5px;
 	background-color: #0DABAF;	
 	box-shadow: 0 2px 6px 0 rgba(0,0,0,0.25);
-	
 	float: left;
 	margin-left: 5px;
 	margin-top: 10px;
-	
 	font-family: sans-serif;
 	color: white;
 	font-size: 17px;
-	
 	border: none;
 }
 
-#account-settings{
+#accountSettings{
 	float: right;
 	padding-top: 10px;
 }
 
-.chatname{
+#chatName{
 	font-family: sans-serif;
 	color: white;
-    float: left;
+	float: left;
 	margin-right: 1px;
 }
 
-.account-square-1{
+#buttonProfile{
 	border-radius: 50%;
 	width: 50px;
-    height: 50px;
-    background-color: #FB6902;
-    border: 6px solid white;
-	
+	height: 50px;
+	background-color: white;
+	margin-left: 5px;
+	float: left;
+	border: none;
+	padding: 0px;
+}
+
+#buttonAbout{
+	border-radius: 50%;
+	width: 50px;
+	height: 50px;
+	background-color: white;
 	margin-left: 10px;
 	float: left;
-}
-
-.account-square-2{
-	border-radius: 50%;
-	width: 50px;
-    height: 50px;
-    background-color: #FB6902;
-    border: 6px solid white;
-	
-	margin-left: 10px;
-	float: left;
-}
-
-#btn-square1{
-	width: 50px;
-    height: 50px;
-	border-radius: 50%;
-	padding: 0px;
 	border: none;
-	margin: 1px;
-}
-#btn-square2{
-	width: 50px;
-    height: 50px;
-	border-radius: 50%;	
 	padding: 0px;
-	border: none;
-	margin: 1px;
 }
-
 
