@@ -32,8 +32,10 @@ const Sidebar = () => (
     <MuiThemeProvider>
         <div>
             <List>  
-                <ListItem disabled={true}>
-                     <SearchBar class="searchbar" hintText="Search Chats" />
+                <ListItem disabled={false}>
+                <SearchBar
+                  hintText = "Search Chats"
+                  style={{margin: '0 auto', maxWidth: 800}}/>
                 </ListItem>
                 <ListItem>
                      <Chip style={styles.chip} class="rounded"><Avatar src={Avi} size={50} style={style}/><p class="name"> Lloyd Jimenez</p></Chip>
