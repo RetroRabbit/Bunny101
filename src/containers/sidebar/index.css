@@ -14,6 +14,7 @@
 	height: 45px !important;
 	background-color: #979797;
 	width: 100% !important;
+	margin-top: 5%;
 }
 
 .name {
@@ -21,4 +22,9 @@
 	font-family: "Roboto";
 	font-size: 18px;
 	margin-top: 5%;
+}
+
+.lower {
+	margin-top: 1.5%;
+	margin-left: 1%;
 }

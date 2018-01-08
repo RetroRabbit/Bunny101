@@ -1,8 +1,8 @@
-import React from 'react'
-import { push } from 'react-router-redux'
-import { bindActionCreators } from 'redux'
-import { connect } from 'react-redux'
-import Login from '../login'
+import React from 'react';
+import { push } from 'react-router-redux';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import Login from '../login';
 
 const Register = props => (
     <div>
@@ -11,18 +11,16 @@ const Register = props => (
             <button onClick={() => props.changePage()}>Login</button>
         </div>
     </div>
-)
+);
 
-const mapStateToProps = state => {
+const mapStateToProps = state => {};
 
-}
+const mapDispatchToProps = dispatch =>
+    bindActionCreators(
+        {
+            changePage: () => push('/login')
+        },
+        dispatch
+    );
 
-const mapDispatchToProps = dispatch => bindActionCreators({
-    changePage: () => push('/login')
-
-}, dispatch)
-
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(Register)
+export default connect(mapStateToProps, mapDispatchToProps)(Register);

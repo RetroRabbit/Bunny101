@@ -1,11 +1,11 @@
 import React from 'react';
-import { Route } from 'react-router-dom'
-import Login from '../login'
-import Register from '../register'
-import Body from '../body'
-import Header from '../header'
-import Sidebar from '../sidebar'
-import Chat from '../chat'
+import { Route } from 'react-router-dom';
+import Login from '../login';
+import Register from '../register';
+import Body from '../body';
+import Header from '../header';
+import Sidebar from '../sidebar';
+import Chat from '../chat';
 
 const App = () => (
     <div>
@@ -19,6 +19,6 @@ const App = () => (
             <Route exact path="/chat" component={Chat} />
         </main>
     </div>
-)
+);
 
 export default App;
