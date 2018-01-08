@@ -6,7 +6,6 @@ import Register from '../register'
 import Header from '../header'
 import Sidebar from '../sidebar'
 import Chat from '../chat'
-
 const Body = props => (
     <div>
         <div class="header">
