@@ -13,7 +13,7 @@ import Chat from '../chat'
 const App = () => (
     <MuiThemeProvider>
     <div>
-        <div>
+        <main>
             <Route exact path="/" component={Login} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/register" component={Register} />
@@ -21,7 +21,7 @@ const App = () => (
             <Route exact path="/header" component={Header} />
             <Route exact path="/sidebar" component={Sidebar} />
             <Route exact path="/chat" component={Chat} />
-        </div>
+        </main>
     </div>
     </MuiThemeProvider>
 )

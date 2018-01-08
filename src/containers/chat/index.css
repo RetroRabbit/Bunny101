@@ -1,9 +1,9 @@
-.msgContainer {
+.message-container {
     padding: 10px;
 	background-color: white;
 }
 
-.msgInput {
+.message-input {
     height: 43px;	
     width: 70%;
     border-radius: 24px;	
@@ -12,7 +12,7 @@
     margin-top: 5px;
 }
 
-.inputSpace {
+.input-space {
 	margin-left: -5px;
 	margin-top: 5px;	
 }

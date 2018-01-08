@@ -13,15 +13,15 @@ import Button from 'material-ui/Button/Button';
 
 const Chat = () => (
     <div className="main-container">
-        <div className="msgContainer">
+        <div className="message-container">
             <Account_Screen />   
         </div>
         <div>
-            <div className="input_container">
+            <div className="input-container">
                 <button className="oval-2"><a className="plus_sign">+</a></button>
                 <br/>
-                <div className="inputSpace">
-                    <TextField name="msgInput" type="textbox" className="msgInput" placeholder="Enter message here"/>
+                <div className="input-Space">
+                    <TextField name="message-input" type="textbox" className="message-input" placeholder="Enter message here"/>
                 </div>
             </div>
         </div>
