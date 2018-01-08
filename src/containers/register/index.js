@@ -36,7 +36,8 @@ const Register = props => (
             <TextField floatingLabelStyle={styles.floatingLabelStyle} floatingLabelText="Password" class="placeholdercolor" type="password"/>
             <br />
 
-            <button class="rectangle-button textColor" type="button">NEXT STEP</button><br/>
+            <button class="rectangle-button textColor" onClick={() => props.changePage() }>NEXT STEP</button><br/>
+
             </div> 
         </MuiThemeProvider>
     </div>
@@ -49,12 +50,10 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-    changePage: () => push('/login')
-
+    changePage: () => push('/body'), //change this to the register stage two
 }, dispatch)
 
 export default connect(
     mapStateToProps,
     mapDispatchToProps,
-    RegisterComponent
 )(Register)
