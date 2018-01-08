@@ -21,7 +21,7 @@ const FirstChat = props => (
             <div class="theForm1">
                 <form>
                     <MuiThemeProvider>
-                        <div class="fiendEmailContainer">
+                        <div class="friendEmailContainer">
                             <TextField placeholder="Friends Email" class="friendEmail" fullWidth="true" /><br /><br />
                         </div>
                         <div class="skipForNowContainer">
