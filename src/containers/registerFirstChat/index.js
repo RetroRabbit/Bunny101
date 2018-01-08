@@ -11,22 +11,22 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 
 import "./index.css"
 
-const ProfilePic = props => (
+const FirstChat = props => (
     
     <div class="registerForms">
         <div class="heading1">
-            <p class="stepTwo">Step Two</p>  
-            <p class="profilePicture">PROFILE PICTURE</p>     
+            <p class="stepThree">Step Three</p>  
+            <p class="firstChat">YOUR FIRST CHAT</p>     
         
             <div class="theForm1">
                 <form>
                     <MuiThemeProvider>
-                        <div class="profileCircle">
-                            <button type="button" class="btnProfilePic"><p class="plus">+</p></button>
+                        <div class="fiendEmailContainer">
+                            <TextField defaultValue="Friends Email" class="friendEmail" style={{ width: 400 }} /><br /><br />
                         </div>
                         <div class="skipForNowContainer">
-                            <button type="button" onClick={() => props.changeToRegisterFirstChat()} class="btnNextStep">NEXT STEP</button> 
-                            <p onClick={() => props.changeToRegisterFirstChat()} class="skipForNow">Skip for now</p>
+                            <button type="button" onClick={() => props.changeToBody()} class="btnNextStep">NEXT STEP</button> 
+                            <p onClick={() => props.changeToBody()} class="skipForNow">Skip for now</p>
                         </div>
                     </MuiThemeProvider>
                 </form> 
@@ -40,12 +40,12 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-    changeToRegisterFirstChat: () => push('/registerFirstChat')
+    changeToBody: () => push('/body')
 
 }, dispatch)
 
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(ProfilePic)
+)(FirstChat)
 

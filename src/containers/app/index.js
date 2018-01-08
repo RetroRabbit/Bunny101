@@ -7,6 +7,7 @@ import Header from '../header'
 import Sidebar from '../sidebar'
 import Chat from '../chat'
 import RegisterProfilePic from '../registerProfilePic'
+import RegisterFirstChat from '../registerFirstChat'
 
 const App = () => (
     <div>
@@ -17,7 +18,8 @@ const App = () => (
         <Route exact path="/header" component={Header} />
         <Route exact path="/sidebar" component={Sidebar} />
         <Route exact path="/chat" component={Chat} />
-        <Route exact path="/registerProfilePic" component={RegisterProfilePic} />   
+        <Route exact path="/registerProfilePic" component={RegisterProfilePic} /> 
+        <Route exact path="/registerFirstChat" component={RegisterFirstChat} />  
     </div>
 )
 
