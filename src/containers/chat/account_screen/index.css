@@ -1,0 +1,41 @@
+.message-text{	
+    color: #FFFFFF;	
+    font-family: "Avenir Next";	
+    font-size: 16px;	
+    
+}
+.received-message-box{
+    height: auto;	
+    width: fit-content;	
+    border-radius: 24px;	
+    background-color: #01B9BD;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+.sent-message-box{
+    height: auto;	
+    width: fit-content;	
+    border-radius: 24px;	
+    background-color: #007D80;
+    padding: 10px;
+}
+.received-time{
+    height: 18px;	
+    width: 35px;	
+    color: #75BECA;	
+    font-family: "Avenir Next";	
+    font-size: 13px;	
+    line-height: 18px;	
+    text-align: center;
+}
+
+.sent-time{	
+    color: #75BECA;	
+    font-family: "Avenir Next";	
+    font-size: 13px;	
+    line-height: 18px;	
+    text-align: right;
+}
+.body{
+    background-color: white;
+}

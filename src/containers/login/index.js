@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React from 'react';
 import { Route, Link } from 'react-router-dom';
 import { push } from 'react-router-redux';
@@ -11,6 +12,20 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import Icon from './FullLogo.png';
 
 import './index.css';
+=======
+import React from 'react'
+import { Route, Link} from 'react-router-dom'
+import { push } from 'react-router-redux'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
+import Register from '../register'
+import Body from '../body'
+import TextField from 'material-ui/TextField'
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
+import Icon from './FullLogo.png'
+
+import "./index.css"
+>>>>>>> c37d1962bf10e574b41f96be92663b744e84d90f
 
 const Login = props => (
 

@@ -1,5 +1,7 @@
 import React from 'react';
 import { Route } from 'react-router-dom'
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+
 import Login from '../login'
 import Register from '../register'
 import Body from '../body'
@@ -9,7 +11,9 @@ import Chat from '../chat'
 import Settings from '../settings'
 import RegisterProfilePic from '../registerProfilePic'
 
+
 const App = () => (
+    <MuiThemeProvider>
     <div>
         <main>
             <Route exact path="/" component={Login} />
@@ -23,6 +27,7 @@ const App = () => (
             <Route exact path="/registerProfilePic" component={RegisterProfilePic} /> 
         </main>
     </div>
-);
+    </MuiThemeProvider>
+)
 
 export default App;

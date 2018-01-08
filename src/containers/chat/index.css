@@ -1,0 +1,53 @@
+.message-container {
+	padding: 10px;
+	background-color: white;
+}
+
+.message-input {
+    height: 43px;	
+    width: 70%;
+	border-radius: 24px;
+	background-color: #EFF2F3;
+	margin-left: -5px;
+	margin-top: 5px;
+}
+
+.input-space {
+	margin-left: -5px;
+	margin-top: 5px;	
+}
+
+
+html {
+    background-color: #ffffff;
+}
+
+.line-copy {
+	box-sizing: border-box;
+	height: 2.28px;
+	width: 18px;
+	border: 3px solid #979797;
+	transform: rotate(90deg);
+}
+
+.line {
+	box-sizing: border-box;
+	height: 2.28px;
+	width: 18px;
+	border: 3px solid #979797;
+}
+
+.add-button {
+	height: 54px;
+	width: 54px;
+	background-color: #D8D8D8;
+	border: none;
+	border-radius: 100px;
+}
+
+.plus_sign {
+	font-size: 50px;
+	font-weight: 100;
+	margin: auto;
+	color: #979797;
+}
