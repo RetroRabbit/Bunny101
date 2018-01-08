@@ -7,7 +7,6 @@ import './index.css'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
-import RegisterComponent from './registerComponent';
 import {orange500, blue500, blue100, fullWhite} from 'material-ui/styles/colors';
 
 const styles = {
