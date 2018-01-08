@@ -1,39 +1,48 @@
-import "./index.css"
 import React from 'react'
-import { Route } from 'react-router-dom'
+import { Route, Link } from 'react-router-dom'
+import { push } from 'react-router-redux'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
 import Profile_Pic from './user.png'
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
-import pencil from './pencil-icon.png'
 import FontAwesome from 'react-fontawesome'
 
-const Settings = (props) =>(
+import "./index.css"
+
+const Settings = props =>(
     <div class="settings">
         <div class="settings-wrapper">
             <div class="settings-content">
-                <MuiThemeProvider>
                     <div class="profile-pic-container">
                         <div class="profile-pic">
-                            <img src={Profile_Pic}></img>
+                            <img src={Profile_Pic} alt="User Profile Picture"></img>
                         </div>
                     </div>
+                    <div class="user-details">
+                        <div class="user-name">
+                            <h1>James Jones <FontAwesome name='pencil'/></h1>
 
-                        <div class="user-details">
-                            <div class="user-name">
-                                <h1>James Jones <FontAwesome name='pencil' /></h1>
-
-                            </div>
-                            <div class="user-email">
-                                <p>james.jones@gmail.com <FontAwesome name='pencil' /></p>
-                            </div>
                         </div>
-
-                    <div class="controls">
+                        <div class="user-email">
+                            <p>james.jones@gmail.com <FontAwesome name='pencil' /></p>
+                        </div>
+                    </div>
+                    <div class="controls" onClick={() => props.changeToBody()}>
                         <button>DONE</button>
                     </div>
-                </MuiThemeProvider>
             </div>
         </div>
     </div>
 )
 
-export default Settings;
+const mapStateToProps = state => {
+
+}
+
+const mapDispatchToProps = dispatch => bindActionCreators({
+    changeToBody: () => push('/body')
+}, dispatch)
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(Settings)
