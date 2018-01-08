@@ -25,7 +25,7 @@ const Login = props => (
                             <button type="button" class="btnProfilePic"><p class="plus">+</p></button>
                         </div>
                         <div class="skipForNowContainer">
-                            <button type="button" onClick={() => props.changeToRegisterStepThree()} class="btnNextStep">NEXT STEP</button> 
+                            <button type="button" onClick={() => props.changeToRegisterFirstChat()} class="btnNextStep">NEXT STEP</button> 
                             <p onClick={() => props.changeToRegisterStepThree()} class="skipForNow">Skip for now</p>
                         </div>
                     </MuiThemeProvider>
@@ -40,7 +40,7 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-    changeToRegisterStepThree: () => push('/body')
+    changeToRegisterFirstChat: () => push('/body')
 
 }, dispatch)
 
