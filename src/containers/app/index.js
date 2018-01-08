@@ -10,16 +10,14 @@ import RegisterStepTwo from '../registerStepTwo'
 
 const App = () => (
     <div>
-        <main>
-            <Route exact path="/" component={Login} />
-            <Route exact path="/login.js" component={Login} />
-            <Route exact path="/register" component={Register} />
-            <Route exact path="/body" component={Body} />
-            <Route exact path="/header" component={Header} />
-            <Route exact path="/sidebar" component={Sidebar} />
-            <Route exact path="/chat" component={Chat} />
-            <Route exact path="/registerStepTwo" component={RegisterStepTwo} />
-        </main>
+        <Route exact path="/" component={Login} />
+        <Route exact path="/login" component={Login} />
+        <Route exact path="/register" component={Register} />
+        <Route exact path="/body" component={Body} />
+        <Route exact path="/header" component={Header} />
+        <Route exact path="/sidebar" component={Sidebar} />
+        <Route exact path="/chat" component={Chat} />
+        <Route exact path="/registerStepTwo" component={RegisterStepTwo} />   
     </div>
 )
 
