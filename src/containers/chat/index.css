@@ -17,6 +17,7 @@
 	margin-top: 5px;	
 }
 
+
 html {
     background-color: #ffffff;
 }
@@ -36,7 +37,7 @@ html {
 	border: 3px solid #979797;
 }
 
-.oval-2 {
+.add-button {
 	height: 54px;
 	width: 54px;
 	background-color: #D8D8D8;
