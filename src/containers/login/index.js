@@ -48,7 +48,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => bindActionCreators({
     changeToBody: () => push('/body'),
-    changeToRegister: () => push('/registerProfilePic')}, dispatch)
+    changeToRegister: () => push('/register')
 
 
 export default connect(

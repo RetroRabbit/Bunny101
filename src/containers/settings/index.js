@@ -5,11 +5,15 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import Profile_Pic from './user.png'
 import FontAwesome from 'react-fontawesome'
+import Header from '../header'
 
 import "./index.css"
 
 const Settings = props =>(
     <div class="settings">
+        <div class="header">
+            <Header />
+        </div>
         <div class="settings-wrapper">
             <div class="settings-content">
                     <div class="profile-pic-container">

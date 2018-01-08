@@ -32,6 +32,7 @@
 .settings-wrapper{
     display: table-cell;
     vertical-align: middle;
+    margin-top: 100px;
 }
 .settings-content{
     /*background-color: #D3D3D3;*/
@@ -43,4 +44,8 @@
 }
 .user-details{
     color: #003E49;
+}
+
+.header{
+    position: absolute;
 }
