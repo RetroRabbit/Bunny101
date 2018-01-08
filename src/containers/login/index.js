@@ -6,7 +6,6 @@ import { connect } from 'react-redux'
 import Register from '../register'
 import Body from '../body'
 import TextField from 'material-ui/TextField'
-import RaisedButton from 'material-ui/RaisedButton'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import Icon from './FullLogo.png'
 
