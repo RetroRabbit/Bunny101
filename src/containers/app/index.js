@@ -6,6 +6,7 @@ import Body from '../body'
 import Header from '../header'
 import Sidebar from '../sidebar'
 import Chat from '../chat'
+import Settings from '../settings'
 
 const App = () => (
     <div>
@@ -17,6 +18,7 @@ const App = () => (
             <Route exact path="/header" component={Header} />
             <Route exact path="/sidebar" component={Sidebar} />
             <Route exact path="/chat" component={Chat} />
+            <Route exact path="/settings" component={Settings} />
         </main>
     </div>
 )
