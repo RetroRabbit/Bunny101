@@ -33,10 +33,11 @@ const Login = props => (
                     </MuiThemeProvider>
                 </form>
             </div>
-
         </div>
         <div class="signUpBackground">
-            <p class="btnGrey" onClick={() => props.changeToRegister()} class="signUpLink" >No account yet? Get setup now</p>
+            <p class="btnGrey" onClick={() => props.changeToRegister()} class="signUpLink">
+                No account yet? Get setup now
+            </p>
         </div>
     </div>
 )
@@ -47,9 +48,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => bindActionCreators({
     changeToBody: () => push('/body'),
-    changeToRegister: () => push('/registerProfilePic')
+    changeToRegister: () => push('/registerProfilePic')}, dispatch)
 
-}, dispatch)
 
 export default connect(
     mapStateToProps,

@@ -46,7 +46,13 @@ const Register = props => (
 
 const mapStateToProps = state => {
 
-}
+const mapDispatchToProps = dispatch =>
+    bindActionCreators(
+        {
+            changePage: () => push('/login')
+        },
+        dispatch
+    );
 
 const mapDispatchToProps = dispatch => bindActionCreators({
     changePage: () => push('/registerProfilePic')

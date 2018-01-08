@@ -20,19 +20,16 @@ const Body = props => (
             </div>
         </div>
     </div>
-)
+);
 
-const mapStateToProps = state => {
+const mapStateToProps = state => {};
 
-}
+const mapDispatchToProps = dispatch =>
+    bindActionCreators(
+        {
+            changePage: () => push('/register')
+        },
+        dispatch
+    );
 
-const mapDispatchToProps = dispatch => bindActionCreators({
-    changePage: () => push('/register')
-
-}, dispatch)
-
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(Body)
-
+export default connect(mapStateToProps, mapDispatchToProps)(Body);
