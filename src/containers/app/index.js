@@ -12,7 +12,7 @@ const App = () => (
     <div>
         <main>
             <Route exact path="/" component={Login} />
-            <Route exact path="/login" component={Login} />
+            <Route exact path="/login.js" component={Login} />
             <Route exact path="/register" component={Register} />
             <Route exact path="/body" component={Body} />
             <Route exact path="/header" component={Header} />
