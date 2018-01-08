@@ -1,5 +1,4 @@
 import React from 'react';
-import Body from '../body'
 import Account_Screen from './account_screen'
 import Existing_Chat from './existing_chat'
 import Account_Screen_New from './account_screen_new'
