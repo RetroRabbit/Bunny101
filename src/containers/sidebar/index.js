@@ -13,7 +13,7 @@ import Chip from 'material-ui/Chip';
 import Avi from './avi.jpg';
 import Divider from 'material-ui/Divider';
 import './index.css';
-import 'typeface-roboto';
+//import 'typeface-roboto';
 
 const Sidebar = () => (
     <MuiThemeProvider>

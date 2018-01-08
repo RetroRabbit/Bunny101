@@ -24,7 +24,7 @@ const Header = () => (
 				<img src={imageAbout} alt={"logo"} height="100%" width="100%"></img>
 			</button>
 		</div>
-		
+	</div>
 );
 
 export default Header;
