@@ -1,0 +1,41 @@
+#header{
+	overflow: hidden;
+	padding: 15px;
+}
+
+.buttonRectangular{
+	height: 54px;
+	width: 133px;
+	border-radius: 5px;
+	background-color: #0DABAF;	
+	box-shadow: 0 2px 6px 0 rgba(0,0,0,0.25);
+	float: left;
+	margin: 5px;
+	font-family: sans-serif;
+	color: white;
+	font-size: 17px;
+	border: none;
+}
+
+#accountSettings{
+	float: right;
+	padding-top: 10px;
+}
+
+#chatName{
+	font-family: sans-serif;
+	color: white;
+	float: left;
+	margin-right: 1px;
+}
+
+.buttonCircular{
+	border-radius: 50%;
+	width: 50px;
+	height: 50px;
+	background-color: white;
+	margin: 5px;
+	float: left;
+	border: none;
+	padding: 0px;
+}
