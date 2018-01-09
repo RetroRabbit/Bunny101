@@ -10,7 +10,7 @@ import imageProfile from './ic_account_circle_black_48dp.png'
 import {
     new_Chat
 } from '../../modules/chats'
-import imageAbout from './ic_fiber_manual_record_black_48dp.png'
+import imageAbout from './Icon.png'
 import FaSearch from 'react-icons/lib/fa/search';
 
 import './index.css'
@@ -28,22 +28,22 @@ class HelloMessage extends React.Component {
         	<div id="header">
         		<div className="dropDown">
         			<button className="buttonRectangular" id="chatButton" onClick={this.props.new_Chat}>NEW CHAT</button>
-        			<div className="dropDownContent">
+        			{/*<div className="dropDownContent">
         				<form action="" class="chatSearchForm">
         					<input type="text" placeholder="Search..." name="search"/>
         					<button type="submit"><FaSearch /></button>
         				</form>
-        			</div>
+		</div>*/}
         		</div>
 
         		<div className="dropDown">
         			<button className="buttonRectangular" id="groupButton">NEW GROUP</button>
-        			<div className="dropDownContent">
+        			{/*<div className="dropDownContent">
         				<form action="" class="groupSearchForm">
         					<input type="text" placeholder="Search..." name="search"/>
         					<button type="submit"><FaSearch /></button>
         				</form>
-        			</div>
+	</div>*/}
         		</div>
 
         		<div id="accountSettings">
@@ -53,8 +53,8 @@ class HelloMessage extends React.Component {
         					<img src={imageProfile} height="100%" width="100%"></img>
         				</button>
         				<div className="dropDownContent">
-        					<a href="#">Settings</a>
-        					<a href="#">Logout</a>
+        					<a href="#" onClick={this.props.changeToSettings}>Settings</a>
+        					<a href="#" onClick={this.props.changeToLogin}>Logout</a>
         				</div>
         			</div>
         			<button className="buttonCircular">
@@ -73,7 +73,9 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-	new_Chat
+	new_Chat,
+	changeToSettings: () => push('/settings'),
+	changeToLogin: () => push('/login')
 }, dispatch)
 
 export default connect(
