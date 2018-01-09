@@ -33,17 +33,13 @@
 
 .friendEmailContainer {
     margin-left: 13%;
-    margin-top: 136px;
+    margin-top: 112px;
     margin-bottom: 152px;
     width: 390px;
 }
 
 .friendEmail {
-    color: white !important;
-    font-size: 20px !important;
-    width: 100% !important;
-    height: 38px !important;
-    margin-top: 0px !important;
+    color: #ffffff !important;
 }
 
 .skipForNowContainer {

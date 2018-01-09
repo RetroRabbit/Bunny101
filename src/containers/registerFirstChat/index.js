@@ -8,8 +8,14 @@ import Body from '../body'
 import TextField from 'material-ui/TextField'
 import RaisedButton from 'material-ui/RaisedButton'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
-
+import { orange500, blue500, blue100, fullWhite } from 'material-ui/styles/colors';
 import "./index.css"
+
+const styles = {
+    floatingLabelStyle: {
+        color: fullWhite,
+    },
+};
 
 const FirstChat = props => (
     
@@ -22,7 +28,7 @@ const FirstChat = props => (
                 <form>
                     <MuiThemeProvider>
                         <div class="friendEmailContainer">
-                            <TextField placeholder="Friends Email" class="friendEmail" fullWidth="true" /><br /><br />
+                            <TextField floatingLabelStyle={styles.floatingLabelStyle} floatingLabelText="Friends Email" class="friendEmail" fullWidth="true" /><br /><br />
                         </div>
                         <div class="skipForNowContainer">
                             <button type="button" onClick={() => props.changeToBody()} class="btnNextStep">NEXT STEP</button> 

@@ -6,8 +6,10 @@ import Register from '../register'
 import Header from '../header'
 import Sidebar from '../sidebar'
 import Chat from '../chat'
+import "./index.css"
+
 const Body = props => (
-    <div>
+    <div id="mainComponent">
         <div class="header">
             <Header />
         </div>
