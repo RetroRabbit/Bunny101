@@ -7,17 +7,15 @@ import { withStyles } from 'material-ui/styles';
 import './index.css'
 
 const Chat = props => (
-    <div className="main-container">
+    <div className="chat-container">
         <div className="message-container">
             <Account_Screen />   
         </div>
-        <div>
-            <div className="input-container">
-                <button onClick={props.displayText} className="add-button"><a className="plus_sign">+</a></button>
-                <br/>
-                <div className="input-Space">
-                    <TextField name="message-input" type="textbox" className="message-input" placeholder="Enter message here"/>
-                </div>
+        <div className="input-container">
+            <button onClick={props.displayText} className="add-button"><a className="plus_sign">+</a></button>
+            <br/>
+            <div className="input-Space">
+                <TextField name="message-input" type="textbox" className="message-input" placeholder="Enter message here"/>
             </div>
         </div>
     </div>

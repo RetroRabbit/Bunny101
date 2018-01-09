@@ -25,8 +25,6 @@ export default class Sidebar extends React.Component
             <MessagesContainer username="Bunny 101 Memmber" message ="The practice of cigar smoking has been on the rise in the U.S. since the early 90’s"/>,
             <MessagesContainer username="Bunny 101 Memmber" message ="The practice of cigar smoking has been on the rise in the U.S. since the early 90’s"/>,
         ]
-
-
         return (
             
             <MuiThemeProvider>
