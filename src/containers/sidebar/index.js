@@ -16,14 +16,14 @@ import './index.css';
 //import 'typeface-roboto';
 
 const Sidebar = () => (
-    <MuiThemeProvider>
-        <div>
+    <div class="SidebarParent">
+        <MuiThemeProvider>
             <List>
-                <ListItem disabled={true}>
+                <ListItem className="search-bar" disabled={true}>
                     <SearchBar hintText="Search Chats" />
                 </ListItem>
                 <Divider />
-                <ListItem>
+                <ListItem className="chat-item">
                     <Chip className="person">
                         <Avatar className="lower" src={Avi} />
                         <p class="name"> Lloyd Jimenez</p>
@@ -34,7 +34,7 @@ const Sidebar = () => (
                     </p>
                 </ListItem>
                 <Divider />
-                <ListItem>
+                <ListItem className="chat-item">
                     <Chip className="person">
                         <Avatar className="lower" src={Avi} />
                         <p class="name"> Jeffrey Thomas</p>
@@ -54,7 +54,7 @@ const Sidebar = () => (
                     </p>
                 </ListItem>
                 <Divider />
-                <ListItem>
+                <ListItem className="chat-item">
                     <Chip className="person">
                         <Avatar className="lower" src={Avi} />
                         <p class="name"> Catherine Sanders</p>
@@ -65,23 +65,10 @@ const Sidebar = () => (
                     </p>
                 </ListItem>
                 <Divider />
-                <ListItem>
-                    <Chip className="person">
-                        <Avatar className="lower" src={Avi} />
-                        <p class="name"> Terry Gordon</p>
-                    </Chip>
-                    <p class="status">
-                        Here, I focus on a range of items and features that we use in life without
-                        giving them a second thought such as Coca Cola, body muscles and holding
-                        ones own breath. Though, most of these notes are not fundamentally
-                        necessary, they are such that you can use them for a good laugh, at a drinks
-                        party or for picking up women or men.
-                    </p>
-                </ListItem>
-                <Divider />
             </List>
-        </div>
-    </MuiThemeProvider>
+        </MuiThemeProvider>
+    </div>
+    
 );
 
 export default Sidebar;
