@@ -6,7 +6,6 @@ import Header from '../header'
 import Sidebar from '../sidebar'
 import Chat from '../chat'
 import './index.css'
-
 const Body = props => (
     <div id="mainComponent">
         <div class="header">
