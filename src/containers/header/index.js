@@ -47,7 +47,7 @@ class HelloMessage extends React.Component {
         		</div>
 
         		<div id="accountSettings">
-        			<p id="chatName">Eddie Logan</p>
+        			<p id="chatName">James Jones</p>
         			<div className="dropDown">
         				<button className="buttonCircular" id="preferences">
         					<img src={imageProfile} height="100%" width="100%"></img>
@@ -58,7 +58,7 @@ class HelloMessage extends React.Component {
         				</div>
         			</div>
         			<button className="buttonCircular">
-        				<img src={imageAbout} alt={"logo"} height="100%" width="100%"></img>
+        				<img src={imageAbout} alt={"logo"} height="136%" width="136%" class="logoImg"></img>
         			</button>
         		</div>
             </div>
