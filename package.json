@@ -5,6 +5,7 @@
   "dependencies": {
     "history": "^4.7.2",
     "material-ui": "^0.20.0",
+    "material-ui-search-bar": "^0.4.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-dropdown-menu": "0.0.2",

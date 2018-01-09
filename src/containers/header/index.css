@@ -43,9 +43,7 @@
 
 .dropDown {
     position: relative;
-    display: inline-block;
-	float:left;
-	
+	float: left;
 }
 
 .dropDownContent {
@@ -73,7 +71,11 @@
 .dropDown:hover .dropDownContent {
     display: block;
 	top: 90%;
-	right: 10%;
+	right: 0%;
+}
+
+.dropDown:hover #chatButton {
+    background-color: #808080;
 }
 
 .dropDown:hover #preferences {
