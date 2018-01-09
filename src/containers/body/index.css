@@ -28,6 +28,7 @@
     display: block;
     position: relative;
     float: right;
+    overflow: auto;
   }
   html{
     background-color: #004853;
