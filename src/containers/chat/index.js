@@ -7,9 +7,8 @@ import { withStyles } from 'material-ui/styles';
 import './index.css'
 
 class Chat extends React.Component{
-    state ={
-        data :{name:'me'},
-        errors:{}
+    state = {
+        type: 0
     }
 
     render() { 
