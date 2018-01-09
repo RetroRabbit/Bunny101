@@ -29,12 +29,15 @@
 }
 .sent-message-box{
     height: auto;	
-    width: fit-content;	
+    width: 60%;	
     padding: 10px;
-    right: 0;
+    margin-right: 30px;
+    margin-left: auto;
 }
 .sent-message-box .message-text{
     background-color: #007D80;
+    
+    margin-left: auto;
 }
 .sent-time{	
     color: #75BECA;	
@@ -50,4 +53,7 @@
 .user-msg div{
     display: block;
     max-width: 100%;
+}
+.chatbox{
+    overflow: auto;
 }

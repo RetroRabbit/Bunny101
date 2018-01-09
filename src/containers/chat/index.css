@@ -7,6 +7,11 @@
 }
 .chat-container{
 	padding: 20px;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	margin-bottom: 40px;
+	overflow: auto;
 }
 .input-container{
 	padding: 10px;
@@ -31,6 +36,7 @@
 .message-container {
 	padding: 10px;
 	background-color: white;
+	overflow: auto;
 }
 .message-input {
     height: 43px;	
@@ -45,4 +51,5 @@
 	font-weight: 100;
 	margin: auto;
 	color: #979797;
+	height: 10px;
 }
