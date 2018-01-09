@@ -1,24 +1,22 @@
+.body{
+    background-color: white;
+}
 .message-text{	
     color: #FFFFFF;	
     font-family: "Avenir Next";	
     font-size: 16px;	
-    
+    border-radius: 24px;
+    width: fit-content;	
+    padding: 20px;
+    max-width: 60%;
+    display: block;
 }
 .received-message-box{
     height: auto;	
     width: fit-content;	
-    border-radius: 24px;	
-    background-color: #01B9BD;
-    padding: 10px;
-    padding-left: 8px;
-    padding-right: 8px;
 }
-.sent-message-box{
-    height: auto;	
-    width: fit-content;	
-    border-radius: 24px;	
-    background-color: #007D80;
-    padding: 10px;
+.received-message-box .message-text{
+    background-color: #01B9BD;
 }
 .received-time{
     height: 18px;	
@@ -29,7 +27,15 @@
     line-height: 18px;	
     text-align: center;
 }
-
+.sent-message-box{
+    height: auto;	
+    width: fit-content;	
+    padding: 10px;
+    right: 0;
+}
+.sent-message-box .message-text{
+    background-color: #007D80;
+}
 .sent-time{	
     color: #75BECA;	
     font-family: "Avenir Next";	
@@ -37,6 +43,11 @@
     line-height: 18px;	
     text-align: right;
 }
-.body{
-    background-color: white;
+.user-msg{
+    max-width: 100%;
+    height: auto;
+}
+.user-msg div{
+    display: block;
+    max-width: 100%;
 }
