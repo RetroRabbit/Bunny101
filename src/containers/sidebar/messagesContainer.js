@@ -20,15 +20,12 @@ export default class MessagesContainer extends React.Component
     constructor()
     {
         super();
-        // this.message = "When you type the website name on your address bar, a simple yet classy";
-        // this.username = "Thabang Lekwadi";
     }
 
     //render method 
     render()
     {
         return (
-            
             <MuiThemeProvider>
             <div>
             <List>
