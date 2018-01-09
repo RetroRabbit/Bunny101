@@ -18,8 +18,9 @@
     position: relative;
     float: left;
     box-shadow: 5px 10px 5px #D3D3D3;
+    overflow-y: auto;
   }
-  
+
   .chat {
     width: 70%;
     height: 100%;
