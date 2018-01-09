@@ -87,3 +87,8 @@
 .dropDown:hover #preferences {
 	background-color: #808080;
 }
+
+.logoImg{
+	margin-left: -11px;
+	margin-top: -9px;
+}
