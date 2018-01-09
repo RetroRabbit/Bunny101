@@ -11,7 +11,7 @@ import "./index.css"
 
 const Settings = props =>(
     <div class="settings">
-        <div class="header">
+        <div class="header headSpace">
             <Header />
         </div>
         <div class="settings-wrapper">
