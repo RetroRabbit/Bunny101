@@ -54,5 +54,6 @@
     max-width: 100%;
 }
 .chatbox{
+    height: 100%;
     overflow: auto;
 }

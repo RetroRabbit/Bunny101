@@ -8,10 +8,11 @@
 .chat-container{
 	height: 80%;
 	padding: 20px;
+	padding-top: 0px;
 	position: absolute;
 	bottom: 0;
 	left: 0;
-	margin-bottom: 40px;
+	margin-bottom: 12%;
 }
 .input-container{
 	padding: 10px;
@@ -35,7 +36,10 @@
 }
 .message-container {
 	padding: 10px;
+	padding-top: 0px;
 	background-color: white;
+	height: 100%;
+	overflow: auto;
 }
 .message-input {
     height: 43px;	
@@ -45,8 +49,8 @@
 	margin-left: -5px;
 	margin-top: 15px;
 	border: none;
-	padding-left: 10px;
-	
+	padding-left: 20px;
+	font-size: 17px;
 }
 .plus_sign {
 	font-size: 50px;
