@@ -1,5 +1,4 @@
 import React from 'react';
-import { Route } from 'react-router-dom'
 import './index.css'
 const Account_Screen_New = () => (
 <div class="chatbox">

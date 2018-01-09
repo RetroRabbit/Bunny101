@@ -2,18 +2,16 @@ import React from 'react'
 import { push } from 'react-router-redux'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import Register from '../register'
 import Header from '../header'
 import Sidebar from '../sidebar'
 import Chat from '../chat'
-import "./index.css"
-
+import './index.css'
 const Body = props => (
     <div id="mainComponent">
         <div class="header">
             <Header />
         </div>
-        <div class="body">
+        <div class="main-body">
             <div class="sidebar">
                 <Sidebar />
             </div>
