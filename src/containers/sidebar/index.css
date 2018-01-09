@@ -1,0 +1,39 @@
+.search-bar{
+	padding: 10px;
+}
+.SidebarParent{
+	overflow-y: auto;
+	width: 100%;
+	max-height: 100%;
+}
+.status {
+	height: auto;
+	max-height: 45px;
+	width: 100%;
+	color: #706F6F;
+	font-family: "Roboto";
+	font-size: 17px;
+	line-height: 22px;
+	overflow: hidden; 
+}
+
+.person {
+	margin: 5;
+	border-radius:75px !important;
+	height: 45px !important;
+	background-color: #979797;
+	width: 100% !important;
+	margin-top: 5%;
+}
+
+.name {
+	color: rgb(121, 121, 121);
+	font-family: "Roboto";
+	font-size: 18px;
+	margin-top: 5%;
+}
+
+.lower {
+	margin-top: 1.5%;
+	margin-left: 1%;
+}

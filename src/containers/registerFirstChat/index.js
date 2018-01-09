@@ -17,27 +17,22 @@ const styles = {
     },
 };
 
-const RegisterFirst = props => (
+const FirstChat = props => (
     
     <div class="registerForms">
         <div class="heading1">
-            <p class="stepThree">Step One</p>  
-            <p class="firstChat">THE BASICS</p>     
+            <p class="stepThree">Step Three</p>  
+            <p class="firstChat">YOUR FIRST CHAT</p>     
         
             <div class="theForm1">
                 <form>
                     <MuiThemeProvider>
-                        <div class="textFieldsContainer">
-                            <TextField floatingLabelStyle={styles.floatingLabelStyle} class="textFields" floatingLabelText="Your Name" fullWidth="true" /><br />
-
-                            <TextField floatingLabelStyle={styles.floatingLabelStyle} floatingLabelText="Email" class="textFields" type="email" fullWidth="true" />
-                            <br />
-
-                            <TextField floatingLabelStyle={styles.floatingLabelStyle} floatingLabelText="Password" class="textFields" type="password" fullWidth="true"/>
-                            <br />
+                        <div class="friendEmailContainer">
+                            <TextField floatingLabelStyle={styles.floatingLabelStyle} floatingLabelText="Friends Email" class="friendEmail" fullWidth="true" /><br /><br />
                         </div>
-                        <div class="nextStepContainer">
-                            <button type="button" onClick={() => props.changeToRegisterProfilePic()} class="btnNextStep">NEXT STEP</button> 
+                        <div class="skipForNowContainer">
+                            <button type="button" onClick={() => props.changeToBody()} class="btnNextStep">NEXT STEP</button> 
+                            <p onClick={() => props.changeToBody()} class="skipForNow">Skip for now</p>
                         </div>
                     </MuiThemeProvider>
                 </form> 
@@ -51,12 +46,12 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-    changeToRegisterProfilePic: () => push('/registerProfilePic')
+    changeToBody: () => push('/body')
 
 }, dispatch)
 
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(RegisterFirst)
+)(FirstChat)
 
