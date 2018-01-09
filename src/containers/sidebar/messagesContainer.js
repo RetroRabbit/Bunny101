@@ -16,13 +16,6 @@ import './index.css';
 
 export default class MessagesContainer extends React.Component
 {
-    
-    constructor()
-    {
-        super();
-    }
-
-    //render method 
     render()
     {
         return (
