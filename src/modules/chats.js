@@ -1,6 +1,7 @@
 export const Make_New_Chat_REQUESTED = 'chats/Make_New_Chat_REQUESTED'
 export const Make_New_Chat = 'chats/Make_New_Chat'
 export const Get_Chats = 'chats/Get_Chats'
+export const Change_Chat = 'chats/Change_Active_Chat'
 
 const chatList = [
     {name: "Steve Jones", msgPreve: "Good day John, I heard from tim that you..."},
@@ -13,6 +14,7 @@ const chatList = [
 const initialState = {
     numChats: 0,
     NewChat: false,
+    activeChat: 0,
     chatList: chatList
 }
 
@@ -34,6 +36,12 @@ export default (state = initialState, action) =>{
             return{
                 ...state,
                 chatList: chatList
+            }
+
+        case Change_Chat:
+            return{
+                ...state,
+                activeChat: action.data.chatID
             }
 
         default:
@@ -59,6 +67,16 @@ export const get_Chats = () => {
     return dispatch =>{
         dispatch({
             type: Get_Chats
+        })
+    }
+}
+
+export const change_chat = (chatID) => {
+    console.log("Changing chat");
+    return dispatch => {
+        dispatch({
+            type: Change_Chat,
+            chatID: chatID
         })
     }
 }
