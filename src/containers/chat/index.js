@@ -6,19 +6,29 @@ import TextField from 'material-ui/TextField';
 import { withStyles } from 'material-ui/styles';
 import './index.css'
 
-const Chat = props => (
-    <div className="chat-container">
-        <div className="message-container">
-            <Account_Screen />   
-        </div>
-        <div className="input-container">
-            <button onClick={props.displayText} className="add-button"><a className="plus_sign">+</a></button>
-            <br/>
-            <div className="input-Space">
-                <TextField name="message-input" type="textbox" className="message-input" placeholder="Enter message here"/>
+class Chat extends React.Component{
+    state ={
+        data :{name:'me'},
+        errors:{}
+    }
+
+    render() { 
+        return(
+            <div className="chat-container">
+                <div className="message-container">
+                    <Account_Screen />   
+                </div>
+                <div className="input-container">
+                    <button  className="add-button"><a className="plus_sign">+</a></button>
+                    <br/>
+                    <div className="input-Space">
+                        <input name="message-input" type="text" className="message-input" placeholder="Enter message here"/>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-) 
+        )
+    }
+    
+}
 
 export default Chat;
