@@ -1,3 +1,7 @@
+body{
+    background-color: #004853;
+}
+
 .loginForms{
     height: 644px;	
     width: 533px;	
@@ -93,4 +97,10 @@
 .textField{
     width: 390px;
     margin-top: 20px;
+}
+
+.mainComponent{
+    width: 100%;
+    height: 100%;
+    background-color: #004853;
 }
