@@ -6,6 +6,9 @@ import Body from '../body'
 import imageProfile from './ic_account_circle_black_48dp.png'
 import imageAbout from './ic_schedule_black_48dp.png'
 
+import FontAwesome from 'react-fontawesome'
+import FaSearch from 'react-icons/lib/fa/search';
+
 import './index.css'
 
 class HelloMessage extends React.Component {
@@ -18,15 +21,24 @@ class HelloMessage extends React.Component {
 		<div className="dropDown">
 			<button className="buttonRectangular" id="chatButton">NEW CHAT</button>
 			<div className="dropDownContent">
-				<form action="">
-					<input type="text" placeholder="Search.." name="search"/>
-				<button type="submit"><i class="fa fa-search"></i></button>
+				<form action="" class="chatSearchForm">
+					<input type="text" placeholder="Search..." name="search"/>
+				<button type="submit"><FaSearch /></button>
 			</form>
 			</div>
 		</div>
 		
+		<div className="dropDown">
+			<button className="buttonRectangular" id="groupButton">NEW GROUP</button>
+			<div className="dropDownContent">
+				<form action="" class="groupSearchForm">
+					<input type="text" placeholder="Search..." name="search"/>
+				<button type="submit"><FaSearch /></button>
+				
+			</form>
+			</div>
+		</div>
 		
-		<button className="buttonRectangular" id="groupButton">NEW GROUP</button>
 		
 		<div id="accountSettings">
 			<p id="chatName">Eddie Logan</p>

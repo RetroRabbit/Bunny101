@@ -54,6 +54,7 @@
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
 	position: absolute;
+	right: 0;
 }
 
 .dropDownContent a {
@@ -74,10 +75,24 @@
 	right: 0%;
 }
 
+.dropDown:hover #groupButton{
+    background-color: #FF7F50;
+	
+}
+
 .dropDown:hover #chatButton {
-    background-color: #808080;
+    background-color: #FF7F50;
 }
 
 .dropDown:hover #preferences {
     background-color: #808080;
+}
+
+.chatSearchForm{
+	height: 50px;
+	width: 100px;
+}
+
+.groupSearchForm{
+	
 }
