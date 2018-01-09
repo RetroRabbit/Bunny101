@@ -13,7 +13,7 @@ const Account_Screen = () => (
 
     <div className="user-msg">
         <div class="received-message-box">
-            <p class="message-text">Without a doubt there is something very relaxing 
+            <p class="message-text">There is something very relaxing 
             </p>
             <p class="received-time">07H00</p>
          </div>  
