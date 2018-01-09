@@ -15,7 +15,7 @@ const Chat = props => (
             <button onClick={props.displayText} className="add-button"><a className="plus_sign">+</a></button>
             <br/>
             <div className="input-Space">
-                <TextField name="message-input" type="textbox" className="message-input" placeholder="Enter message here"/>
+                <input name="message-input" type="text" className="message-input" placeholder="Enter message here"/>
             </div>
         </div>
     </div>
