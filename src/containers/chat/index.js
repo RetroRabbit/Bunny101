@@ -24,8 +24,8 @@ class Chat extends React.Component{
     }
     _handleSendMessage(e){
         if (e.key === 'Enter') {
-            this.props.send_message(e.target.value.toString());
             this.props.new_message()
+            this.props.send_message(e.target.value.toString());
             this.setState({
                 newMessage: this.props.newMessage
             })

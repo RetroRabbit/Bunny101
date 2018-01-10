@@ -3,13 +3,13 @@ export const Make_New_Chat = 'chats/Make_New_Chat'
 export const Get_Chat_List = 'chats/Get_Chat_List'
 export const Get_Chat = 'chats/Get_Chat'
 export const Change_Chat = 'chats/Change_Active_Chat'
-export const Profile_Pic = 'chats/Save_Profile_Pic'
 export const New_Message = 'chats/New_Message'
 export const Send_Message = 'chats/Send_Message'
 
-var data = require("./data")
+export const Profile_Pic = 'chats/Save_Profile_Pic'
 
-var chat = data.chatItem
+var data = require("./data")
+var chat = require('./data/chats')(0)
 
 const chatList = [
     {name: "Steve Jones", msgPreve: "Good day John, I heard from tim that you..."},
@@ -24,7 +24,7 @@ const initialState = {
     NewChat: false,
     activeChat: 0,
     chatList: chatList,
-    profilePic: '0'
+    profilePic: '0',
     chatItem: chat,
     newMessage: false
 }
@@ -50,9 +50,10 @@ export default (state = initialState, action) =>{
         case Change_Chat:
             return{
                 ...state,
-                activeChat: action.data.chatID
+                activeChat: action.chatID,
+                chatItem: require('./data/chats')(action.chatID)
             }
-        
+
         case Profile_Pic:
             return{
                 ...state,
@@ -93,9 +94,9 @@ export const new_Chat = () => {
     }
 }
 
-export const get_Chats = () => {
+export const get_chat_list = () => {
     console.log("Retrieving Chats");
-  
+
     return dispatch =>{
         dispatch({
             type: Get_Chat_List
@@ -113,7 +114,7 @@ export const get_chat = () => {
 }
 
 export const change_chat = (chatID) => {
-    console.log("Changing chat");
+    console.log("Changing chat "+chatID);
     return dispatch => {
         dispatch({
             type: Change_Chat,
@@ -123,12 +124,14 @@ export const change_chat = (chatID) => {
 }
 
 export const save_Profile_Pic = (picFile) => {
-    console.log(picFile);
+    //console.log(picFile);
     return dispatch =>{
         dispatch({
             type: Profile_Pic,
             profilePic: picFile
-
+        })
+    }
+}
 export const new_message = () => {
     console.log("New Message");
     return dispatch => {
