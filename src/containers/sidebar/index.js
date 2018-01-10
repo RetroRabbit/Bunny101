@@ -29,35 +29,32 @@ let SelectableList = makeSelectable(List);
 
 function wrapState(ComposedComponent) {
     return class SelectableList extends React.Component {
-      static propTypes = {
+        static propTypes = {
         children: PropTypes.node.isRequired,
         defaultValue: PropTypes.number.isRequired,
-      };
+    };
   
-      componentWillMount() {
+    componentWillMount() {
         this.setState({
-          selectedIndex: this.props.defaultValue,
+              selectedIndex: this.props.defaultValue,
         });
-      }
+    }
   
-      handleRequestChange = (event, index) => {
+    handleRequestChange = (event, index) => {
         this.setState({
-          selectedIndex: index,
+            selectedIndex: index,
         });
-      };
+    };
   
-      render() {
-        return (
-          <ComposedComponent
-            value={this.state.selectedIndex}
-            onChange={this.handleRequestChange}
-          >
-            {this.props.children}
-          </ComposedComponent>
+    render() {
+        return(
+            <ComposedComponent value={this.state.selectedIndex} onChange={this.handleRequestChange}>
+                {this.props.children}
+            </ComposedComponent>
         );
       }
     };
-  }
+}
 
 SelectableList = wrapState(SelectableList);
 
@@ -68,12 +65,13 @@ class ChatBar extends React.Component{
             chats: [],
         }
     }
+
     componentWillMount(props){
         console.log("I am mounting")
         //console.log(this.props.chatList);
         var chatItems = this.props.chatList;
         var msgs = [];
-        
+
         for(var item in chatItems){
             console.log(item);
           //  msgs.push(<MessagesContainer value={item} username={chatItems[item].name} message={chatItems[item].msgPreve}/>)
@@ -87,6 +85,7 @@ class ChatBar extends React.Component{
                     <p class="status">
                         {chatItems[item].msgPreve}
                     </p>
+                    <Divider />
                 </ListItem>
             )
         }
@@ -94,12 +93,12 @@ class ChatBar extends React.Component{
             chats: msgs
         })
     }
-    render()
-    {
+
+    render(){
         return (
             <MuiThemeProvider>
-                <SelectableList defaultValue={2}>
-                    <ListItem value={1}>
+                <SelectableList defaultValue={0}>
+                    <ListItem>
                         <SearchBar hintText="Search Chats" />
                     </ListItem>
                     <Divider />
@@ -113,6 +112,7 @@ class ChatBar extends React.Component{
 }
 
 class NewChat extends React.Component{
+    
     render(){
         return(
             <MuiThemeProvider>
