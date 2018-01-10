@@ -1,4 +1,5 @@
 export const Register_User = 'users/registerUser'
+export const Login_User = 'users/loginUser' //Me
 
 const initialState = {
     firstName: "",
@@ -21,7 +22,12 @@ const initialState = {
                 email : action.email,
                 password : action.password,
             } 
-
+        case Login_User:
+            return {
+                ...state,
+                email: action.email,
+                password: action.password
+            }
         default:
             return state;
     }
@@ -41,5 +47,18 @@ const initialState = {
               email : userDetails.email,
               password : userDetails.password
           })
+      }
+  }
+
+  export const loginUser = (userData) => {
+      console.log("loggin the user");
+      console.log(userData);
+
+      return dispatch => {
+          dispatch ({
+              type : Login_User,
+              email : userData.email,
+              password : userData.password
+        })
       }
   }

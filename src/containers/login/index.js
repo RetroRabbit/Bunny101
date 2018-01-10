@@ -8,14 +8,31 @@ import Body from '../body'
 import TextField from 'material-ui/TextField'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import Icon from './FullLogo.png'
-
 import "./index.css"
+import {loginUser} from "../../modules/users"
 
 class Login extends React.Component {
     constructor(props){
         super(props)
         this.state={
-            active: false
+            active: false,
+            touched : false,
+            incorrect : true,
+            returnedTrue : false,
+            email: "",
+            password: ""
+        }
+    }
+
+    onSubmit = e => {
+        
+        this.props.loginUser({email:"a@gmail.com", password:"siop"})
+        this.setState({
+            active : true
+        })
+
+        if(this.state.active == true){
+            this.props.changeToBody
         }
     }
 
@@ -27,17 +44,31 @@ class Login extends React.Component {
                         <p id="welcome">Welcome to the</p>
                         <img src={Icon} id="icon"/>
 
-                        <div class="theForm">
+                        <div className="theForm">
                             <form>
                                 <MuiThemeProvider>
+                                    
                                     <div class="textField">
-                                        <TextField placeholder="Email" className="field" fullWidth="true" />
+                                        <TextField 
+                                        placeholder="Email" 
+                                        class="field" 
+                                        fullWidth="true"
+                                        name="email" 
+                                       
+                                        />
                                     </div>
                                     <div class="textField">
-                                        <TextField placeholder="Password" type="password" className="field" fullWidth="true" />
+                                        <TextField 
+                                        placeholder="Password" 
+                                        type="password" 
+                                        className="field" 
+                                        fullWidth="true" 
+                                        name="password"
+                                       
+                                        />
                                     </div>
                                     <div class="btnContainer">
-                                        <button type="button" onClick={this.props.changeToBody} class="btn">LOGIN</button>
+                                        <button type="button" onClick={ this.onSubmit} class="btn">LOGIN</button>
                                     </div>
                                 </MuiThemeProvider>
                             </form>
@@ -54,11 +85,11 @@ class Login extends React.Component {
     }
 }
 
-const mapStateToProps = state => {
-
-}
+const mapStateToProps = state => ({
+})
 
 const mapDispatchToProps = dispatch => bindActionCreators({
+    loginUser,
     changeToBody: () => push('/body'),
     changeToRegister: () => push('/register')
 }, dispatch)

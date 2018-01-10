@@ -24,7 +24,7 @@ const initialState = {
     NewChat: false,
     activeChat: 0,
     chatList: chatList,
-    profilePic: '0'
+    profilePic: '0',
     chatItem: chat,
     newMessage: false
 }
@@ -93,7 +93,7 @@ export const new_Chat = () => {
     }
 }
 
-export const get_Chats = () => {
+export const get_chat_list = () => {
     console.log("Retrieving Chats");
   
     return dispatch =>{
@@ -127,7 +127,9 @@ export const save_Profile_Pic = (picFile) => {
     return dispatch =>{
         dispatch({
             type: Profile_Pic,
-            profilePic: picFile
+            profilePic: picFile})
+        }
+    }
 
 export const new_message = () => {
     console.log("New Message");
