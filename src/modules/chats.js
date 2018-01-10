@@ -141,10 +141,11 @@ export const new_message = () => {
 
 export const send_message = (new_msg) => {
     console.log("Sending Message: " + new_msg);
+    var dt = new Date();
     let newMessage = {
         type: "out",
         msg: new_msg,
-        time: "12h00"
+        time: dt.getHours()+"h"+dt.getMinutes()
     }
     chat.push(newMessage)
     //console.log("chat" ,chat);

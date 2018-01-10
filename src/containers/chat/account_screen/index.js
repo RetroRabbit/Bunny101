@@ -47,6 +47,10 @@ class Account_Screen extends React.Component {
     }
     componentWillReceiveProps(nextProps){
         var messageList = nextProps.chatItem
+        //console.log(messageList);
+        if(nextProps.newMessage){
+            console.log("I am new");
+        }
         var last = messageList[messageList.length-1]
         var newMsgComp = <Message message={last.msg} time={last.time} type={last.type} />
         var newList = this.state.messages
@@ -79,7 +83,9 @@ class Account_Screen extends React.Component {
 //export default Account_Screen;
 
 const mapStateToProps = (state) => ({
-    chatItem: state.chats.chatItem
+    newMessage: state.chats.newMessage,
+    chatItem: state.chats.chatItem,
+    activeChat: state.chats.activeChat
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({
