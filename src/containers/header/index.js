@@ -6,7 +6,7 @@ import { bindActionCreators } from 'redux'
 import Login from '../login'
 import Register from '../register'
 import Body from '../body'
-import imageProfile from './ic_account_circle_black_48dp.png'
+import imageProfile from './user.png'
 import {
     new_Chat
 } from '../../modules/chats'
@@ -19,11 +19,19 @@ class HelloMessage extends React.Component {
     constructor(props){
         super(props)
         this.state={
-            active: false
-        }
+            active: false, image: this.props.profilePic
+		}
     }
 
     render() {
+		let $ProfileImage = null;
+		if(this.state.image == 0)
+		{
+			$ProfileImage = (<img src={imageProfile} height="100%" width="100%" class="profileImg"></img>);
+		} else {
+			$ProfileImage = (<img src={this.state.image} height="100%" width="100%" class="profileImg"></img>);
+		}
+
         return (
         	<div id="header">
         		<div className="dropDown">
@@ -50,16 +58,16 @@ class HelloMessage extends React.Component {
         			<p id="chatName">James Jones</p>
         			<div className="dropDown">
         				<button className="buttonCircular" id="preferences">
-        					<img src={imageProfile} height="100%" width="100%"></img>
+        					{$ProfileImage}
         				</button>
         				<div className="dropDownContent">
         					<a href="#" onClick={this.props.changeToSettings}>Settings</a>
         					<a href="#" onClick={this.props.changeToLogin}>Logout</a>
         				</div>
         			</div>
-        			<button className="buttonCircular">
+        			<div className="buttonCircular">
         				<img src={imageAbout} alt={"logo"} height="136%" width="136%" class="logoImg"></img>
-        			</button>
+        			</div>
         		</div>
             </div>
         );
@@ -69,7 +77,8 @@ class HelloMessage extends React.Component {
 //export default Header;
 const mapStateToProps = (state) => ({
     numChats: state.chats.numChats,
-    NewChat: state.chats.NewChat
+	NewChat: state.chats.NewChat,
+	profilePic: state.chats.profilePic
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({

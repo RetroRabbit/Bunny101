@@ -39,7 +39,6 @@
 	float: left;
 	border: none;
 	padding: 0px;
-	cursor: pointer;
 }
 
 .dropDown {
@@ -91,4 +90,9 @@
 .logoImg{
 	margin-left: -11px;
 	margin-top: -9px;
+}
+
+.profileImg{
+	margin-left: -1px;
+	border-radius: 100%;
 }

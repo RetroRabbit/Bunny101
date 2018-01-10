@@ -31,10 +31,10 @@ class Login extends React.Component {
                             <form>
                                 <MuiThemeProvider>
                                     <div class="textField">
-                                        <TextField placeholder="Email" class="field" fullWidth="true" />
+                                        <TextField placeholder="Email" className="field" fullWidth="true" />
                                     </div>
                                     <div class="textField">
-                                        <TextField placeholder="Password" type="password" class="field" fullWidth="true" />
+                                        <TextField placeholder="Password" type="password" className="field" fullWidth="true" />
                                     </div>
                                     <div class="btnContainer">
                                         <button type="button" onClick={this.props.changeToBody} class="btn">LOGIN</button>
