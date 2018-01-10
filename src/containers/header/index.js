@@ -10,7 +10,7 @@ import FaSearch from 'react-icons/lib/fa/search';
 
 import './index.css'
 
-class HelloMessage extends React.Component {
+class Header extends React.Component {
 
   render() {
     return (
@@ -56,4 +56,4 @@ class HelloMessage extends React.Component {
 }
 
 
-export default HelloMessage;
+export default Header;
