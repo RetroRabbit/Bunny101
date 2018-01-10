@@ -12,6 +12,8 @@ import TextField from 'material-ui/TextField';
 import ListItem from 'material-ui/List/ListItem';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import SearchBar from 'material-ui-search-bar';
+import FloatingActionButton from 'material-ui/FloatingActionButton';
+import NavigationCancel from 'material-ui/svg-icons/navigation/cancel';
 import Chip from 'material-ui/Chip';
 import Avi from './avi.jpg';
 import Divider from 'material-ui/Divider';
@@ -65,9 +67,17 @@ class NewChat extends React.Component{
         return(
             <MuiThemeProvider>
                 <List>
-                    <ListItem disabled={true}>
-                        <SearchBar hintText="Friends Email" />
-                    </ListItem>
+                <ListItem disabled={true}>
+                    <FloatingActionButton mini={true} style={{marginLeft: 335}} backgroundColor="Grey" onClick={this.props.new_Chat}>
+                        <NavigationCancel />
+                    </FloatingActionButton>
+                    <br />
+                    <br />
+                    <TextField hintText="Friends Email" style={{marginLeft: 55}} errorText="" onChange={this.props.showFriends}/>
+                    <br />
+                    <br />
+                    <Divider />
+                </ListItem>
 
                 </List>
             </MuiThemeProvider>
