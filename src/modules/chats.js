@@ -2,6 +2,7 @@ export const Make_New_Chat_REQUESTED = 'chats/Make_New_Chat_REQUESTED'
 export const Make_New_Chat = 'chats/Make_New_Chat'
 export const Get_Chats = 'chats/Get_Chats'
 export const Change_Chat = 'chats/Change_Active_Chat'
+export const Profile_Pic = 'chats/Save_Profile_Pic'
 
 const chatList = [
     {name: "Steve Jones", msgPreve: "Good day John, I heard from tim that you..."},
@@ -15,7 +16,8 @@ const initialState = {
     numChats: 0,
     NewChat: false,
     activeChat: 0,
-    chatList: chatList
+    chatList: chatList,
+    profilePic: '0'
 }
 
 export default (state = initialState, action) =>{
@@ -44,6 +46,12 @@ export default (state = initialState, action) =>{
                 activeChat: action.data.chatID
             }
 
+        case Profile_Pic:
+            return{
+                ...state,
+                profilePic : action.profilePic
+            }
+
         default:
             return state
     }
@@ -63,7 +71,7 @@ export const new_Chat = () => {
 }
 
 export const get_Chats = () => {
-    console.log("Retriecing Chats");
+    console.log("Retrieving Chats");
     return dispatch =>{
         dispatch({
             type: Get_Chats
@@ -77,6 +85,16 @@ export const change_chat = (chatID) => {
         dispatch({
             type: Change_Chat,
             chatID: chatID
+        })
+    }
+}
+
+export const save_Profile_Pic = (picFile) => {
+    console.log(picFile);
+    return dispatch =>{
+        dispatch({
+            type: Profile_Pic,
+            profilePic: picFile
         })
     }
 }

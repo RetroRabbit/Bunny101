@@ -8,18 +8,19 @@ import Body from '../body'
 import TextField from 'material-ui/TextField'
 import RaisedButton from 'material-ui/RaisedButton'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
+import {
+    save_Profile_Pic
+} from '../../modules/chats'
 
 import "./index.css"
 
 class ProfilePic extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {file: '',imagePreviewUrl: '', showing: true};
+        this.state = {file: '', imagePreviewUrl: '', showing: true};
     }
     
     handleImageChange(e) {
-        e.preventDefault();
-    
         let reader = new FileReader();
         let file = e.target.files[0];
     
@@ -30,12 +31,18 @@ class ProfilePic extends React.Component {
                 showing: !this.state.showing
             });
         }
-    
         reader.readAsDataURL(file)
     }
 
-    render() {
+    submitProfilePic() {
+        if(!this.state.showing)
+        {
+            this.props.save_Profile_Pic(this.state.imagePreviewUrl);
+            this.props.changeToRegisterFirstChat();
+        } 
+    }
 
+    render() {
         let {showing} = this.state;
         let {imagePreviewUrl} = this.state;
         let $imagePreview = null;
@@ -52,12 +59,12 @@ class ProfilePic extends React.Component {
                     <p class="profilePicture">PROFILE PICTURE</p>     
                 
                     <div class="theForm1">
-                        <form onSubmit={this.props.changeToRegisterFirstChat}>
+                        <form onSubmit={()=> this.submitProfilePic()}>
                             <MuiThemeProvider>
                                 <div class="profileCircle">                                                                   
                                     <input id="f02" class="btnProfilePic" type="file" placeholder="+" onChange={(e)=>this.handleImageChange(e)}/>
                                     <div id="alignMiddle" style={{ display: (showing ? 'block' : 'none') }}>
-                                        <label class="plus" for="f02"><p class="ThePlusSign">+</p></label>                                       
+                                        <label class="plus" htmlFor="f02"><p class="ThePlusSign">+</p></label>                                       
                                     </div>
                                     <div className="imgPreview">
                                         {$imagePreview}
@@ -76,12 +83,13 @@ class ProfilePic extends React.Component {
     }
 }
 
-const mapStateToProps = state => {
-    
+const mapStateToProps = (state) => {
+    profilePic: state.chats.profilePic
 }
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-    changeToRegisterFirstChat: () => push('/registerFirstChat')
+    changeToRegisterFirstChat: () => push('/registerFirstChat'),
+    save_Profile_Pic
 }, dispatch)
 
 export default connect(

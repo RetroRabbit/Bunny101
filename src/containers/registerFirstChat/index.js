@@ -17,37 +17,46 @@ const styles = {
     },
 };
 
-const FirstChat = props => (
-    
-    <div class="registerForms">
-        <div class="heading1">
-            <p class="stepThree">Step Three</p>  
-            <p class="firstChat">YOUR FIRST CHAT</p>     
-        
-            <div class="theForm1">
-                <form>
-                    <MuiThemeProvider>
-                        <div class="friendEmailContainer">
-                            <TextField floatingLabelStyle={styles.floatingLabelStyle} floatingLabelText="Friends Email" class="friendEmail" fullWidth="true" /><br /><br />
-                        </div>
-                        <div class="skipForNowContainer">
-                            <button type="button" onClick={() => props.changeToBody()} class="btnNextStep">NEXT STEP</button> 
-                            <p onClick={() => props.changeToBody()} class="skipForNow">Skip for now</p>
-                        </div>
-                    </MuiThemeProvider>
-                </form> 
-            </div>           
-        </div>    
-    </div>
-)
+class FirstChat extends React.Component {
+    constructor(props){
+        super(props)
+        this.state={
+            active: false
+        }
+    }
+
+    render() {
+        return (
+            <div class="registerForms">
+                <div class="heading1">
+                    <p class="stepThree">Step Three</p>  
+                    <p class="firstChat">YOUR FIRST CHAT</p>     
+                
+                    <div class="theForm1">
+                        <form onSubmit={this.props.changeToBody}>
+                            <MuiThemeProvider>
+                                <div class="friendEmailContainer">
+                                    <TextField floatingLabelStyle={styles.floatingLabelStyle} floatingLabelText="Friends Email" class="friendEmail" fullWidth="true" /><br /><br />
+                                </div>
+                                <div class="skipForNowContainer">
+                                    <button type="submit" class="btnNextStep">NEXT STEP</button> 
+                                    <p onClick={this.props.changeToBody} class="skipForNow">Skip for now</p>
+                                </div>
+                            </MuiThemeProvider>
+                        </form> 
+                    </div>           
+                </div>    
+            </div>
+        );
+    }
+}
 
 const mapStateToProps = state => {
     
 }
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-    changeToBody: () => push('/body')
-
+    changeToBody: () => push('/body'),
 }, dispatch)
 
 export default connect(

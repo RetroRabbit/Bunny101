@@ -2,7 +2,7 @@ const users = [
     {name: "Steve Jones", email: "steve.jones@gmail.com"},
     {name: "John Tina", email: "John.Tina@ymail.com"},
     {name: "Ronald Roads", email: "ronny@gmail.com"},
-    {name: "James Jamson", email: "james@gmail.com"}
+    {name: "James Jamson", email: "james@gmail.com"},
     {name: "Pater Parts", email: "pater@gmail.com"}
 ]
 
