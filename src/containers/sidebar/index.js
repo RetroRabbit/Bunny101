@@ -22,7 +22,7 @@ import './index.css';
 import MessagesContainer from "./messagesContainer"
 import {
     new_Chat,
-    get_Chats
+    get_chat_list
 } from '../../modules/chats'
 
 let SelectableList = makeSelectable(List);
@@ -67,7 +67,7 @@ class ChatBar extends React.Component{
     }
 
     componentWillMount(props){
-        console.log("I am mounting")
+        console.log("Mounting side bar")
         //console.log(this.props.chatList);
         var chatItems = this.props.chatList;
         var msgs = [];
@@ -75,7 +75,6 @@ class ChatBar extends React.Component{
         for(var item in chatItems){
             console.log(item);
           //  msgs.push(<MessagesContainer value={item} username={chatItems[item].name} message={chatItems[item].msgPreve}/>)
-
             msgs.push(
                 <ListItem value = {item}>
                     <Chip className="person">
@@ -169,7 +168,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = dispatch => bindActionCreators({
 	new_Chat,
-    get_Chats
+    get_chat_list
 }, dispatch)
 
 export default connect(
