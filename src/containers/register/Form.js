@@ -19,6 +19,20 @@ const styles = {
 };
 
  class Form extends React.Component {
+    state = {
+        firstName: "",
+        firstNameError: "",
+        email: "",
+        emailError: "",
+        password: "",
+        passwordError: ""
+      };
+      
+    constructor(props)
+    {
+        
+        super(props);
+    }
 
   change = e => {
     this.props.onChange({ [e.target.name]: e.target.value });
@@ -35,29 +49,36 @@ const styles = {
       passwordError: ""
     };
 
-    if (this.props.firstName.length < 1) {
+    if (this.state.firstName.length < 1) {
       isError = true;
       errors.firstNameError = "Required";
     }
-
-    else if (this.props.email.indexOf("@") === -1) {
-      isError = true;
-      errors.emailError = "Requires valid email";
+    
+    else if (this.state.email.indexOf("@") === -1) {
+        isError = true;
+        errors.emailError = "Requires valid email";
     }
-
-    else if (this.props.password.length < 1) {
+    
+    else if (this.state.password.length < 1) {
         isError = true;
         errors.passwordError = "Required";
-      }
-      else
-      {
+    }
+    else
+    {
         isError = false;
-      }
+    }
+    
+    if(!isError)
+    {
+        this.props.addUser({firstName: this.state.firstName,
+              firstNameError: "",
+              email: this.state.email,
+              emailError: "",
+              password: this.state.password,
+              passwordError: ""});
 
-      if(!isError)
-      {
         this.props.changeToRegisterProfilePic();
-      }
+    }
 
     this.setState({
       ...this.state,
@@ -85,16 +106,6 @@ const styles = {
         password: ""
       });
     }
-
-    this.props.addUser({firstName: this.state.firstName,
-        firstNameError: "",
-        email: this.state.email,
-        emailError: "",
-        password: this.state.password,
-        passwordError: ""});
-   
-        console.log("in On submit");
- 
   };
 
   render() {
@@ -109,13 +120,14 @@ const styles = {
                     <MuiThemeProvider>
                         <div class="textFieldsContainer">
                             <TextField 
-                            name="firstName"
+                            name="firstName" 
+                            value={this.state.firstName}
                             floatingLabelStyle={styles.floatingLabelStyle}
                             class="textFields" 
                             floatingLabelText="Your Name" 
                             fullWidth="true"
                             onChange={e => this.change(e)}
-                            errorText={this.props.firstNameError} 
+                            errorText={this.state.firstNameError} 
                             /><br />
 
                             <TextField floatingLabelStyle={styles.floatingLabelStyle} 
@@ -124,8 +136,9 @@ const styles = {
                             type="email" 
                             name = "email"
                             fullWidth="true"
+                            value={this.state.email}
                             onChange={e => this.change(e)}
-                            errorText={this.props.emailError} 
+                            errorText={this.state.emailError} 
                              />
                             <br />
 
@@ -135,8 +148,9 @@ const styles = {
                             class="textFields" 
                             type="password" 
                             fullWidth="true"
+                            value={this.state.password}
                             onChange={e => this.change(e)}
-                            errorText={this.props.passwordError} 
+                            errorText={this.state.passwordError} 
                             />
                             <br />
                         </div>
@@ -154,7 +168,6 @@ const styles = {
 }
 
 const mapStateToProps = state => ({
-
     firstName: state.users.firstName,
     firstNameError: state.users.firstNameError,
     email: state.users.email,
