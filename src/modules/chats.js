@@ -3,6 +3,8 @@ export const Make_New_Chat = 'chats/Make_New_Chat'
 export const Get_Chat_List = 'chats/Get_Chat_List'
 export const Get_Chat = 'chats/Get_Chat'
 export const Change_Chat = 'chats/Change_Active_Chat'
+export const New_Message = 'chats/New_Message'
+export const Send_Message = 'chats/Send_Message'
 
 var data = require("./data")
 
@@ -21,7 +23,8 @@ const initialState = {
     NewChat: false,
     activeChat: 0,
     chatList: chatList,
-    chatItem: chat
+    chatItem: chat,
+    newMessage: false
 }
 
 export default (state = initialState, action) =>{
@@ -37,25 +40,32 @@ export default (state = initialState, action) =>{
                 numChats: state.numChats +1,
                 NewChat: !state.NewChat
             }
-
         case Get_Chat_List:
             return{
                 ...state,
                 chatList: chatList
             }
-
         case Change_Chat:
             return{
                 ...state,
                 activeChat: action.data.chatID
             }
-
         case Get_Chat:
             return{
                 ...state,
                 chatItem: chat
             }
-
+        case Send_Message:
+            return{
+                ...state,
+                chatItem:chat,
+                newMessage: action.msg
+            }
+        case New_Message:
+            return{
+                ...state,
+                newMessage: !state.newMessage
+            }
         default:
             return state
     }
@@ -98,6 +108,30 @@ export const change_chat = (chatID) => {
         dispatch({
             type: Change_Chat,
             chatID: chatID
+        })
+    }
+}
+
+export const new_message = () => {
+    console.log("New Message");
+    return dispatch => {
+        type: New_Message
+    }
+}
+
+export const send_message = (new_msg) => {
+    console.log("Sending Message: " + new_msg);
+    let newMessage = {
+        type: "out",
+        msg: new_msg,
+        time: "12h00"
+    }
+    chat.push(newMessage)
+    //console.log("chat" ,chat);
+    return dispatch => {
+        dispatch({
+            type: Send_Message,
+            msg: new_msg,
         })
     }
 }

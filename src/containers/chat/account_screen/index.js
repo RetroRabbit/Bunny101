@@ -37,56 +37,6 @@ const Message = (props) => {
     return( message )
 }
 
-const Account_Screens = () => (
-    <div class="chatbox">
-        <div className="user-msg">
-            <div class="sent-message-box">
-                <p class="message-text">Without a doubt there is.
-                </p>
-                <p class="sent-time">07H00</p>
-            </div>
-        </div>
-
-        <div className="user-msg">
-            <div class="received-message-box">
-                <p class="message-text">There is something very relaxing
-                </p>
-                <p class="received-time">07H00</p>
-             </div>
-        </div>
-
-        <div className="user-msg">
-            <div class="sent-message-box">
-                <p class="message-text">Without a doubt there is.
-                </p>
-                <p class="sent-time">07H00</p>
-            </div>
-        </div>
-
-        <div className="user-msg">
-            <div class="received-message-box">
-                <p class="message-text">Without a doubt there is something very relaxing and pleasurable about cooking
-                and eating grilled food. To reduce the risks follow these basic tips:
-                Without a doubt there is something very relaxing and pleasurable about cooking
-                and eating grilled food. To reduce the risks follow these basic tips:
-                </p>
-                <p class="received-time">07H00</p>
-             </div>
-        </div>
-
-        <div className="user-msg">
-            <div class="sent-message-box">
-                <p class="message-text">Without a doubt there is something very relaxing and pleasurable about cooking
-                and eating grilled food. To reduce the risks follow these basic tips:
-                Without a doubt there is something very relaxing and pleasurable about cooking
-                and eating grilled food. To reduce the risks follow these basic tips:
-                </p>
-                <p class="sent-time">07H00</p>
-            </div>
-        </div>
-    </div>
-)
-
 class Account_Screen extends React.Component {
     constructor(props){
         super(props)
@@ -96,10 +46,12 @@ class Account_Screen extends React.Component {
         }
     }
     componentWillReceiveProps(nextProps){
-        console.log(nextProps.chatItem);
-        this.setState({
-            chatItem: nextProps.chatItem
-        });
+        var messageList = nextProps.chatItem
+        var last = messageList[messageList.length-1]
+        var newMsgComp = <Message message={last.msg} time={last.time} type={last.type} />
+        var newList = this.state.messages
+        newList.push(newMsgComp)
+        this.forceUpdate()
     }
     componentWillMount(){
         var msgList = this.props.chatItem
@@ -107,7 +59,7 @@ class Account_Screen extends React.Component {
         let msg;
         let msgComponents = []
         for(msg in msgList){
-            console.log(msgList[msg]);
+            //console.log(msgList[msg]);
             msgComponents.push(<Message message={msgList[msg].msg} time={msgList[msg].time} type={msgList[msg].type} />)
         }
         this.setState({
