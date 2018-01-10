@@ -11,37 +11,48 @@ import Icon from './FullLogo.png'
 
 import "./index.css"
 
-const Login = props => (
-    <div class="mainComponent">
-        <div class="loginForms">
-            <div class="heading1">
-                <p id="welcome">Welcome to the</p>
-                <img src={Icon} id="icon"/>
+class Login extends React.Component {
+    constructor(props){
+        super(props)
+        this.state={
+            active: false
+        }
+    }
 
-                <div class="theForm">
-                    <form>
-                        <MuiThemeProvider>
-                            <div class="textField">
-                                <TextField placeholder="Email" class="field" fullWidth="true" />
-                            </div>
-                            <div class="textField">
-                                <TextField placeholder="Password" type="password" class="field" fullWidth="true" />
-                            </div>
-                            <div class="btnContainer">
-                                <button type="button" onClick={() => props.changeToBody()} class="btn">LOGIN</button>
-                            </div>
-                        </MuiThemeProvider>
-                    </form>
+    render() {
+        return (
+            <div class="mainComponent">
+                <div class="loginForms">
+                    <div class="heading1">
+                        <p id="welcome">Welcome to the</p>
+                        <img src={Icon} id="icon"/>
+
+                        <div class="theForm">
+                            <form>
+                                <MuiThemeProvider>
+                                    <div class="textField">
+                                        <TextField placeholder="Email" class="field" fullWidth="true" />
+                                    </div>
+                                    <div class="textField">
+                                        <TextField placeholder="Password" type="password" class="field" fullWidth="true" />
+                                    </div>
+                                    <div class="btnContainer">
+                                        <button type="button" onClick={this.props.changeToBody} class="btn">LOGIN</button>
+                                    </div>
+                                </MuiThemeProvider>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="signUpBackground">
+                        <p class="btnGrey" onClick={this.props.changeToRegister} class="signUpLink">
+                            No account yet? Get setup now
+                        </p>
+                    </div>
                 </div>
             </div>
-            <div class="signUpBackground">
-                <p class="btnGrey" onClick={() => props.changeToRegister()} class="signUpLink">
-                    No account yet? Get setup now
-                </p>
-            </div>
-        </div>
-    </div>
-)
+        );
+    }
+}
 
 const mapStateToProps = state => {
 
