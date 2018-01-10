@@ -19,6 +19,6 @@ const Chat = props => (
             </div>
         </div>
     </div>
-) 
+)
 
 export default Chat;
