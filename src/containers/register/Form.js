@@ -3,6 +3,7 @@ import { Route, Link} from 'react-router-dom'
 import { push } from 'react-router-redux'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
+import { addUser} from "../../modules/users"
 import Register from '../register'
 import Body from '../body'
 import TextField from 'material-ui/TextField'
@@ -18,14 +19,6 @@ const styles = {
 };
 
  class Form extends React.Component {
-  state = {
-    firstName: "",
-    firstNameError: "",
-    email: "",
-    emailError: "",
-    password: "",
-    passwordError: ""
-  };
 
   change = e => {
     this.props.onChange({ [e.target.name]: e.target.value });
@@ -42,17 +35,17 @@ const styles = {
       passwordError: ""
     };
 
-    if (this.state.firstName.length < 1) {
+    if (this.props.firstName.length < 1) {
       isError = true;
       errors.firstNameError = "Required";
     }
 
-    else if (this.state.email.indexOf("@") === -1) {
+    else if (this.props.email.indexOf("@") === -1) {
       isError = true;
       errors.emailError = "Requires valid email";
     }
 
-    else if (this.state.password.length < 1) {
+    else if (this.props.password.length < 1) {
         isError = true;
         errors.passwordError = "Required";
       }
@@ -92,6 +85,16 @@ const styles = {
         password: ""
       });
     }
+
+    this.props.addUser({firstName: this.state.firstName,
+        firstNameError: "",
+        email: this.state.email,
+        emailError: "",
+        password: this.state.password,
+        passwordError: ""});
+   
+        console.log("in On submit");
+ 
   };
 
   render() {
@@ -111,9 +114,8 @@ const styles = {
                             class="textFields" 
                             floatingLabelText="Your Name" 
                             fullWidth="true"
-                            value={this.state.firstName}
                             onChange={e => this.change(e)}
-                            errorText={this.state.firstNameError} 
+                            errorText={this.props.firstNameError} 
                             /><br />
 
                             <TextField floatingLabelStyle={styles.floatingLabelStyle} 
@@ -122,9 +124,8 @@ const styles = {
                             type="email" 
                             name = "email"
                             fullWidth="true"
-                            value={this.state.email}
                             onChange={e => this.change(e)}
-                            errorText={this.state.emailError} 
+                            errorText={this.props.emailError} 
                              />
                             <br />
 
@@ -134,9 +135,8 @@ const styles = {
                             class="textFields" 
                             type="password" 
                             fullWidth="true"
-                            value={this.state.password}
                             onChange={e => this.change(e)}
-                            errorText={this.state.passwordError} 
+                            errorText={this.props.passwordError} 
                             />
                             <br />
                         </div>
@@ -153,11 +153,18 @@ const styles = {
   }
 }
 
-const mapStateToProps = state => {
-    
-}
+const mapStateToProps = state => ({
+
+    firstName: state.users.firstName,
+    firstNameError: state.users.firstNameError,
+    email: state.users.email,
+    emailError: state.users.emailError,
+    password: state.users.password,
+    passwordError: state.users.passwordError
+})
 
 const mapDispatchToProps = dispatch => bindActionCreators({
+    addUser,
     changeToRegisterProfilePic: () => push('/registerProfilePic')
 
 }, dispatch)
