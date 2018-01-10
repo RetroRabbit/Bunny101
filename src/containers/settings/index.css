@@ -44,7 +44,7 @@
     width: 40%;
 }
 .user-details{
-    color: #003E49;
+    color: #0000FF;
 }
 
 .header{
@@ -53,4 +53,12 @@
 
 .headSpace{
     margin-top: 15px;
+}
+#editPencil{
+	cursor: pointer;
+	visibility: visible;
+}
+
+#buttonDone{
+	cursor: pointer;
 }
