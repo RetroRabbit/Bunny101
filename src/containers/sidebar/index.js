@@ -73,7 +73,7 @@ class NewChat extends React.Component{
                     </FloatingActionButton>
                     <br />
                     <br />
-                    <TextField hintText="Friends Email" style={{marginLeft: 55}} errorText="" onChange={this.props.showFriends}/>
+                    <TextField hintText="Friends Email" style={{marginLeft: 55}} errorText="" onChange={this.showFriends}/>
                     <br />
                     <br />
                     <Divider />
