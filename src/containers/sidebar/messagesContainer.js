@@ -20,7 +20,7 @@ export default class MessagesContainer extends React.Component
     {
         return (
             <div>
-            <ListItem>
+            <ListItem value = {this.props.value}>
                 <Chip className="person">
                     <Avatar className="lower" src={Avi} />
                     <p class="name"> {this.props.username}</p>

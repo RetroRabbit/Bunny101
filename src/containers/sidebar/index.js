@@ -7,7 +7,8 @@ import Login from '../login';
 import Register from '../register';
 import Body from '../body';
 import Avatar from 'material-ui/Avatar';
-import List from 'material-ui/List';
+import PropTypes from 'prop-types';
+import {List, makeSelectable} from 'material-ui/List';
 import TextField from 'material-ui/TextField';
 import ListItem from 'material-ui/List/ListItem';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
@@ -24,6 +25,42 @@ import {
     get_Chats
 } from '../../modules/chats'
 
+let SelectableList = makeSelectable(List);
+
+function wrapState(ComposedComponent) {
+    return class SelectableList extends React.Component {
+      static propTypes = {
+        children: PropTypes.node.isRequired,
+        defaultValue: PropTypes.number.isRequired,
+      };
+  
+      componentWillMount() {
+        this.setState({
+          selectedIndex: this.props.defaultValue,
+        });
+      }
+  
+      handleRequestChange = (event, index) => {
+        this.setState({
+          selectedIndex: index,
+        });
+      };
+  
+      render() {
+        return (
+          <ComposedComponent
+            value={this.state.selectedIndex}
+            onChange={this.handleRequestChange}
+          >
+            {this.props.children}
+          </ComposedComponent>
+        );
+      }
+    };
+  }
+
+SelectableList = wrapState(SelectableList);
+
 class ChatBar extends React.Component{
     constructor(props){
         super(props)
@@ -36,9 +73,22 @@ class ChatBar extends React.Component{
         //console.log(this.props.chatList);
         var chatItems = this.props.chatList;
         var msgs = [];
+        
         for(var item in chatItems){
             console.log(item);
-            msgs.push(<MessagesContainer username={chatItems[item].name} message={chatItems[item].msgPreve}/>)
+          //  msgs.push(<MessagesContainer value={item} username={chatItems[item].name} message={chatItems[item].msgPreve}/>)
+
+            msgs.push(
+                <ListItem value = {item}>
+                    <Chip className="person">
+                        <Avatar className="lower" src={Avi} />
+                        <p class="name"> {chatItems[item].name}</p>
+                    </Chip>
+                    <p class="status">
+                        {chatItems[item].msgPreve}
+                    </p>
+                </ListItem>
+            )
         }
         this.setState({
             chats: msgs
@@ -48,15 +98,15 @@ class ChatBar extends React.Component{
     {
         return (
             <MuiThemeProvider>
-                <List>
-                    <ListItem disabled={true}>
+                <SelectableList defaultValue={2}>
+                    <ListItem value={1}>
                         <SearchBar hintText="Search Chats" />
                     </ListItem>
                     <Divider />
                         {/*sideBarMessage*/}
                         {this.state.chats}
                     <Divider />
-                </List>
+                </SelectableList>
             </MuiThemeProvider>
         );
     }
