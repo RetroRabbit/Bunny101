@@ -85,6 +85,7 @@ class ChatBar extends React.Component{
                     <p class="status">
                         {chatItems[item].msgPreve}
                     </p>
+                    <br />
                     <Divider />
                 </ListItem>
             )
