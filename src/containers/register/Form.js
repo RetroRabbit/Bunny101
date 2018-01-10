@@ -3,6 +3,7 @@ import { Route, Link} from 'react-router-dom'
 import { push } from 'react-router-redux'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
+import { addUser} from "../../modules/users"
 import Register from '../register'
 import Body from '../body'
 import TextField from 'material-ui/TextField'
@@ -18,14 +19,20 @@ const styles = {
 };
 
  class Form extends React.Component {
-  state = {
-    firstName: "",
-    firstNameError: "",
-    email: "",
-    emailError: "",
-    password: "",
-    passwordError: ""
-  };
+    state = {
+        firstName: "",
+        firstNameError: "",
+        email: "",
+        emailError: "",
+        password: "",
+        passwordError: ""
+      };
+      
+    constructor(props)
+    {
+        
+        super(props);
+    }
 
   change = e => {
     this.props.onChange({ [e.target.name]: e.target.value });
@@ -46,25 +53,32 @@ const styles = {
       isError = true;
       errors.firstNameError = "Required";
     }
-
+    
     else if (this.state.email.indexOf("@") === -1) {
-      isError = true;
-      errors.emailError = "Requires valid email";
+        isError = true;
+        errors.emailError = "Requires valid email";
     }
-
+    
     else if (this.state.password.length < 1) {
         isError = true;
         errors.passwordError = "Required";
-      }
-      else
-      {
+    }
+    else
+    {
         isError = false;
-      }
+    }
+    
+    if(!isError)
+    {
+        this.props.addUser({firstName: this.state.firstName,
+              firstNameError: "",
+              email: this.state.email,
+              emailError: "",
+              password: this.state.password,
+              passwordError: ""});
 
-      if(!isError)
-      {
         this.props.changeToRegisterProfilePic();
-      }
+    }
 
     this.setState({
       ...this.state,
@@ -106,12 +120,12 @@ const styles = {
                     <MuiThemeProvider>
                         <div class="textFieldsContainer">
                             <TextField 
-                            name="firstName"
+                            name="firstName" 
+                            value={this.state.firstName}
                             floatingLabelStyle={styles.floatingLabelStyle}
                             class="textFields" 
                             floatingLabelText="Your Name" 
                             fullWidth="true"
-                            value={this.state.firstName}
                             onChange={e => this.change(e)}
                             errorText={this.state.firstNameError} 
                             /><br />
@@ -153,11 +167,17 @@ const styles = {
   }
 }
 
-const mapStateToProps = state => {
-    
-}
+const mapStateToProps = state => ({
+    firstName: state.users.firstName,
+    firstNameError: state.users.firstNameError,
+    email: state.users.email,
+    emailError: state.users.emailError,
+    password: state.users.password,
+    passwordError: state.users.passwordError
+})
 
 const mapDispatchToProps = dispatch => bindActionCreators({
+    addUser,
     changeToRegisterProfilePic: () => push('/registerProfilePic')
 
 }, dispatch)
