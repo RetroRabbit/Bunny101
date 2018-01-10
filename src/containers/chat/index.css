@@ -13,13 +13,14 @@
 	bottom: 0;
 	left: 0;
 	margin-bottom: 12%;
+	width: 100%;
 }
 .input-container{
 	padding: 10px;
 }
 .input-space {
 	margin-left: -5px;
-	margin-top: 5px;	
+	margin-top: 5px;
 }
 .line {
 	box-sizing: border-box;
@@ -42,7 +43,7 @@
 	overflow: auto;
 }
 .message-input {
-    height: 43px;	
+    height: 43px;
     width: 96%;
 	border-radius: 24px;
 	background-color: #EFF2F3;
