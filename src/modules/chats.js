@@ -3,6 +3,7 @@ export const Make_New_Chat = 'chats/Make_New_Chat'
 export const Get_Chat_List = 'chats/Get_Chat_List'
 export const Get_Chat = 'chats/Get_Chat'
 export const Change_Chat = 'chats/Change_Active_Chat'
+export const Profile_Pic = 'chats/Save_Profile_Pic'
 export const New_Message = 'chats/New_Message'
 export const Send_Message = 'chats/Send_Message'
 
@@ -23,6 +24,7 @@ const initialState = {
     NewChat: false,
     activeChat: 0,
     chatList: chatList,
+    profilePic: '0'
     chatItem: chat,
     newMessage: false
 }
@@ -50,6 +52,13 @@ export default (state = initialState, action) =>{
                 ...state,
                 activeChat: action.data.chatID
             }
+        
+        case Profile_Pic:
+            return{
+                ...state,
+                profilePic : action.profilePic
+            }
+
         case Get_Chat:
             return{
                 ...state,
@@ -84,8 +93,9 @@ export const new_Chat = () => {
     }
 }
 
-export const get_chat_list = () => {
-    console.log("Retriecing Chats");
+export const get_Chats = () => {
+    console.log("Retrieving Chats");
+  
     return dispatch =>{
         dispatch({
             type: Get_Chat_List
@@ -111,6 +121,13 @@ export const change_chat = (chatID) => {
         })
     }
 }
+
+export const save_Profile_Pic = (picFile) => {
+    console.log(picFile);
+    return dispatch =>{
+        dispatch({
+            type: Profile_Pic,
+            profilePic: picFile
 
 export const new_message = () => {
     console.log("New Message");
