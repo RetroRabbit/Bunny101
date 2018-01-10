@@ -11,29 +11,70 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 
 import "./index.css"
 
-const ProfilePic = props => (
+class ProfilePic extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {file: '',imagePreviewUrl: '', showing: true};
+    }
     
-    <div class="registerForms">
-        <div class="heading1">
-            <p class="stepTwo">Step Two</p>  
-            <p class="profilePicture">PROFILE PICTURE</p>     
-        
-            <div class="theForm1">
-                <form>
-                    <MuiThemeProvider>
-                        <div class="profileCircle">
-                            <button type="button" class="btnProfilePic"><p class="plus">+</p></button>
-                        </div>
-                        <div class="skipForNowContainer">
-                            <button type="button" onClick={() => props.changeToRegisterFirstChat()} class="btnNextStep">NEXT STEP</button> 
-                            <p onClick={() => props.changeToRegisterFirstChat()} class="skipForNow">Skip for now</p>
-                        </div>
-                    </MuiThemeProvider>
-                </form> 
-            </div>           
-        </div>    
-    </div>
-)
+    handleImageChange(e) {
+        e.preventDefault();
+    
+        let reader = new FileReader();
+        let file = e.target.files[0];
+    
+        reader.onloadend = () => {
+            this.setState({
+                file: file,
+                imagePreviewUrl: reader.result,
+                showing: !this.state.showing
+            });
+        }
+    
+        reader.readAsDataURL(file)
+    }
+
+    render() {
+
+        let {showing} = this.state;
+        let {imagePreviewUrl} = this.state;
+        let $imagePreview = null;
+        if (imagePreviewUrl) {
+            $imagePreview = (<img src={imagePreviewUrl} id="profileImg" width="236px" height="236px" />);         
+        } else {
+            $imagePreview = (<div className="previewText"></div>);
+        }
+
+        return (
+            <div class="registerForms">
+                <div class="heading1">
+                    <p class="stepTwo">Step Two</p>  
+                    <p class="profilePicture">PROFILE PICTURE</p>     
+                
+                    <div class="theForm1">
+                        <form onSubmit={this.props.changeToRegisterFirstChat}>
+                            <MuiThemeProvider>
+                                <div class="profileCircle">                                                                   
+                                    <input id="f02" class="btnProfilePic" type="file" placeholder="+" onChange={(e)=>this.handleImageChange(e)}/>
+                                    <div id="alignMiddle" style={{ display: (showing ? 'block' : 'none') }}>
+                                        <label class="plus" for="f02"><p class="ThePlusSign">+</p></label>                                       
+                                    </div>
+                                    <div className="imgPreview">
+                                        {$imagePreview}
+                                    </div>
+                                </div>
+                                <div class="skipForNowContainer">
+                                    <button type="submit" class="btnNextStep">NEXT STEP</button> 
+                                    <p onClick={this.props.changeToRegisterFirstChat} class="skipForNow">Skip for now</p>
+                                </div>
+                            </MuiThemeProvider>
+                        </form> 
+                    </div>           
+                </div>    
+            </div>
+        );
+    }
+}
 
 const mapStateToProps = state => {
     
@@ -41,11 +82,9 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => bindActionCreators({
     changeToRegisterFirstChat: () => push('/registerFirstChat')
-
 }, dispatch)
 
 export default connect(
     mapStateToProps,
     mapDispatchToProps
 )(ProfilePic)
-

@@ -19,10 +19,8 @@ export default class MessagesContainer extends React.Component
     render()
     {
         return (
-            <MuiThemeProvider>
             <div>
-            <List>
-            <ListItem>
+            <ListItem value = {this.props.value}>
                 <Chip className="person">
                     <Avatar className="lower" src={Avi} />
                     <p class="name"> {this.props.username}</p>
@@ -33,9 +31,7 @@ export default class MessagesContainer extends React.Component
             </ListItem>
            
             <Divider />
-        </List>
             </div>
-        </MuiThemeProvider>
         );
     }
 }

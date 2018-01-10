@@ -10,41 +10,37 @@ import RaisedButton from 'material-ui/RaisedButton'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import { orange500, blue500, blue100, fullWhite } from 'material-ui/styles/colors';
 import "./index.css"
-
+import Form from "./Form"
 const styles = {
     floatingLabelStyle: {
         color: fullWhite,
     },
 };
 
-const RegisterFirst = props => (
+class RegisterFirst extends React.Component {
+    state = {
+        fields: {}
+      };
     
-    <div class="registerForms">
-        <div class="heading1">
-            <p class="stepThree">Step One</p>  
-            <p class="firstChat">THE BASICS</p>     
-        
-            <div class="theForm1">
-                <form>
-                    <MuiThemeProvider>
-                        <div class="textFieldsContainer">
-                            <TextField floatingLabelStyle={styles.floatingLabelStyle} class="textFields" floatingLabelText="Your Name" fullWidth="true" /><br />
-
-                            <TextField floatingLabelStyle={styles.floatingLabelStyle} floatingLabelText="Email" class="textFields" type="email" fullWidth="true" />
-                            <br />
-
-                            <TextField floatingLabelStyle={styles.floatingLabelStyle} floatingLabelText="Password" class="textFields" type="password" fullWidth="true"/>
-                            <br />
-                        </div>
-                        <div class="nextStepContainer">
-                            <button type="button" onClick={() => props.changeToRegisterProfilePic()} class="btnNextStep">NEXT STEP</button> 
-                        </div>
-                    </MuiThemeProvider>
-                </form> 
-            </div>           
-        </div>    
-    </div>
-)
+      onChange = updatedValue => {
+        this.setState({
+          fields: {
+            ...this.state.fields,
+            ...updatedValue
+          }
+        });
+      };
+    
+      render() {
+        return (
+          <MuiThemeProvider>
+            <div className="Form">
+              <Form onChange={fields => this.onChange(fields)} />
+            </div>
+          </MuiThemeProvider>
+        );
+      }
+    }
 
 const mapStateToProps = state => {
     
@@ -59,4 +55,3 @@ export default connect(
     mapStateToProps,
     mapDispatchToProps
 )(RegisterFirst)
-
