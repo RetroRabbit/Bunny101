@@ -85,7 +85,6 @@ class ChatBar extends React.Component{
                     <p class="status">
                         {chatItems[item].msgPreve}
                     </p>
-                    <br />
                     <Divider />
                 </ListItem>
             )
@@ -99,7 +98,7 @@ class ChatBar extends React.Component{
         return (
             <MuiThemeProvider>
                 <SelectableList defaultValue={0}>
-                    <ListItem>
+                    <ListItem disabled={true}>
                         <SearchBar hintText="Search Chats" />
                     </ListItem>
                     <Divider />
