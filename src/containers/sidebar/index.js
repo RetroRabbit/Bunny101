@@ -20,10 +20,7 @@ import Avi from './avi.jpg';
 import Divider from 'material-ui/Divider';
 import './index.css';
 import MessagesContainer from "./messagesContainer"
-import {
-    new_Chat,
-    get_chat_list
-} from '../../modules/chats'
+
 
 let SelectableList = makeSelectable(List);
 
@@ -160,18 +157,13 @@ class Sidebar extends React.Component{
 }
 
 //export default Header;
-const mapStateToProps = (state) => ({
-    numChats: state.chats.numChats,
-    NewChat: state.chats.NewChat,
-    chatList: state.chats.chatList
-})
+
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-	new_Chat,
-    get_chat_list
+	
 }, dispatch)
 
 export default connect(
-	mapStateToProps,
+	
 	mapDispatchToProps
 )(Sidebar)

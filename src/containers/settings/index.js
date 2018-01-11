@@ -7,12 +7,46 @@ import Profile_Pic from './user.png'
 import FontAwesome from 'react-fontawesome'
 import Header from '../header'
 
+import {refactorName, refactorEmail, props} from './modules/refactor'
+
 import FaPencil from 'react-icons/lib/fa/pencil';
 import "./index.css"
 
 class Settings extends React.Component {
 	
-	
+    constructor(props) {
+    super(props);
+    this.state = {
+        formValues: {},
+        retProp:props
+    };
+
+    //this.handleChange = this.handleChange.bind(this);
+   // this.handleSubmit = this.handleSubmit.bind(this);
+  }
+    
+  handleChange(event) {
+    event.preventDefault();
+    let formValues = this.state.formValues;
+    let name = event.target.name;
+    let value = event.target.value;
+
+    formValues[name] = value;
+
+    this.setState({formValues})
+}
+
+
+handleSubmit(event) {
+    event.preventDefault();
+    console.log(this.state.formValues);
+    alert(this.state.formValues.name +" "+ this.state.formValues.email);
+    //
+} 
+
+
+
+
 
 	render() {
 		return (
@@ -22,29 +56,32 @@ class Settings extends React.Component {
         </div>
         <div className="settings-wrapper">
             <div className="settings-content">
+            
                     <div className="profile-pic-container">
-                        <div className="profile-pic">
-                            <img src={Profile_Pic} alt="User Profile Picture"></img>
-                        </div>
+                        <img src={Profile_Pic} alt="User Profile Picture" height="200px"></img>
                     </div>
-                    <div className="user-details">
-                        <div className="user-name">
-                            <h1 id="accountName">James Jones</h1>
-                        </div>
-                        <div className="user-email">
-                            <h3 id="accountEmail">james.jones@gmail.com 
-								<h3 id="editPencil" onClick={
-									() => this.props.openForm()}>
-									<FontAwesome name='pencil'/>
-								</h3>
-							</h3>
-                        </div>		
-						
+            
+                    <div className="userDetails">
+                    <p>Count: {this.retProp.name}</p>
+                        <h1 id="accountName">James Jones</h1>
+                        <h3 id="accountEmail">james.jones@gmail.com</h3>
                     </div>
+
+                    <form onSubmit={this.handleSubmit.bind(this)}>
+                <label> Name:
+                    <input type="text" name="name" placeholder="Name" value={this.state.formValues["name"]} onChange={this.handleChange.bind(this)} />
+                </label><br />
+                <label> Email:
+                    <input type="text" name="email" placeholder="Email" value={this.state.formValues["email"]} onChange={this.handleChange.bind(this)}/>
+                </label><br />
+                    <input className="btn btn-primary" type="submit" value="Submit" />
+           </form>
+            
+
+
                     <div className="controls" onClick={
-						() => this.props.changeToBody()
-					}
-					><button id="buttonDone">DONE</button>
+                            () => this.props.changeToBody()
+					   }><button id="buttonAction">EDIT</button>
                     </div>
             </div>
         </div>
@@ -56,7 +93,7 @@ class Settings extends React.Component {
 }
 
   const mapDispatchToProps = dispatch => bindActionCreators({
-		changeToBody: () => push('/body')
+		//changeToBody: () => push('/body')
 	}, dispatch)
 
 export default connect(

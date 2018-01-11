@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import Header from '../header'
 import Sidebar from '../sidebar'
-import Chat from '../chat'
+
 import './index.css'
 
 const Body = props => (
@@ -17,7 +17,7 @@ const Body = props => (
                 <Sidebar />
             </div>
             <div class="chat">
-                <Chat />
+
             </div>
         </div>
     </div>

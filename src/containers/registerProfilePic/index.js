@@ -8,9 +8,7 @@ import Body from '../body'
 import TextField from 'material-ui/TextField'
 import RaisedButton from 'material-ui/RaisedButton'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
-import {
-    save_Profile_Pic
-} from '../../modules/chats'
+
 
 import "./index.css"
 
@@ -88,8 +86,8 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-    changeToRegisterFirstChat: () => push('/registerFirstChat'),
-    save_Profile_Pic
+    changeToRegisterFirstChat: () => push('/registerFirstChat')
+    
 }, dispatch)
 
 export default connect(

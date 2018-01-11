@@ -7,9 +7,7 @@ import Login from '../login'
 import Register from '../register'
 import Body from '../body'
 import imageProfile from './user.png'
-import {
-    new_Chat
-} from '../../modules/chats'
+
 import imageAbout from './Icon.png'
 import FaSearch from 'react-icons/lib/fa/search';
 
@@ -75,19 +73,13 @@ class HelloMessage extends React.Component {
 }
 
 //export default Header;
-const mapStateToProps = (state) => ({
-    numChats: state.chats.numChats,
-	NewChat: state.chats.NewChat,
-	profilePic: state.chats.profilePic
-})
+
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-	new_Chat,
 	changeToSettings: () => push('/settings'),
 	changeToLogin: () => push('/login')
 }, dispatch)
 
 export default connect(
-	mapStateToProps,
-	mapDispatchToProps
+		mapDispatchToProps
 )(HelloMessage)
