@@ -343,3 +343,8 @@ ASALocalRun/
 
 # MSBuild Binary and Structured Log
 *.binlog
+
+#vs release
+*Web.Debug.config
+*Web.release.config
+favicon.ico
