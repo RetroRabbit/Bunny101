@@ -109,16 +109,11 @@ class Settings extends React.Component {
                                         {this.state.userEmail}
                                     </h3>
                                 </div>
-
+								
                             </div>
-							<div className="dropDown">
-								<button id="buttonOptions">Options</button>
-								<div class="dropdown-content">
-									<a href="#">Link 1</a>
-									<a href="#">Link 2</a>
-									<a href="#">Link 3</a>
-								</div>
-							</div>
+							
+							
+                           
                     </div>
                 </div>
             </div>
