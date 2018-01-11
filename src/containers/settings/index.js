@@ -50,9 +50,9 @@ class Settings extends React.Component {
             userEmail: email,
         })
     }
-    makeEditable(e){
+    editName(e){
         e.preventDefault();
-
+         document.getElementById("accountName").setAttribute("contenteditable", true);
     }
     render() {
         let $ProfileImage = null;
@@ -77,9 +77,9 @@ class Settings extends React.Component {
                             <div className="user-details">
                                 <div className="user-name">
                                     <h1 id="accountName"
-                                        contentEditable="false"
+                                        contentEditable="true"
                                         onKeyPress={(e) => this.handleNameChange(e)}
-                                        
+                                        onClick={(e) => this.editName(e)}
                                     >
                                             {this.state.userName}
                                     </h1>
