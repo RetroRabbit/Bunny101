@@ -1,9 +1,7 @@
 export const REGISTER_USER = 'users/registerUser'
 export const LOGIN_USER = 'users/loginUser' //Me
-export const UPDATE_NAME_REQUESTED = 'users/UPDATE_NAME_REQUESTED'
-export const UPDATE_EMAIL_REQUESTED = 'users/UPDATE_EMAIL_REQUESTED'
-export const UPDATING_NAME = 'users/UPDATING_NAME'
-export const UPDATING_EMAIL = 'users/UPDATING_EMAIL'
+export const UPDATE_USER_DETAILS = 'users/UPDATE_USER_DETAILS'
+export const UPDATE_USER_DETAILS_REQUESTED = 'users/UPDATE_USER_DETAILS_REQUESTED'
 
 const initialState = {
     firstName: "Steve Jones",
@@ -12,8 +10,7 @@ const initialState = {
     emailError: "",
     password: "",
     passwordError: "",
-	updateName: false,
-	updateEmail: false,
+	updateUser: false,
 	saveChanges: false,
 };
 
@@ -34,28 +31,18 @@ export default (state = initialState, action) =>{
                 email: action.email,
                 password: action.password
             }
-        case UPDATE_NAME_REQUESTED:
-            return{
-				...state,
-				updateName: true,
-            }
-        case UPDATING_NAME:
-            return{
-				...state,
-				firstName: action.name,
-				updateName: !state.updateName,
-			}
-        case UPDATE_EMAIL_REQUESTED:
+        case UPDATE_USER_DETAILS_REQUESTED:
             return {
-				...state,
-				updateEmail: true
-			}
-		case UPDATING_EMAIL:
-			return {
-				...state,
-				email: action.email,
-				updateEmail: !state.updateEmail,
-			}
+                ...state,
+                updateUser: true
+            }
+        case UPDATE_USER_DETAILS:
+            return{
+                ...state,
+                firstName: action.name,
+                email: action.email,
+                updateUser: false,
+            }
         default:
             return state;
     }
@@ -88,30 +75,18 @@ export const loginUser = (userData) => {
     }
 }
 
-export const refactor_name = (username) => {
-    console.log("Refactoring name");
+export const refactor_user = (userDetails) => {
+    console.log("Refactoring User Details");
     return dispatch => {
         dispatch({
-        		type: UPDATE_NAME_REQUESTED
+            type: UPDATE_USER_DETAILS_REQUESTED
         })
 
-        dispatch({
-            type: UPDATING_NAME,
-            name: username,
-        })
-    }
-}
-
-export const refactor_email = (useremail) => {
-    console.log("Refactoring email");
-    return dispatch => {
-        dispatch({
-        		type: UPDATE_EMAIL_REQUESTED
-        })
-
-        dispatch({
-            type: UPDATING_EMAIL,
-            email: useremail
+        return dispatch({
+            type: UPDATE_USER_DETAILS,
+            name: userDetails.name,
+            email: userDetails.email,
+            profPic: userDetails.profPic,
         })
     }
 }

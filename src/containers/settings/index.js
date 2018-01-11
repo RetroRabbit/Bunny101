@@ -8,8 +8,7 @@ import FontAwesome from 'react-fontawesome'
 import Header from '../header'
 import FaPencil from 'react-icons/lib/fa/pencil';
 import {
-    refactor_name,
-    refactor_email
+    refactor_user,
 } from '../../modules/users'
 import "./index.css"
 
@@ -27,15 +26,21 @@ class Settings extends React.Component {
     handleSaveUserDetails(event) {
         event.preventDefault();
         //call function to save data to db
+        this.props.changeToBody();
+        this.props.refactor_user({
+            name: this.state.userName,
+            email: this.state.userEmail,
+            profPic: this.state.image,
+        })
     }
+
     handleNameChange(e){
         if (e.key === 'Enter') {
             e.preventDefault();
-            console.log("saving data");
+            console.log("saving name data");
             let tag =  document.getElementById("accountName");
             tag.setAttribute("contenteditable", false);
             var name = tag.innerText;
-            //this.props.refactor_name(name);
             this.setState({
                 userName: name,
             })
@@ -43,8 +48,20 @@ class Settings extends React.Component {
 
     }
 
-    onClickName(e)
-    {
+    handleEmailChange(e){
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            console.log("saving email data");
+            let tag =  document.getElementById("accountEmail");
+            tag.setAttribute("contenteditable", false);
+            var email = tag.innerText;
+            this.setState({
+                userEmail: email,
+            })
+        }
+    }
+
+    onClickName(e){
         e.preventDefault();
         let tag =  document.getElementById("accountName");
         tag.setAttribute("contenteditable", true);
@@ -54,15 +71,6 @@ class Settings extends React.Component {
         e.preventDefault();
         let tag =  document.getElementById("accountEmail");
         tag.setAttribute("contenteditable", true);
-    }
-
-    handleEmailChange(e){
-        e.preventDefault();
-        let email = e.target.value.toString();
-        this.props.refactor_email(email);
-        this.setState({
-            userEmail: email,
-        })
     }
 
     render() {
@@ -83,31 +91,33 @@ class Settings extends React.Component {
 
                 <div className="settingsWrapper">
                     <div className="settingsContent">
-                            <div className="profile-pic-container">
-                                {$ProfileImage}
+                        <div className="profile-pic-container">
+                            {$ProfileImage}
+                        </div>
+                        <div className="userDetails">
+                            <div className="userName">
+                                <h1 id	="accountName"
+                                    contentEditable="false"
+                                    onKeyPress={(e) => this.handleNameChange(e)}
+                                    onClick={(e) => this.onClickName(e)}
+                                >
+                                        {this.state.userName}
+                                </h1>
                             </div>
-                            <div className="userDetails">
-                                <div className="userName">
-                                    <h1 id	="accountName"
-                                        contentEditable="false"
-                                        onKeyPress={(e) => this.handleNameChange(e)}
-                                        onClick={(e) => this.onClickName(e)}
-                                    >
-                                            {this.state.userName}
-                                    </h1>
-                                </div>
-                                <div className="userEmail">
-                                    <h3 id="accountEmail"
-                                        contentEditable="false"
-                                        onKeyPress={(e) => this.handleNameChange(e)}
-                                        onClick={(e) => this.onClickEmail(e)}
-                                        >
-                                        {this.state.userEmail}
-                                    </h3>
-                                </div>
 
+                            <div className="userEmail">
+                                <h3 id="accountEmail"
+                                    contentEditable="false"
+                                    onKeyPress={(e) => this.handleEmailChange(e)}
+                                    onClick={(e) => this.onClickEmail(e)}
+                                    >
+                                    {this.state.userEmail}
+                                </h3>
                             </div>
-							<button id="buttonSubmit">Done</button>
+                            <div className="controls" onClick={(e) => this.handleSaveUserDetails(e)}>
+                                    <button id="buttonSubmit">DONE</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -123,8 +133,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = dispatch => bindActionCreators({
     changeToBody: () => push('/body'),
-    refactor_name,
-    refactor_email,
+    refactor_user,
 }, dispatch)
 
 export default connect(
