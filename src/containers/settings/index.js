@@ -37,7 +37,8 @@ class Settings extends React.Component {
             });
             this.props.save_Profile_Pic(reader.result);
         }
-        reader.readAsDataURL(file)
+        if(file)
+            reader.readAsDataURL(file)
     }
 
     handleSaveUserDetails(event) {

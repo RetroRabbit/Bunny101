@@ -41,6 +41,8 @@
 	background-color: white;
 	height: 100%;
 	overflow: auto;
+	display: flex;
+	flex-direction: column-reverse;
 }
 .message-input {
     height: 43px;
