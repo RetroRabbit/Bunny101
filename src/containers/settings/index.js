@@ -11,7 +11,6 @@ import FaPencil from 'react-icons/lib/fa/pencil';
 import "./index.css"
 
 class Settings extends React.Component {
-
     constructor(props){
         super(props)
         this.state={
@@ -19,51 +18,51 @@ class Settings extends React.Component {
         }
         console.log( this.props);
     }
-    
-	render() {
+
+    render() {
         let $ProfileImage = null;
+        
+		if(this.state.image == '0' || this.props.profilePic == undefined)
+		{
+			$ProfileImage = (<div class="profile-pic"><img src={Profile_Pic} ></img></div>);
+		} else {
+			$ProfileImage = (<div class="profile-pic-selected"><img src={this.props.profilePic} class="profPic" ></img></div>);
+		}
 
-        if(this.state.image == '0' || this.props.profilePic == undefined)
-        {
-        $ProfileImage = (<div class="profile-pic"><img src={Profile_Pic} ></img></div>);
-        } else {
-        $ProfileImage = (<div class="profile-pic-selected"><img src={this.props.profilePic} class="profPic" ></img></div>);
-        }
-
-		return (
-			    <div className="settings">
-                    <div className="header headSpace">
-                        <Header />
-                    </div>
-                    <div className="settings-wrapper">
-                        <div className="settings-content">
-                                <div class="profile-pic-container">
-                                    {$ProfileImage}                               
+        return (
+            <div class="settings">
+                <div class="header headSpace">
+                    <Header />
+                </div>
+                <div class="settings-wrapper">
+                    <div class="settings-content">
+                            <div class="profile-pic-container">
+                                {$ProfileImage}                               
+                            </div>
+                            <div className="user-details">
+                                <div className="user-name">
+                                    <h1 id="accountName">James Jones</h1>
                                 </div>
-                                <div className="user-details">
-                                    <div className="user-name">
-                                        <h1 id="accountName">James Jones</h1>
-                                    </div>
-                                    <div className="user-email">
-                                        <h3 id="accountEmail">james.jones@gmail.com 
-                                            <h3 id="editPencil" onClick={
-                                                () => this.props.openForm()}>
-                                                <FontAwesome name='pencil'/>
-                                            </h3>
+                                <div className="user-email">
+                                    <h3 id="accountEmail">james.jones@gmail.com 
+                                        <h3 id="editPencil" onClick={
+                                            () => this.props.openForm()}>
+                                            <FontAwesome name='pencil'/>
                                         </h3>
-                                    </div>		
-                                    
-                                </div>
-                                <div className="controls" onClick={
-                                    () => this.props.changeToBody()
-                                }
-                                ><button id="buttonDone">DONE</button>
-                                </div>
-                        </div>
+                                    </h3>
+                                </div>		
+                                
+                            </div>
+                            <div className="controls" onClick={
+                                () => this.props.changeToBody()
+                            }
+                            ><button id="buttonDone">DONE</button>
+                            </div>
                     </div>
                 </div>
-		);
-  }
+            </div>
+        );
+    }
 }
 
 const mapStateToProps = (state) => ({
@@ -75,5 +74,6 @@ const mapDispatchToProps = dispatch => bindActionCreators({
 }, dispatch)
 
 export default connect(
+    mapStateToProps,
     mapDispatchToProps
 )(Settings)
