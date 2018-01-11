@@ -10,10 +10,10 @@ export const Send_Message = 'chats/Send_Message'
 export const Profile_Pic = 'chats/Save_Profile_Pic'
 
 const chatList = [
-    {name: "Steve Jones", msgPreve: "Good day John, I heard from tim that you..."},
+    {name: "Emma Jones", msgPreve: "Good day John, I heard from tim that you...", },
     {name: "John Tina", msgPreve: "I wonder why he did that. I mean I for one..."},
-    {name: "Bunny 102 Member", msgPreve: "The practice of cigar smoking has been on the rise in the U.S. since the early 90’s..."},
-    {name: "Bunny 101 Member", msgPreve: "The was once a little bunny that lived in the montains and he..."}
+    {name: "Mason Jacobs ", msgPreve: "The practice of cigar smoking has been on the rise in the U.S. since the early 90’s..."},
+    {name: "William Smith", msgPreve: "The was once a little bunny that lived in the montains and he..."}
 ]
 
 //var data = require("./data")

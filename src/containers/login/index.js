@@ -57,7 +57,9 @@ class Login extends React.Component {
     handlePassword(event) {
         this.setState({password: event.target.value});
     }
-
+    componentWillReceiveProps(nextProps){
+        console.log(nextProps);
+    }
     render() {
         return (
             <div class="mainComponent">

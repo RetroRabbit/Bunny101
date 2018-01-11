@@ -6,6 +6,15 @@ import {
     get_chat
 } from '../../../modules/chats'
 
+const NoChats = props => {
+    return(
+        <div>
+            <h2>Not a chatty cathy yet?</h2>
+            <p>Chatter away on the left</p>
+        </div>
+    )
+}
+
 const Message = (props) => {
     let message;
     if(props.type === "in"){
