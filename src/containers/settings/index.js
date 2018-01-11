@@ -20,20 +20,33 @@ class Settings extends React.Component {
         super(props)
         this.state={
             active: false,
-            image: this.props.profilePic,
+            file: '', 
             userName: this.props.firstName,
-            userEmail: this.props.email,
+            userEmail: this.props.email
         }
         console.log( this.props);
     }
+
+    handleImageChange(e) {
+        let reader = new FileReader();
+        let file = e.target.files[0];
+
+        reader.onloadend = () => {
+            this.setState({
+                file: file
+            });
+            this.props.save_Profile_Pic(reader.result);
+        }
+        reader.readAsDataURL(file)
+    }
+
     handleSaveUserDetails(event) {
         event.preventDefault();
         //call function to save data to db
         this.props.changeToBody();
         this.props.refactor_user({
             name: this.state.userName,
-            email: this.state.userEmail,
-            profPic: this.state.image,
+            email: this.state.userEmail
         })
     }
 
@@ -78,13 +91,12 @@ class Settings extends React.Component {
 
     render() {
         let $ProfileImage = null;
-
-		if(this.state.image == '0' || this.props.profilePic == undefined)
+		if(this.props.profilePic == '0' || this.props.profilePic == undefined)
 		{
 			$ProfileImage = (<div className="profile-pic"><img src={Profile_Pic} height="100%"></img></div>);
 		} else {
 			$ProfileImage = (<div className="profile-pic-selected"><img src={this.props.profilePic} height="100%" id="profPic"className="profilePicture" ></img></div>);
-		}
+        }
 
         return (
             <div className="settings">
@@ -95,8 +107,13 @@ class Settings extends React.Component {
                 <div className="settingsWrapper">
                     <div className="settingsContent">
                         <div className="profile-pic-container">
+                            <input id="f02" class="btnProfilePic" type="file" placeholder="+" onChange={(e)=>this.handleImageChange(e)}/>
+                            <div id="alignBtn">
+                                <label class="changePic" htmlFor="f02"></label>                                       
+                            </div>
                             {$ProfileImage}
                         </div>
+                        
                         <div className="userDetails">
                             <div className="userName">
                                 <h1 id	="accountName"
