@@ -19,7 +19,7 @@ class HelloMessage extends React.Component {
     constructor(props){
         super(props)
         this.state={
-            active: false, image: this.props.profilePic
+            active: false, image: this.props.profilePic, mail : this.props.email
 		}
     }
 
@@ -55,7 +55,7 @@ class HelloMessage extends React.Component {
         		</div>
 
         		<div id="accountSettings">
-        			<p id="chatName">James Jones</p>
+        			<p id="chatName">{this.state.mail}</p>
         			<div className="dropDown">
         				<button className="buttonCircular" id="preferences">
         					{$ProfileImage}
@@ -78,7 +78,8 @@ class HelloMessage extends React.Component {
 const mapStateToProps = (state) => ({
     numChats: state.chats.numChats,
 	NewChat: state.chats.NewChat,
-	profilePic: state.chats.profilePic
+	profilePic: state.chats.profilePic,
+	email : state.users.email
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({
