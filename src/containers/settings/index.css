@@ -53,7 +53,7 @@
     width: 40%;
 }
 .user-details{
-    color: #003E49;
+    color: #0000FF;
 }
 
 .header{
@@ -64,6 +64,11 @@
     margin-top: 15px;
 }
 
-button{
-    cursor: pointer;
+#editPencil{
+	cursor: pointer;
+	visibility: visible;
+}
+
+#buttonDone{
+	cursor: pointer;
 }
