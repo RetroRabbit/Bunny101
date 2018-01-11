@@ -8,7 +8,7 @@ import {
 
 const Message = (props) => {
     let message;
-    if(props.type == "in"){
+    if(props.type === "in"){
         //console.log("Coming in");
         message = (
             <div className="user-msg">
@@ -21,7 +21,7 @@ const Message = (props) => {
             </div>
         )
     }
-    else if(props.type == "out"){
+    else if(props.type === "out"){
         //console.log("Going out");
         message = (
             <div className="user-msg">
@@ -47,14 +47,16 @@ class Account_Screen extends React.Component {
     }
     componentWillReceiveProps(nextProps){
         var messageList = nextProps.chatItem
-        var last = messageList[messageList.length-1]
-        var newMsgComp = <Message message={last.msg} time={last.time} type={last.type} />
-        var newList = this.state.messages
-        newList.push(newMsgComp)
+        //console.log(messageList);
+
+        this.getMessageComponents(messageList);
         this.forceUpdate()
     }
     componentWillMount(){
-        var msgList = this.props.chatItem
+        this.getMessageComponents(this.props.chatItem);
+    }
+    getMessageComponents(msgList){
+        //var msgList = this.props.chatItem
         //console.log(msgList);
         let msg;
         let msgComponents = []
@@ -65,7 +67,6 @@ class Account_Screen extends React.Component {
         this.setState({
             messages: msgComponents
         })
-
     }
     render(){
         return(
@@ -79,7 +80,9 @@ class Account_Screen extends React.Component {
 //export default Account_Screen;
 
 const mapStateToProps = (state) => ({
-    chatItem: state.chats.chatItem
+    newMessage: state.chats.newMessage,
+    chatItem: state.chats.chatItem,
+    activeChat: state.chats.activeChat
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({
