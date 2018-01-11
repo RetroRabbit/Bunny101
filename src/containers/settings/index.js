@@ -21,8 +21,6 @@ class Settings extends React.Component {
         retProp:props
     };
 
-    //this.handleChange = this.handleChange.bind(this);
-   // this.handleSubmit = this.handleSubmit.bind(this);
   }
     
   handleChange(event) {
