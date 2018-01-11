@@ -4,11 +4,12 @@ export const Get_Chat_List = 'chats/Get_Chat_List'
 export const Get_Chat = 'chats/Get_Chat'
 export const Change_Chat = 'chats/Change_Active_Chat'
 export const New_Message = 'chats/New_Message'
+export const New_Message_Rendered = "chats/New_Message_Rendered"
 export const Send_Message = 'chats/Send_Message'
 
 export const Profile_Pic = 'chats/Save_Profile_Pic'
 
-var data = require("./data")
+//var data = require("./data")
 var chat = require('./data/chats')(0)
 
 const chatList = [
@@ -53,13 +54,11 @@ export default (state = initialState, action) =>{
                 activeChat: action.chatID,
                 chatItem: require('./data/chats')(action.chatID)
             }
-
         case Profile_Pic:
             return{
                 ...state,
                 profilePic : action.profilePic
             }
-
         case Get_Chat:
             return{
                 ...state,
@@ -74,7 +73,12 @@ export default (state = initialState, action) =>{
         case New_Message:
             return{
                 ...state,
-                newMessage: !state.newMessage
+                newMessage: true
+            }
+        case New_Message_Rendered:
+            return{
+                ...state,
+                newMessage: false
             }
         default:
             return state
@@ -132,10 +136,18 @@ export const save_Profile_Pic = (picFile) => {
         })
     }
 }
+
 export const new_message = () => {
     console.log("New Message");
     return dispatch => {
         type: New_Message
+    }
+}
+
+export const new_message_rendered = () => {
+    console.log("New Message Rendered");
+    return dispatch => {
+        type: New_Message_Rendered
     }
 }
 

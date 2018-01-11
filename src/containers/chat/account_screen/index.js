@@ -8,7 +8,7 @@ import {
 
 const Message = (props) => {
     let message;
-    if(props.type == "in"){
+    if(props.type === "in"){
         //console.log("Coming in");
         message = (
             <div className="user-msg">
@@ -21,7 +21,7 @@ const Message = (props) => {
             </div>
         )
     }
-    else if(props.type == "out"){
+    else if(props.type === "out"){
         //console.log("Going out");
         message = (
             <div className="user-msg">
@@ -47,18 +47,36 @@ class Account_Screen extends React.Component {
     }
     componentWillReceiveProps(nextProps){
         var messageList = nextProps.chatItem
-        //console.log(messageList);
-        if(nextProps.newMessage){
+        console.log(messageList);
+        /*if(nextProps.newMessage){
             console.log("I am new");
         }
         var last = messageList[messageList.length-1]
         var newMsgComp = <Message message={last.msg} time={last.time} type={last.type} />
         var newList = this.state.messages
         newList.push(newMsgComp)
+        this.setState({
+            chatItem: messageList
+        })*/
+        this.getMessageComponents(messageList);
         this.forceUpdate()
     }
     componentWillMount(){
-        var msgList = this.props.chatItem
+        /*var msgList = this.props.chatItem
+        //console.log(msgList);
+        let msg;
+        let msgComponents = []
+        for(msg in msgList){
+            //console.log(msgList[msg]);
+            msgComponents.push(<Message message={msgList[msg].msg} time={msgList[msg].time} type={msgList[msg].type} />)
+        }
+        this.setState({
+            messages: msgComponents
+        })*/
+        this.getMessageComponents(this.props.chatItem);
+    }
+    getMessageComponents(msgList){
+        //var msgList = this.props.chatItem
         //console.log(msgList);
         let msg;
         let msgComponents = []
@@ -69,7 +87,6 @@ class Account_Screen extends React.Component {
         this.setState({
             messages: msgComponents
         })
-
     }
     render(){
         return(

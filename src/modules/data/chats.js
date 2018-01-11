@@ -20,10 +20,16 @@ const chatItem2 = [
     {type: "in", msg: "Chicken Chicken Chicken.", time: "10h15"}
 ]
 
+const chatItem3 = [
+    {type: "in", msg: "Good day!", time: "07h00"},
+    {type: "out", msg: "day good!", time: "07h05"}
+]
+
 const chats = [
     chatItem0,
     chatItem1,
-    chatItem2
+    chatItem2,
+    chatItem3
 ]
 
 module.exports = (chatID) => {
