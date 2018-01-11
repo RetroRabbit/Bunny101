@@ -83,7 +83,7 @@ class Settings extends React.Component {
 		{
 			$ProfileImage = (<div className="profile-pic"><img src={Profile_Pic} height="100%"></img></div>);
 		} else {
-			$ProfileImage = (<div className="profile-pic-selected"><img src={this.props.profilePic} height="100%"className="profilePicture" ></img></div>);
+			$ProfileImage = (<div className="profile-pic-selected"><img src={this.props.profilePic} height="100%" id="profPic"className="profilePicture" ></img></div>);
 		}
 
         return (
