@@ -66,17 +66,22 @@ class ChatBar extends React.Component{
         super(props)
         this.state = {
             chats: [],
+            search: ''
         }
         this._handleChatChange = this._handleChatChange.bind(this)
     }
     _handleChatChange(chatID){
         this.props.changeChat(chatID)
     }
-
+    _handleSearchChange(event) {
+        this.setState({ search: event.target.value.substr(0, 20) });
+        this.componentWillMount(this.props);
+    }
     componentWillMount(props){
         console.log("Mounting side bar")
         //console.log(this.props.chatList);
-        var chatItems = this.props.chatList;
+        let filteredChats = this.props.chatList.filter((chats) => { return chats.name.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1; });
+        var chatItems = filteredChats;
         var msgs = [];
 
         for(var item in chatItems){
@@ -105,7 +110,7 @@ class ChatBar extends React.Component{
             <MuiThemeProvider>
                 <SelectableList defaultValue={0} changeChat={this._handleChatChange}>
                     <ListItem disabled={true}>
-                        <SearchBar hintText="Search Chats" />
+                        <TextField className="searchbar" hintText="Search Chats" value={this.setState.search} onChange={this._handleSearchChange.bind(this)} />
                     </ListItem>
                     <Divider />
                         {/*sideBarMessage*/}
@@ -124,12 +129,12 @@ class NewChat extends React.Component{
             <MuiThemeProvider>
                 <List>
                 <ListItem disabled={true}>
-                    <FloatingActionButton mini={true} style={{marginLeft: 335}} backgroundColor="Grey" onClick={this.props.new_Chat}>
+                    <FloatingActionButton mini={true} style={{ "marginLeft": "85%" }} backgroundColor="Grey" onClick={this.props.new_Chat}>
                         <NavigationCancel />
                     </FloatingActionButton>
                     <br />
                     <br />
-                    <TextField hintText="Friends Email" style={{marginLeft: 55}} errorText="" onChange={this.showFriends}/>
+                    <TextField hintText="Friends Email" style={{ "marginLeft": "15%" }} errorText="" onChange={this.showFriends} />
                     <br />
                     <br />
                     <Divider />
