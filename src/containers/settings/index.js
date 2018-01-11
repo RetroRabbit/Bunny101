@@ -109,7 +109,12 @@ class Settings extends React.Component {
                                         {this.state.userEmail}
                                     </h3>
                                 </div>
-								
+								<div className="controls" onClick={() => this.props.changeToBody()}>
+                                <div className="dropDownOptions">
+                                    <button id="buttonSubmit">Options</button>
+                                   
+                                </div>
+                            </div>
                             </div>
 							
 							
