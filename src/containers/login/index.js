@@ -34,17 +34,20 @@ class Login extends React.Component {
     }
 
     onSubmit = e => {
-        
+
         this.props.loginUser({email:this.state.email, password: this.state.password})
         this.setState({
             active : true,
             ...this.state
         })
-        if(this.props.active != true){
+        /*if(this.props.active != true){
+            this.props.changeToBody();
+        }*/
+        if(this.props.validLogin === true){
             this.props.changeToBody();
         }
-        
-       
+
+
     }
 
     handleChange(event) {
@@ -66,23 +69,23 @@ class Login extends React.Component {
                         <div className="theForm">
                             <form>
                                 <MuiThemeProvider>
-                                    
+
                                     <div class="textField">
-                                        <TextField 
-                                        placeholder="Email" 
-                                        class="field" 
+                                        <TextField
+                                        placeholder="Email"
+                                        class="field"
                                         fullWidth="true"
                                         name="email"
-                                        value={this.state.value} 
+                                        value={this.state.value}
                                         onChange={this.handleChange}
                                         />
                                     </div>
                                     <div class="textField">
-                                        <TextField 
-                                        placeholder="Password" 
-                                        type="password" 
-                                        className="field" 
-                                        fullWidth="true" 
+                                        <TextField
+                                        placeholder="Password"
+                                        type="password"
+                                        className="field"
+                                        fullWidth="true"
                                         name="password"
                                         value={this.state.value}
                                         onChange={this.handlePassword}
@@ -108,7 +111,8 @@ class Login extends React.Component {
 
 const mapStateToProps = state => ({
     email : state.users.email,
-    password : state.users.password
+    password : state.users.password,
+    validLogin: state.users.validLogin
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({
@@ -121,5 +125,3 @@ export default connect(
     mapStateToProps,
     mapDispatchToProps
 )(Login)
-
-
