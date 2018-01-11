@@ -29,8 +29,7 @@ const styles = {
       };
       
     constructor(props)
-    {
-        
+    {  
         super(props);
     }
 
@@ -54,7 +53,7 @@ const styles = {
       errors.firstNameError = "Required";
     }
     
-    else if (this.state.email.indexOf("@") === -1) {
+    else if (this.state.email.indexOf("@") === -1 || this.state.email.indexOf(".") === -1) {
         isError = true;
         errors.emailError = "Requires valid email";
     }
@@ -124,14 +123,14 @@ const styles = {
                             value={this.state.firstName}
                             floatingLabelStyle={styles.floatingLabelStyle}
                             class="textFields" 
-                            floatingLabelText="Your Name" 
+                            floatingLabelText="Your Name" hintText="John Doe"
                             fullWidth="true"
                             onChange={e => this.change(e)}
                             errorText={this.state.firstNameError} 
                             /><br />
 
                             <TextField floatingLabelStyle={styles.floatingLabelStyle} 
-                            floatingLabelText="Email" 
+                            floatingLabelText="Email" hintText="johndoe@example.com"
                             class="textFields" 
                             type="email" 
                             name = "email"
@@ -143,7 +142,7 @@ const styles = {
                             <br />
 
                             <TextField floatingLabelStyle={styles.floatingLabelStyle} 
-                            floatingLabelText="Password" 
+                            floatingLabelText="Password" hintText="Your password"
                             name="password"
                             class="textFields" 
                             type="password" 
