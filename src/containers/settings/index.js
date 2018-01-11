@@ -7,7 +7,7 @@ import Profile_Pic from './user.png'
 import FontAwesome from 'react-fontawesome'
 import Header from '../header'
 
-import {refactorName, refactorEmail} from './modules/refactor'
+import {refactorName, refactorEmail} from '../../modules/refactor'
 
 import FaPencil from 'react-icons/lib/fa/pencil';
 import "./index.css"
@@ -18,10 +18,17 @@ class Settings extends React.Component {
     super(props);
     this.state = {
         formValues: {},
-        retProp:props
+        userName: this.props.name,
+        userEmail: this.props.email
     };
 
+    
   }
+
+  state = {
+    refactorName:"",
+    refactorEmail:""
+};
     
   handleChange(event) {
     event.preventDefault();
@@ -38,8 +45,20 @@ class Settings extends React.Component {
 handleSubmit(event) {
     event.preventDefault();
     console.log(this.state.formValues);
-    alert(this.state.formValues.name +" "+ this.state.formValues.email);
+    
     //
+    
+
+    if(this.state.formValues.name != null && this.state.formValues.email != null){
+        alert(this.state.formValues.name +" "+ this.state.formValues.email);
+        //this.props.name = this.state.formValues.name;
+        //this.props.email = this.state.formValues.email;
+
+        
+    }
+    else{
+        alert("values cannot be empty");
+    }
 } 
 
 	render() {
@@ -57,8 +76,8 @@ handleSubmit(event) {
             
                     <div className="userDetails">
                     
-                        <h1 id="accountName">James Jones</h1>
-                        <h3 id="accountEmail">james.jones@gmail.com</h3>
+                        <h1 id="accountName">{this.state.userName}</h1>
+                        <h3 id="accountEmail">{this.state.userEmail}</h3>
                     </div>
 
                     <form onSubmit={this.handleSubmit.bind(this)}>
@@ -84,15 +103,16 @@ handleSubmit(event) {
 
 }
 const mapStateToProps = state => ({
-    refactorName: state.refactor.refactorName, 
-    refactorEmail: state.refactor.refactorEmail
+    name: state.refactor.name, 
+    email: state.refactor.email
   })
 
   const mapDispatchToProps = dispatch => bindActionCreators({
-    refactorName, refactorEmail
-    //changeToBody: () => push('/body')
+    refactorName, refactorEmail,
+    changeToBody: () => push('/body')
 	}, dispatch)
 
 export default connect(
+    mapStateToProps,
     mapDispatchToProps
 )(Settings)

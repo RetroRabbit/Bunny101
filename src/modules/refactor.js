@@ -61,12 +61,13 @@ export const refactorName = (userDetails) => {
 	console.log("refactor name");
   return dispatch => {
     dispatch({
-			type: UPDATE_NAME_REQUESTED,
-			name: userDetails.name
+			type: UPDATE_NAME_REQUESTED
     })
 
     dispatch({
-      type: UPDATING_NAME
+			type: UPDATING_NAME,
+			name: userDetails.name
+
     })
   }
 }
@@ -75,12 +76,13 @@ export const refactorEmail = (userDetails) => {
 	console.log("refactor email");
   return dispatch => {
     dispatch({
-			type: UPDATE_EMAIL_REQUESTED,
-			email: userDetails.email
+			type: UPDATE_EMAIL_REQUESTED
+			
     })
 
     dispatch({
-      type: UPDATING_EMAIL
+			type: UPDATING_EMAIL,
+			email: userDetails.email
     })
   }
 }
