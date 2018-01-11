@@ -107,7 +107,7 @@ class Settings extends React.Component {
                                 </div>
 
                             </div>
-							<button id="buttonOptions">Done</button>
+							<button id="buttonSubmit">Done</button>
                     </div>
                 </div>
             </div>
