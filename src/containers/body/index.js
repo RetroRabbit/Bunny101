@@ -23,7 +23,9 @@ const Body = props => (
     </div>
 );
 
-const mapStateToProps = state => {};
+const mapStateToProps = state => ({
+    profilePic: state.chats.profilePic
+});
 
 const mapDispatchToProps = dispatch =>
     bindActionCreators(

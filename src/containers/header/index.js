@@ -29,7 +29,7 @@ class HelloMessage extends React.Component {
 		{
 			$ProfileImage = (<img src={imageProfile} height="100%" width="100%" class="profileImg"></img>);
 		} else {
-			$ProfileImage = (<img src={this.state.image} height="100%" width="100%" class="profileImg"></img>);
+			$ProfileImage = (<img src={this.props.profilePic} height="100%" width="100%" class="profileImg"></img>);
 		}
 
         return (

@@ -126,7 +126,7 @@ export const change_chat = (chatID) => {
 }
 
 export const save_Profile_Pic = (picFile) => {
-    //console.log(picFile);
+    console.log("Saving Profile Pic");
     return dispatch =>{
         dispatch({
             type: Profile_Pic,

@@ -11,9 +11,24 @@ import FaPencil from 'react-icons/lib/fa/pencil';
 import "./index.css"
 
 class Settings extends React.Component {
-	
-	
 
+constructor(props){
+    super(props)
+    this.state={
+        active: false, image: this.props.profilePic
+    }
+    console.log( this.props);
+}
+
+render() {
+    let $ProfileImage = null;
+
+if(this.state.image == '0' || this.props.profilePic == undefined)
+{
+  $ProfileImage = (<div class="profile-pic"><img src={Profile_Pic} ></img></div>);
+} else {
+  $ProfileImage = (<div class="profile-pic-selected"><img src={this.props.profilePic} class="profPic" ></img></div>);
+}
 	render() {
 		return (
 			    <div className="settings">
@@ -22,10 +37,8 @@ class Settings extends React.Component {
         </div>
         <div className="settings-wrapper">
             <div className="settings-content">
-                    <div className="profile-pic-container">
-                        <div className="profile-pic">
-                            <img src={Profile_Pic} alt="User Profile Picture"></img>
-                        </div>
+                    <div class="profile-pic-container">
+                        {$ProfileImage}                               
                     </div>
                     <div className="user-details">
                         <div className="user-name">
@@ -51,13 +64,15 @@ class Settings extends React.Component {
     </div>
 		);
   }
-  
-
 }
 
-  const mapDispatchToProps = dispatch => bindActionCreators({
-		changeToBody: () => push('/body')
-	}, dispatch)
+const mapStateToProps = (state) => ({
+    profilePic: state.chats.profilePic
+})
+
+const mapDispatchToProps = dispatch => bindActionCreators({
+    changeToBody: () => push('/body')
+}, dispatch)
 
 export default connect(
     mapDispatchToProps

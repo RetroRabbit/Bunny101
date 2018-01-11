@@ -83,9 +83,9 @@ class ProfilePic extends React.Component {
     }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state) => ({
     profilePic: state.chats.profilePic
-}
+})
 
 const mapDispatchToProps = dispatch => bindActionCreators({
     changeToRegisterFirstChat: () => push('/registerFirstChat'),

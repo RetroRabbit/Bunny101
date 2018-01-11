@@ -14,6 +14,15 @@
 .profile-pic img{
     height: 100%;
 }
+.profile-pic-selected{
+    height: 250px;
+    width: 250px;
+}
+.profPic{
+    height: 250px !important;
+    width: 250px !important;
+    border-radius: 100%;
+}
 .profile-pic-container{
     background-color: white;
     border-radius: 150px;
