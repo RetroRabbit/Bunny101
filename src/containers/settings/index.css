@@ -67,3 +67,26 @@
     padding: 10px 30px;
     outline: none;
 }
+
+#alignBtn{
+    position: absolute;
+    filter: alpha(opacity=0);
+}
+
+.changePic{
+    display: inline-block;
+    font-size: 50px; 
+    font-weight: 100;
+    
+    position: absolute;
+    margin-top: 98px;
+    margin-left: 6.5%;
+    text-align: center;
+    width: 250px;
+    height: 250px;   
+    
+    cursor: pointer;
+    border-radius: 100%;
+    margin: auto;
+    
+}
