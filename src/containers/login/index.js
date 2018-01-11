@@ -8,8 +8,15 @@ import Body from '../body'
 import TextField from 'material-ui/TextField'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import Icon from './FullLogo.png'
+import { orange500, blue500, blue100, fullWhite } from 'material-ui/styles/colors';
 import "./index.css"
 import {loginUser} from "../../modules/users"
+
+const styles = {
+    floatingLabelStyle: {
+        color: fullWhite,
+    },
+};
 
 class Login extends React.Component {
     constructor(props){

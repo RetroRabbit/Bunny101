@@ -8,44 +8,27 @@ import Body from '../body'
 import TextField from 'material-ui/TextField'
 import RaisedButton from 'material-ui/RaisedButton'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
-import { orange500, blue500, blue100, fullWhite } from 'material-ui/styles/colors';
 import "./index.css"
-
-const styles = {
-    floatingLabelStyle: {
-        color: fullWhite,
-    },
-};
+import Form from "./Form"
 
 class FirstChat extends React.Component {
-    constructor(props){
-        super(props)
-        this.state={
-            active: false
-        }
-    }
+    state = {
+        fields: {}
+    };
+
+    onChange = updatedValue => {
+        this.setState({
+            fields: {
+            ...this.state.fields,
+            ...updatedValue
+            }
+        });
+    };
 
     render() {
         return (
             <div class="registerForms">
-                <div class="heading1">
-                    <p class="stepThree">Step Three</p>  
-                    <p class="firstChat">YOUR FIRST CHAT</p>     
-                
-                    <div class="theForm1">
-                        <form onSubmit={this.props.changeToBody}>
-                            <MuiThemeProvider>
-                                <div class="friendEmailContainer">
-                                    <TextField floatingLabelStyle={styles.floatingLabelStyle} floatingLabelText="Friends Email" class="friendEmail" fullWidth="true" /><br /><br />
-                                </div>
-                                <div class="skipForNowContainer">
-                                    <button type="submit" class="btnNextStep">NEXT STEP</button> 
-                                    <p onClick={this.props.changeToBody} class="skipForNow">Skip for now</p>
-                                </div>
-                            </MuiThemeProvider>
-                        </form> 
-                    </div>           
-                </div>    
+                <Form onChange={fields => this.onChange(fields)} />    
             </div>
         );
     }
@@ -56,11 +39,10 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-    changeToBody: () => push('/body'),
+    changeToBody: () => push('/body')
 }, dispatch)
 
 export default connect(
     mapStateToProps,
     mapDispatchToProps
 )(FirstChat)
-
