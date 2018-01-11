@@ -22,7 +22,8 @@ import './index.css';
 import MessagesContainer from "./messagesContainer"
 import {
     new_Chat,
-    get_chat_list
+    get_chat_list,
+    change_chat
 } from '../../modules/chats'
 
 let SelectableList = makeSelectable(List);
@@ -33,19 +34,21 @@ function wrapState(ComposedComponent) {
         children: PropTypes.node.isRequired,
         defaultValue: PropTypes.number.isRequired,
     };
-  
+
     componentWillMount() {
         this.setState({
               selectedIndex: this.props.defaultValue,
         });
     }
-  
+
     handleRequestChange = (event, index) => {
+        //console.log("active = " + index);
+        this.props.changeChat(index)
         this.setState({
             selectedIndex: index,
         });
     };
-  
+
     render() {
         return(
             <ComposedComponent value={this.state.selectedIndex} onChange={this.handleRequestChange}>
@@ -64,6 +67,10 @@ class ChatBar extends React.Component{
         this.state = {
             chats: [],
         }
+        this._handleChatChange = this._handleChatChange.bind(this)
+    }
+    _handleChatChange(chatID){
+        this.props.changeChat(chatID)
     }
 
     componentWillMount(props){
@@ -73,7 +80,7 @@ class ChatBar extends React.Component{
         var msgs = [];
 
         for(var item in chatItems){
-            console.log(item);
+            //console.log(item);
           //  msgs.push(<MessagesContainer value={item} username={chatItems[item].name} message={chatItems[item].msgPreve}/>)
             msgs.push(
                 <ListItem value = {item}>
@@ -96,7 +103,7 @@ class ChatBar extends React.Component{
     render(){
         return (
             <MuiThemeProvider>
-                <SelectableList defaultValue={0}>
+                <SelectableList defaultValue={0} changeChat={this._handleChatChange}>
                     <ListItem disabled={true}>
                         <SearchBar hintText="Search Chats" />
                     </ListItem>
@@ -111,7 +118,7 @@ class ChatBar extends React.Component{
 }
 
 class NewChat extends React.Component{
-    
+
     render(){
         return(
             <MuiThemeProvider>
@@ -142,6 +149,10 @@ class Sidebar extends React.Component{
             newChat: false,
             userChats: props.chatList
         }
+        this._handleChatChange = this._handleChatChange.bind(this);
+    }
+    _handleChatChange(chatID){
+        this.props.change_chat(chatID)
     }
     componentWillReceiveProps(nextProps){
         //console.log(nextProps.chats);
@@ -152,7 +163,7 @@ class Sidebar extends React.Component{
     render(){
         return(
             <div>
-                {!this.state.newChat && <ChatBar chatList={this.state.userChats}/>}
+                {!this.state.newChat && <ChatBar chatList={this.state.userChats} changeChat={this._handleChatChange}/>}
                 {this.state.newChat && <NewChat />}
             </div>
         )
@@ -168,7 +179,8 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = dispatch => bindActionCreators({
 	new_Chat,
-    get_chat_list
+    get_chat_list,
+    change_chat
 }, dispatch)
 
 export default connect(
