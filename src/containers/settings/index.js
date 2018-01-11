@@ -35,13 +35,28 @@ class Settings extends React.Component {
             let tag =  document.getElementById("accountName");
             tag.setAttribute("contenteditable", false);
             var name = tag.innerText;
-            this.props.refactor_name(name);
+            //this.props.refactor_name(name);
             this.setState({
                 userName: name,
             })
         }
 
     }
+
+    onClickName(e)
+    {
+        e.preventDefault();
+        let tag =  document.getElementById("accountName");
+        tag.setAttribute("contenteditable", true);
+    }
+
+    onClickEmail(e)
+    {
+        e.preventDefault();
+        let tag =  document.getElementById("accountEmail");
+        tag.setAttribute("contenteditable", true);
+    }
+
     handleEmailChange(e){
         e.preventDefault();
         let email = e.target.value.toString();
@@ -59,46 +74,51 @@ class Settings extends React.Component {
 
 		if(this.state.image == '0' || this.props.profilePic == undefined)
 		{
-			$ProfileImage = (<div class="profile-pic"><img src={Profile_Pic} ></img></div>);
+			$ProfileImage = (<div className="profile-pic"><img src={Profile_Pic} height="100%"></img></div>);
 		} else {
-			$ProfileImage = (<div class="profile-pic-selected"><img src={this.props.profilePic} class="profPic" ></img></div>);
+			$ProfileImage = (<div className="profile-pic-selected"><img src={this.props.profilePic} height="100%"className="profilePicture" ></img></div>);
 		}
 
         return (
-            <div class="settings">
-                <div class="header headSpace">
+            <div className="settings">
+                <div className="header headSpace">
                     <Header />
                 </div>
-                <div class="settings-wrapper">
-                    <div class="settings-content">
-                            <div class="profile-pic-container">
+				
+                <div className="settingsWrapper">
+                    <div className="settingsContent">
+                            <div className="profile-pic-container">
                                 {$ProfileImage}
                             </div>
-                            <div className="user-details">
-                                <div className="user-name">
-                                    <h1 id="accountName"
+                            <div className="userDetails">
+                                <div className="userName">
+                                    <h1 id	="accountName"
                                         contentEditable="false"
                                         onKeyPress={(e) => this.handleNameChange(e)}
-                                        
+                                        onClick={(e) => this.onClickName(e)}
                                     >
                                             {this.state.userName}
                                     </h1>
                                 </div>
-                                <div className="user-email">
-                                    <h3 id="accountEmail">{this.state.userEmail}
-                                        <h3 id="editPencil" onClick={
-                                            () => this.props.openForm()}>
-                                            <FontAwesome name='pencil'/>
-                                        </h3>
+                                <div className="userEmail">
+                                    <h3 id="accountEmail" 
+                                        contentEditable="false"
+                                        onKeyPress={(e) => this.handleNameChange(e)}
+                                        onClick={(e) => this.onClickEmail(e)}
+                                        >
+                                        {this.state.userEmail}
                                     </h3>
                                 </div>
 
                             </div>
-                            <div className="controls" onClick={
-                                () => this.props.changeToBody()
-                            }
-                            ><button id="buttonDone">DONE</button>
-                            </div>
+							<div className="dropDown">
+								<button id="buttonOptions">Options</button>
+								<div class="dropdown-content">
+									<a href="#">Link 1</a>
+									<a href="#">Link 2</a>
+									<a href="#">Link 3</a>
+								</div>
+							</div>
                     </div>
                 </div>
             </div>

@@ -39,22 +39,12 @@ class HelloMessage extends React.Component {
         	<div id="header">
         		<div className="dropDown">
         			<button className="buttonRectangular" id="chatButton" onClick={this.props.new_Chat}>NEW CHAT</button>
-        			{/*<div className="dropDownContent">
-        				<form action="" class="chatSearchForm">
-        					<input type="text" placeholder="Search..." name="search"/>
-        					<button type="submit"><FaSearch /></button>
-        				</form>
-		</div>*/}
+        			{}
         		</div>
 
         		<div className="dropDown">
         			<button className="buttonRectangular" id="groupButton">NEW GROUP</button>
-        			{/*<div className="dropDownContent">
-        				<form action="" class="groupSearchForm">
-        					<input type="text" placeholder="Search..." name="search"/>
-        					<button type="submit"><FaSearch /></button>
-        				</form>
-	</div>*/}
+        			{}
         		</div>
 
         		<div id="accountSettings">
