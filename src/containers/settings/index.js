@@ -7,7 +7,7 @@ import Profile_Pic from './user.png'
 import FontAwesome from 'react-fontawesome'
 import Header from '../header'
 
-import {refactorName, refactorEmail, props} from './modules/refactor'
+import {refactorName, refactorEmail} from './modules/refactor'
 
 import FaPencil from 'react-icons/lib/fa/pencil';
 import "./index.css"
@@ -44,10 +44,6 @@ handleSubmit(event) {
     //
 } 
 
-
-
-
-
 	render() {
 		return (
 			    <div className="settings">
@@ -62,7 +58,7 @@ handleSubmit(event) {
                     </div>
             
                     <div className="userDetails">
-                    <p>Count: {this.retProp.name}</p>
+                    
                         <h1 id="accountName">James Jones</h1>
                         <h3 id="accountEmail">james.jones@gmail.com</h3>
                     </div>
@@ -76,12 +72,10 @@ handleSubmit(event) {
                 </label><br />
                     <input className="btn btn-primary" type="submit" value="Submit" />
            </form>
-            
-
 
                     <div className="controls" onClick={
                             () => this.props.changeToBody()
-					   }><button id="buttonAction">EDIT</button>
+					   }><button id="buttonAction" hidden>EDIT</button>
                     </div>
             </div>
         </div>
@@ -91,9 +85,14 @@ handleSubmit(event) {
   
 
 }
+const mapStateToProps = state => ({
+    refactorName: state.refactor.refactorName, 
+    refactorEmail: state.refactor.refactorEmail
+  })
 
   const mapDispatchToProps = dispatch => bindActionCreators({
-		//changeToBody: () => push('/body')
+    refactorName, refactorEmail
+    //changeToBody: () => push('/body')
 	}, dispatch)
 
 export default connect(
