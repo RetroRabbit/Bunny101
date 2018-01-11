@@ -47,32 +47,12 @@ class Account_Screen extends React.Component {
     }
     componentWillReceiveProps(nextProps){
         var messageList = nextProps.chatItem
-        console.log(messageList);
-        /*if(nextProps.newMessage){
-            console.log("I am new");
-        }
-        var last = messageList[messageList.length-1]
-        var newMsgComp = <Message message={last.msg} time={last.time} type={last.type} />
-        var newList = this.state.messages
-        newList.push(newMsgComp)
-        this.setState({
-            chatItem: messageList
-        })*/
+        //console.log(messageList);
+
         this.getMessageComponents(messageList);
         this.forceUpdate()
     }
     componentWillMount(){
-        /*var msgList = this.props.chatItem
-        //console.log(msgList);
-        let msg;
-        let msgComponents = []
-        for(msg in msgList){
-            //console.log(msgList[msg]);
-            msgComponents.push(<Message message={msgList[msg].msg} time={msgList[msg].time} type={msgList[msg].type} />)
-        }
-        this.setState({
-            messages: msgComponents
-        })*/
         this.getMessageComponents(this.props.chatItem);
     }
     getMessageComponents(msgList){
