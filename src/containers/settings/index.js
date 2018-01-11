@@ -10,6 +10,9 @@ import FaPencil from 'react-icons/lib/fa/pencil';
 import {
     refactor_user,
 } from '../../modules/users'
+import {
+    save_Profile_Pic
+} from '../../modules/chats'
 import "./index.css"
 
 class Settings extends React.Component {
@@ -134,6 +137,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = dispatch => bindActionCreators({
     changeToBody: () => push('/body'),
     refactor_user,
+    save_Profile_Pic
 }, dispatch)
 
 export default connect(
