@@ -9,9 +9,6 @@ export const Send_Message = 'chats/Send_Message'
 
 export const Profile_Pic = 'chats/Save_Profile_Pic'
 
-//var data = require("./data")
-var chat = require('./data/chats')(0)
-
 const chatList = [
     {name: "Steve Jones", msgPreve: "Good day John, I heard from tim that you..."},
     {name: "John Tina", msgPreve: "I wonder why he did that. I mean I for one..."},
@@ -19,6 +16,9 @@ const chatList = [
     {name: "Bunny 101 Member", msgPreve: "The was once a little bunny that lived in the montains and he..."}
 ]
 
+//var data = require("./data")
+var curr_chat = 0;
+//var chat = require('./data/chats')(curr_chat)
 
 const initialState = {
     numChats: 0,
@@ -26,7 +26,7 @@ const initialState = {
     activeChat: 0,
     chatList: chatList,
     profilePic: '0',
-    chatItem: chat,
+    chatItem: require('./data/chats')(curr_chat),
     newMessage: false
 }
 
@@ -62,12 +62,12 @@ export default (state = initialState, action) =>{
         case Get_Chat:
             return{
                 ...state,
-                chatItem: chat
+                chatItem: require('./data/chats')(curr_chat)
             }
         case Send_Message:
             return{
                 ...state,
-                chatItem:chat,
+                chatItem:require('./data/chats')(curr_chat),
                 newMessage: action.msg
             }
         case New_Message:
@@ -92,9 +92,6 @@ export const new_Chat = () => {
             type: Make_New_Chat_REQUESTED
         })
 
-        /*dispatch({
-            type: Make_New_Chat
-        })*/
     }
 }
 
@@ -119,6 +116,7 @@ export const get_chat = () => {
 
 export const change_chat = (chatID) => {
     console.log("Changing chat "+chatID);
+    curr_chat = chatID
     return dispatch => {
         dispatch({
             type: Change_Chat,
@@ -159,6 +157,7 @@ export const send_message = (new_msg) => {
         msg: new_msg,
         time: dt.getHours()+"h"+dt.getMinutes()
     }
+    var chat = require('./data/chats')(curr_chat)
     chat.push(newMessage)
     //console.log("chat" ,chat);
     return dispatch => {
