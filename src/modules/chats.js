@@ -93,7 +93,7 @@ export const new_Chat = () => {
     }
 }
 
-export const get_chat_list = () => {
+export const get_Chats = () => {
     console.log("Retrieving Chats");
   
     return dispatch =>{
