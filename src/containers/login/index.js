@@ -22,18 +22,30 @@ class Login extends React.Component {
             email: "",
             password: ""
         }
+        this.handleChange = this.handleChange.bind(this);
+        this.handlePassword = this.handlePassword.bind(this);
     }
 
     onSubmit = e => {
         
-        this.props.loginUser({email:"a@gmail.com", password:"siop"})
+        this.props.loginUser({email:this.state.email, password: this.state.password})
         this.setState({
-            active : true
+            active : true,
+            ...this.state
         })
-
-        if(this.state.active == true){
-            this.props.changeToBody
+        if(this.props.active != true){
+            this.props.changeToBody();
         }
+        
+       
+    }
+
+    handleChange(event) {
+        this.setState({email: event.target.value});
+    }
+
+    handlePassword(event) {
+        this.setState({password: event.target.value});
     }
 
     render() {
@@ -53,8 +65,9 @@ class Login extends React.Component {
                                         placeholder="Email" 
                                         class="field" 
                                         fullWidth="true"
-                                        name="email" 
-                                       
+                                        name="email"
+                                        value={this.state.value} 
+                                        onChange={this.handleChange}
                                         />
                                     </div>
                                     <div class="textField">
@@ -64,7 +77,8 @@ class Login extends React.Component {
                                         className="field" 
                                         fullWidth="true" 
                                         name="password"
-                                       
+                                        value={this.state.value}
+                                        onChange={this.handlePassword}
                                         />
                                     </div>
                                     <div class="btnContainer">
@@ -86,6 +100,8 @@ class Login extends React.Component {
 }
 
 const mapStateToProps = state => ({
+    email : state.users.email,
+    password : state.users.password
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({
