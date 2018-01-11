@@ -19,7 +19,10 @@ class HelloMessage extends React.Component {
     constructor(props){
         super(props)
         this.state={
-            active: false, image: this.props.profilePic, mail : this.props.email
+            active: false,
+            image: this.props.profilePic,
+            mail : this.props.email,
+            name: this.props.name,
 		}
     }
 
@@ -36,26 +39,16 @@ class HelloMessage extends React.Component {
         	<div id="header">
         		<div className="dropDown">
         			<button className="buttonRectangular" id="chatButton" onClick={this.props.new_Chat}>NEW CHAT</button>
-        			{/*<div className="dropDownContent">
-        				<form action="" class="chatSearchForm">
-        					<input type="text" placeholder="Search..." name="search"/>
-        					<button type="submit"><FaSearch /></button>
-        				</form>
-		</div>*/}
+        			{}
         		</div>
 
         		<div className="dropDown">
         			<button className="buttonRectangular" id="groupButton">NEW GROUP</button>
-        			{/*<div className="dropDownContent">
-        				<form action="" class="groupSearchForm">
-        					<input type="text" placeholder="Search..." name="search"/>
-        					<button type="submit"><FaSearch /></button>
-        				</form>
-	</div>*/}
+        			{}
         		</div>
 
         		<div id="accountSettings">
-        			<p id="chatName">{this.state.mail}</p>
+        			<p id="chatName">{this.state.name}</p>
         			<div className="dropDown">
         				<button className="buttonCircular" id="preferences">
         					{$ProfileImage}
@@ -79,7 +72,8 @@ const mapStateToProps = (state) => ({
     numChats: state.chats.numChats,
 	NewChat: state.chats.NewChat,
 	profilePic: state.chats.profilePic,
-	email : state.users.email
+	email : state.users.email,
+    name: state.users.firstName
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({

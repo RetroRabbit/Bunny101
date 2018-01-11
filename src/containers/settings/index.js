@@ -6,58 +6,121 @@ import { connect } from 'react-redux'
 import Profile_Pic from './user.png'
 import FontAwesome from 'react-fontawesome'
 import Header from '../header'
-
 import FaPencil from 'react-icons/lib/fa/pencil';
+import {
+    refactor_user,
+} from '../../modules/users'
+import {
+    save_Profile_Pic
+} from '../../modules/chats'
 import "./index.css"
 
 class Settings extends React.Component {
     constructor(props){
         super(props)
         this.state={
-            active: false, image: this.props.profilePic
+            active: false,
+            image: this.props.profilePic,
+            userName: this.props.firstName,
+            userEmail: this.props.email,
         }
         console.log( this.props);
+    }
+    handleSaveUserDetails(event) {
+        event.preventDefault();
+        //call function to save data to db
+        this.props.changeToBody();
+        this.props.refactor_user({
+            name: this.state.userName,
+            email: this.state.userEmail,
+            profPic: this.state.image,
+        })
+    }
+
+    handleNameChange(e){
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            console.log("saving name data");
+            let tag =  document.getElementById("accountName");
+            tag.setAttribute("contenteditable", false);
+            var name = tag.innerText;
+            this.setState({
+                userName: name,
+            })
+        }
+
+    }
+
+    handleEmailChange(e){
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            console.log("saving email data");
+            let tag =  document.getElementById("accountEmail");
+            tag.setAttribute("contenteditable", false);
+            var email = tag.innerText;
+            this.setState({
+                userEmail: email,
+            })
+        }
+    }
+
+    onClickName(e){
+        e.preventDefault();
+        let tag =  document.getElementById("accountName");
+        tag.setAttribute("contenteditable", true);
+    }
+
+    onClickEmail(e){
+        e.preventDefault();
+        let tag =  document.getElementById("accountEmail");
+        tag.setAttribute("contenteditable", true);
     }
 
     render() {
         let $ProfileImage = null;
-        
+
 		if(this.state.image == '0' || this.props.profilePic == undefined)
 		{
-			$ProfileImage = (<div class="profile-pic"><img src={Profile_Pic} ></img></div>);
+			$ProfileImage = (<div className="profile-pic"><img src={Profile_Pic} height="100%"></img></div>);
 		} else {
-			$ProfileImage = (<div class="profile-pic-selected"><img src={this.props.profilePic} class="profPic" ></img></div>);
+			$ProfileImage = (<div className="profile-pic-selected"><img src={this.props.profilePic} height="100%"className="profilePicture" ></img></div>);
 		}
 
         return (
-            <div class="settings">
-                <div class="header headSpace">
+            <div className="settings">
+                <div className="header headSpace">
                     <Header />
                 </div>
-                <div class="settings-wrapper">
-                    <div class="settings-content">
-                            <div class="profile-pic-container">
-                                {$ProfileImage}                               
+
+                <div className="settingsWrapper">
+                    <div className="settingsContent">
+                        <div className="profile-pic-container">
+                            {$ProfileImage}
+                        </div>
+                        <div className="userDetails">
+                            <div className="userName">
+                                <h1 id	="accountName"
+                                    contentEditable="false"
+                                    onKeyPress={(e) => this.handleNameChange(e)}
+                                    onClick={(e) => this.onClickName(e)}
+                                >
+                                        {this.state.userName}
+                                </h1>
                             </div>
-                            <div className="user-details">
-                                <div className="user-name">
-                                    <h1 id="accountName">James Jones</h1>
-                                </div>
-                                <div className="user-email">
-                                    <h3 id="accountEmail">james.jones@gmail.com 
-                                        <h3 id="editPencil" onClick={
-                                            () => this.props.openForm()}>
-                                            <FontAwesome name='pencil'/>
-                                        </h3>
-                                    </h3>
-                                </div>		
-                                
+
+                            <div className="userEmail">
+                                <h3 id="accountEmail"
+                                    contentEditable="false"
+                                    onKeyPress={(e) => this.handleEmailChange(e)}
+                                    onClick={(e) => this.onClickEmail(e)}
+                                    >
+                                    {this.state.userEmail}
+                                </h3>
                             </div>
-                            <div className="controls" onClick={
-                                () => this.props.changeToBody()
-                            }
-                            ><button id="buttonDone">DONE</button>
+                            <div className="controls" onClick={(e) => this.handleSaveUserDetails(e)}>
+                                    <button id="buttonSubmit">DONE</button>
                             </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -66,11 +129,15 @@ class Settings extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-    profilePic: state.chats.profilePic
+    profilePic: state.chats.profilePic,
+    firstName: state.users.firstName,
+    email: state.users.email,
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-    changeToBody: () => push('/body')
+    changeToBody: () => push('/body'),
+    refactor_user,
+    save_Profile_Pic
 }, dispatch)
 
 export default connect(
