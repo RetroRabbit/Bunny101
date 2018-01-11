@@ -20,11 +20,11 @@ class Settings extends React.Component {
         super(props)
         this.state={
             active: false,
-            file: '', 
+            file: '',
             userName: this.props.firstName,
-            userEmail: this.props.email
+            userEmail: this.props.email,
         }
-        console.log( this.props);
+        console.log(this.props);
     }
 
     handleImageChange(e) {
@@ -110,11 +110,11 @@ class Settings extends React.Component {
                         <div className="profile-pic-container">
                             <input id="f02" class="btnProfilePic" type="file" placeholder="+" onChange={(e)=>this.handleImageChange(e)}/>
                             <div id="alignBtn">
-                                <label class="changePic" htmlFor="f02"></label>                                       
+                                <label class="changePic" htmlFor="f02"></label>
                             </div>
                             {$ProfileImage}
                         </div>
-                        
+
                         <div className="userDetails">
                             <div className="userName">
                                 <h1 id	="accountName"

@@ -1,10 +1,11 @@
 export const REGISTER_USER = 'users/registerUser'
 export const LOGIN_USER = 'users/loginUser' //Me
+export const LOGIN_FAIL = 'users/LOGIN_FAIL' //Me
 export const UPDATE_USER_DETAILS = 'users/UPDATE_USER_DETAILS'
 export const UPDATE_USER_DETAILS_REQUESTED = 'users/UPDATE_USER_DETAILS_REQUESTED'
 
 const initialState = {
-    firstName: "Steve Jones",
+    firstName: "Steve Bro",
     firstNameError: "",
     email: "steve@gmail.com",
     emailError: "",
@@ -12,8 +13,8 @@ const initialState = {
     passwordError: "",
 	updateUser: false,
 	saveChanges: false,
+    validLogin: false
 };
-
 
 export default (state = initialState, action) =>{
     switch (action.type)
@@ -29,7 +30,14 @@ export default (state = initialState, action) =>{
             return {
                 ...state,
                 email: action.email,
-                password: action.password
+                password: action.password,
+                validLogin: true,
+                firstName: action.name
+            }
+        case LOGIN_FAIL:
+            return{
+                ...state,
+                validLogin: false
             }
         case UPDATE_USER_DETAILS_REQUESTED:
             return {
@@ -65,14 +73,28 @@ export const addUser = (userDetails) =>{
 export const loginUser = (userData) => {
     console.log("loggin the user");
     console.log(userData);
-
-    return dispatch => {
-      dispatch ({
-          type : LOGIN_USER,
-          email : userData.email,
-          password : userData.password
-    })
+    var validation = require('./data/user').login(userData);
+    //console.log(validation);
+    if(validation.status){
+        console.log("Logging in");
+        return dispatch => {
+            dispatch ({
+                type : LOGIN_USER,
+                email : validation.user.email,
+                password : userData.password,
+                name: validation.user.name,
+            })
+        }
     }
+    else {
+        console.log("incorrect login details");
+        return dispatch => {
+            dispatch ({
+                type : LOGIN_FAIL,
+            })
+        }
+    }
+
 }
 
 export const refactor_user = (userDetails) => {
