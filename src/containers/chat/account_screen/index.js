@@ -21,11 +21,11 @@ const Message = (props) => {
         //console.log("Coming in");
         message = (
             <div className="user-msg">
-                <div class="received-message-box">
-                    <p class="message-text">
+                <div className="received-message-box">
+                    <p className="message-text">
                         {props.message}
                     </p>
-                    <p class="received-time">{props.time}</p>
+                    <p className="received-time">{props.time}</p>
                  </div>
             </div>
         )
@@ -34,11 +34,11 @@ const Message = (props) => {
         //console.log("Going out");
         message = (
             <div className="user-msg">
-                <div class="sent-message-box">
-                    <p class="message-text">
+                <div className="sent-message-box">
+                    <p className="message-text">
                         {props.message}
                     </p>
-                    <p class="sent-time">{props.time}</p>
+                    <p className="sent-time">{props.time}</p>
                 </div>
             </div>
         )
@@ -46,7 +46,7 @@ const Message = (props) => {
     else if(props.type === "image"){
         let $imagePreview = null;
         if (props.message) {
-            $imagePreview = (<div class="sent-message-box"><img src={props.message} id="sentImg" width="236px" height="236px" /><p class="sent-time">{props.time}</p></div>);
+            $imagePreview = (<div className="sent-message-box"><img src={props.message} id="sentImg" width="236px" height="236px" /><p className="sent-time">{props.time}</p></div>);
         } else {
             $imagePreview = (<div className="previewText"></div>);
         }
