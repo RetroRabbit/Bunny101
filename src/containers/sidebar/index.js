@@ -23,7 +23,8 @@ import MessagesContainer from "./messagesContainer"
 import {
     new_Chat,
     get_chat_list,
-    change_chat
+    get_chat_list_done,
+    change_chat,
 } from '../../modules/chats'
 
 let SelectableList = makeSelectable(List);
@@ -145,6 +146,8 @@ class Sidebar extends React.Component{
     constructor(props){
         super(props)
         //console.log(props.chatList)
+        props.get_chat_list(this.props.user)
+        props.get_chat_list_done()
         this.state = {
             newChat: false,
             userChats: props.chatList
@@ -155,7 +158,7 @@ class Sidebar extends React.Component{
         this.props.change_chat(chatID)
     }
     componentWillReceiveProps(nextProps){
-        //console.log(nextProps.chats);
+        console.log(nextProps.chatList);
         this.setState({
             newChat: nextProps.NewChat
         })
@@ -174,13 +177,15 @@ class Sidebar extends React.Component{
 const mapStateToProps = (state) => ({
     numChats: state.chats.numChats,
     NewChat: state.chats.NewChat,
-    chatList: state.chats.chatList
+    chatList: state.chats.chatList,
+    user: state.users.userID,
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({
 	new_Chat,
     get_chat_list,
-    change_chat
+    get_chat_list_done,
+    change_chat,
 }, dispatch)
 
 export default connect(

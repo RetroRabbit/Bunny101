@@ -3,8 +3,11 @@ export const LOGIN_USER = 'users/loginUser' //Me
 export const LOGIN_FAIL = 'users/LOGIN_FAIL' //Me
 export const UPDATE_USER_DETAILS = 'users/UPDATE_USER_DETAILS'
 export const UPDATE_USER_DETAILS_REQUESTED = 'users/UPDATE_USER_DETAILS_REQUESTED'
+export const LOGOUT = 'users/LOGOUT' //Me
 
+export let curr_user = -1;
 const initialState = {
+    userID: curr_user,
     firstName: "Steve Bro",
     firstNameError: "",
     email: "steve@gmail.com",
@@ -29,6 +32,7 @@ export default (state = initialState, action) =>{
         case LOGIN_USER:
             return {
                 ...state,
+                userID: action.id,
                 email: action.email,
                 password: action.password,
                 validLogin: true,
@@ -50,6 +54,15 @@ export default (state = initialState, action) =>{
                 firstName: action.name,
                 email: action.email,
                 updateUser: false,
+            }
+        case LOGOUT:
+            return{
+                ...state,
+                userID: -1,
+                email: "",
+                password: "",
+                validLogin: false,
+                firstName: ""
             }
         default:
             return state;
@@ -77,9 +90,11 @@ export const loginUser = (userData) => {
     //console.log(validation);
     if(validation.status){
         console.log("Logging in");
+        curr_user = validation.user.id;
         return dispatch => {
             dispatch ({
                 type : LOGIN_USER,
+                id: validation.user.id,
                 email : validation.user.email,
                 password : userData.password,
                 name: validation.user.name,
@@ -109,6 +124,16 @@ export const refactor_user = (userDetails) => {
             name: userDetails.name,
             email: userDetails.email,
             profPic: userDetails.profPic,
+        })
+    }
+}
+
+export const logout_user = () => {
+    console.log("Loging out");
+    curr_user = -1
+    return dispatch => {
+        dispatch({
+            type: LOGOUT
         })
     }
 }

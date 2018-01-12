@@ -2,6 +2,7 @@ var userList = [
     {id: 0, name: "Steve Jones", email: "steve@gmail.com", password: "123456"},
     {id: 1, name: "Tim Mandrid", email: "tim.mandrid@gmail.com", password: "123456"},
     {id: 2, name: "John Smith", email: "jsmith@gmail.com", password: "123456"},
+    {id: 3, name: "Pater Parts", email: "pater@gmail.com", password: "123456"},
 ]
 
 module.exports.login = (userDetails) => {
