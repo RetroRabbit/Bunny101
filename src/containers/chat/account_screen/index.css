@@ -89,6 +89,6 @@ img#sentImg{
 	-ms-transform: scale(1.8);
     -webkit-transform: scale(1.8);
     transform: scale(1.8);
-	margin-right: 50px;
-	margin-bottom: 50px;
+	margin-right: 100px;
+	margin-bottom: 100px;
 }
