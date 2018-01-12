@@ -11,6 +11,7 @@ export const Saved_User = 'chats/Save_User'
 export const UNSaved_User = 'chats/UNSaved_User'
 
 export const Profile_Pic = 'chats/Save_Profile_Pic'
+export const Send_Image = 'chats/Image_Send'
 
 //var data = require("./data")
 var curr_chat = -1;
@@ -27,6 +28,7 @@ const initialState = {
     newMessage: false,
     savedUser: false,
     gotChatList: false,
+    newImage: '0'
 }
 
 export default (state = initialState, action) =>{
@@ -73,6 +75,12 @@ export default (state = initialState, action) =>{
                 ...state,
                 chatItem:require('./data/chats')(curr_user,curr_chat),
                 newMessage: action.msg
+            }
+        case Send_Image:
+            return{
+                ...state,
+                chatItem:require('./data/chats')(curr_user,curr_chat),
+                newImage: action.newImage
             }
         case New_Message:
             return{
@@ -189,6 +197,25 @@ export const send_message = (new_msg) => {
         dispatch({
             type: Send_Message,
             msg: new_msg,
+        })
+    }
+}
+
+export const Image_Send = (picFile) => {
+    console.log("Sending Message: " + picFile);
+    var dt = new Date();
+    let newMessage = {
+        type: "image",
+        msg: picFile,
+        time: dt.getHours()+"h"+dt.getMinutes()
+    }
+    var chat = require('./data/chats')(curr_user,curr_chat)
+    chat.push(newMessage)
+    //console.log("chat" ,chat);
+    return dispatch => {
+        dispatch({
+            type: Send_Message,
+            msg: picFile,
         })
     }
 }
