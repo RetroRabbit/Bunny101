@@ -36,7 +36,7 @@ class NewChat extends React.Component{
     _handleSearchUser(e){
         //console.log("Search: " + e.target.value);
         this.props.find_user(e.target.value.toString())
-        this.props.create_new_chat(e.target.value.toString() )
+        //this.props.create_new_chat(e.target.value.toString() )
     }
     _handleCreateChat(userEmail){
         console.log("create new chat!:" + userEmail);

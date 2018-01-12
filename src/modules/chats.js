@@ -1,3 +1,5 @@
+import axios from 'axios'
+
 export const Make_New_Chat_REQUESTED = 'chats/Make_New_Chat_REQUESTED'
 export const Make_New_Chat = 'chats/Make_New_Chat'
 export const Get_Chat_List = 'chats/Get_Chat_List'
@@ -68,7 +70,7 @@ export default (state = initialState, action) =>{
         case Get_Chat:
             return{
                 ...state,
-                chatItem: require('./data/chats')(curr_user,curr_chat)
+                chatItem: action.chat
             }
         case Send_Message:
             return{
@@ -121,7 +123,7 @@ export const create_new_chat = (withUser) => {
     console.log("Creating new chat with user " + withUser);
     var user = require('./data/user').findUserByEmail(withUser);
     console.log(user,user);
-    var newChatList = require('./data/chats').createNewChat(user)
+    //var newChatList = require('./data/chats').createNewChat(user)
     return dispatch => {
         dispatch({
             type: Make_New_Chat,
@@ -131,6 +133,7 @@ export const create_new_chat = (withUser) => {
 
 export const get_chat_list = (userID) => {
     console.log("Retrieving Chats for :" + userID);
+
     curr_user = userID;
     return dispatch =>{
         dispatch({
@@ -150,11 +153,35 @@ export const get_chat_list_done = () => {
 
 export const get_chat = () => {
     console.log("Retriving chat");
+    var newChat = require('./data/chats')(curr_user,curr_chat)
+    axios('http://192.168.0.146:61985/api/Chats/')
+    .then((response) => {
+        console.log("saving massages");
+        //require('./data/chats').saveMessages(response.data)
+        for(var i = 0; i < response.data.length; i++){
+            newChat.push(response.data[i])
+            console.log(response.data[i]);
+        }
+        return dispatch => {
+            dispatch({
+                type: Get_Chat,
+                chat: newChat
+            });
+        }
+    })
     return dispatch => {
         dispatch({
-            type: Get_Chat
+            type: Get_Chat,
+            chat: newChat
         });
     }
+
+    /*return dispatch => {
+        dispatch({
+            type: Get_Chat,
+            chat: newChat
+        });
+    }*/
 }
 
 export const change_chat = (chatID) => {

@@ -1,3 +1,5 @@
+import axios from 'axios'
+
 export const REGISTER_USER = 'users/registerUser'
 export const LOGIN_USER = 'users/loginUser' //Me
 export const LOGIN_FAIL = 'users/LOGIN_FAIL' //Me
@@ -101,6 +103,11 @@ export const loginUser = (userData) => {
     console.log(userData);
     var validation = require('./data/user').login(userData);
     //console.log(validation);
+    axios('http://192.168.0.146:61985/api/Chats/')
+    .then((response) => {
+        console.log("saving massages");
+        require('./data/chats').saveMessages(response.data)
+    })
     if(validation.status){
         console.log("Logging in");
         curr_user = validation.user.id;

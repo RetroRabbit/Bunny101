@@ -23,9 +23,9 @@ const App = () => (
         <Route exact path="/header" component={Header} />
         <Route exact path="/sidebar" component={Sidebar} />
         <Route exact path="/chat" component={Chat} />
-        <Route exact path="/registerProfilePic" component={RegisterProfilePic} /> 
-        <Route exact path="/registerFirstChat" component={RegisterFirstChat} />  
-        <Route exact path="/settings" component={Settings} /> 
+        <Route exact path="/registerProfilePic" component={RegisterProfilePic} />
+        <Route exact path="/registerFirstChat" component={RegisterFirstChat} />
+        <Route exact path="/settings" component={Settings} />
     </div>
     </MuiThemeProvider>
 )

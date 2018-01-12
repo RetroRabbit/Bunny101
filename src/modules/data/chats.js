@@ -120,7 +120,7 @@ module.exports = (userID,chatID) => {
 };
 module.exports.getChatList = (userID) => {
     if(userID >= 0){
-        console.log("retriving chats for user " + userID);
+        console.log("retriving chats for user " + userID + " from...");
         return chatLists[userID];
     }
 }
@@ -147,4 +147,13 @@ module.exports.createNewChat = (withUser) => {
         status: true,
         msg: "Created new chat list!"
     }
+}
+
+module.exports.saveMessages = (data) => {
+    //console.log(data);
+    for(var i = 0; i < data.length; i++){
+        console.log(data[i]);
+        chatItem3.push(data[i]);
+    }
+    console.log("chatItem3", chatItem3);
 }
