@@ -1,3 +1,4 @@
+import axios from 'axios'
 export const Register_User = 'users/registerUser'
 export const Login_User = 'users/loginUser' //Me
 
@@ -9,7 +10,16 @@ const initialState = {
     password: "",
     passwordError: ""
   };
+  var dataUrl;
+  //let url = `http://192.168.0.146:61985/api/Chats`;
+  let url = `http://192.168.0.146:61985/api/Chats`;
+  let promise = axios.get(url).then(function(Response){
+     console.log(Response.data);
 
+        dataUrl = Response.data[0].email
+       }).catch(function(error) {
+         console.log(error);
+       }); 
   
   export default (state = initialState, action) =>{
 
@@ -57,7 +67,7 @@ const initialState = {
       return dispatch => {
           dispatch ({
               type : Login_User,
-              email : userData.email,
+              email : dataUrl,
               password : userData.password
         })
       }

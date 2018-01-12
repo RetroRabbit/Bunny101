@@ -82,8 +82,13 @@ class Login extends React.Component {
                                         />
                                     </div>
                                     <div class="btnContainer">
-                                        <button type="button" onClick={ this.onSubmit} class="btn">LOGIN</button>
+                                        <button type="button" asp-controller="Account" asp-action="Login" onClick={ this.onSubmit} class="btn">LOGIN</button>
                                     </div>
+                                    <ul class="nav navbar-nav navbar-right">
+           
+                                    <li><a asp-controller="Account" asp-action="Login">Login</a></li>
+                                    
+                                </ul>
                                 </MuiThemeProvider>
                             </form>
                         </div>

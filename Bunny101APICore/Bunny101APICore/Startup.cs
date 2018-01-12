@@ -27,11 +27,19 @@ namespace Bunny101APICore
         {
             services.AddMvc();
             services.AddCors();
+            services.AddCors(options =>
+            {
+                options.AddPolicy("AllowSpecificOrigin",
+                    builder => builder.AllowAnyOrigin()
+                     .AllowAnyHeader());
+
+            });
 
             services.AddSingleton(Configuration);
             services.AddScoped<ChatsController>();
 
-            services.AddDbContext<ApplicationDBContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            var connection = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=MessagesDB;Integrated Security=True;Connect Timeout=30;";
+            services.AddDbContext<ApplicationDBContext>(options => options.UseSqlServer(connection));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -41,6 +49,8 @@ namespace Bunny101APICore
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseCors("AllowSpecificOrigin");
 
             app.UseMvc();
         }

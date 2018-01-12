@@ -6,11 +6,15 @@ using System.Threading.Tasks;
 using Bunny101APICore.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Cors;
 
 namespace Bunny101APICore.Controllers
 {
+
+    [EnableCors("AllowSpecificOrigin")]
     [Produces("application/json")]
     [Route("api/Chats")]
+
     public class ChatsController : Controller
     {
         private ApplicationDBContext db;
@@ -52,6 +56,7 @@ namespace Bunny101APICore.Controllers
         [HttpPost]
         public int Add([FromBody]ChatMessage message)
         {
+            message.Time = DateTime.Now.ToShortTimeString();
             db.ChatMessages.Add(message);
 
             db.SaveChanges();
@@ -72,4 +77,3 @@ namespace Bunny101APICore.Controllers
         }
     }
 }
- 
