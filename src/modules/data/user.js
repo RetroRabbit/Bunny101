@@ -38,7 +38,7 @@ module.exports.addUser = (name, email, password) => {
         userID,
     }
 }
-module.exports.findUser = (email) => {
+module.exports.findUsersLike = (email) => {
     //console.log("Searching for: " + email);
     var search_res = []
     var len = userList.length
@@ -49,4 +49,12 @@ module.exports.findUser = (email) => {
         }
     }
     return search_res
+}
+
+module.exports.findUserByEmail = (userEmail) => {
+    for(var i = 0; i < userList.length; i++){
+        if(userList[i].email == userEmail){
+            return userList[i]
+        }
+    }
 }

@@ -6,6 +6,7 @@ import { bindActionCreators } from 'redux'
 import Login from '../login';
 import Register from '../register';
 import Body from '../body';
+import NewChat from './newchat'
 import Avatar from 'material-ui/Avatar';
 import PropTypes from 'prop-types';
 import {List, makeSelectable} from 'material-ui/List';
@@ -21,6 +22,7 @@ import './index.css';
 import MessagesContainer from "./messagesContainer"
 import {
     new_Chat,
+    create_new_chat,
     get_chat_list,
     get_chat_list_done,
     change_chat,
@@ -146,66 +148,6 @@ class ChatBar extends React.Component{
     }
 }
 
-class NewChat extends React.Component{
-    constructor(props){
-        super(props);
-        this.state = {
-            search: []
-        }
-    }
-    _handleSearchUser(e){
-        //console.log("Search: " + e.target.value);
-        this.props.find_user(e.target.value.toString())
-    }
-    _handleCreateChat(){
-        console.log("create new chat!");
-    }
-    componentWillReceiveProps(nextProps){
-        //console.log(nextProps);
-        var list = nextProps.search;
-        var users = []
-
-        if(list){
-            for(var i = 0; i < list.length; i++){
-                var user = (
-                    <div class="search-result" onClick={() => this._handleCreateChat()}>
-                        <h3>{list[i].name}</h3>
-                        <p>{list[i].email}</p>
-                    </div>
-                )
-                users.push(user)
-            }
-        }
-
-        this.setState({
-            search: users
-        })
-    }
-    render(){
-        return(
-            <MuiThemeProvider>
-                <List>
-                <ListItem disabled={true}>
-                    <FloatingActionButton mini={true} style={{ "marginLeft": "85%" }} backgroundColor="Grey" onClick={this.props.new_Chat}>
-                        <NavigationCancel />
-                    </FloatingActionButton>
-                    <br />
-                    <br />
-                    <TextField hintText="Friends Email" errorText="" onChange={this.showFriends} onChange={(e) => this._handleSearchUser(e)}/>
-                    <br />
-                    <br />
-                    <Divider />
-                </ListItem>
-                <div class="search-results">
-                    {this.state.search}
-                </div>
-
-                </List>
-            </MuiThemeProvider>
-        )
-    }
-}
-
 class Sidebar extends React.Component{
     constructor(props){
         super(props)
@@ -249,6 +191,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = dispatch => bindActionCreators({
 	new_Chat,
+    create_new_chat,
     get_chat_list,
     get_chat_list_done,
     change_chat,
