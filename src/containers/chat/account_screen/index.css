@@ -84,3 +84,11 @@ img#sentImg{
     border: 10px solid #007D80;
     box-shadow: 5px 5px 2px #D3D3D3;
 }
+
+#sentImg:hover{
+	-ms-transform: scale(1.8);
+    -webkit-transform: scale(1.8);
+    transform: scale(1.8);
+	margin-right: 50px;
+	margin-bottom: 50px;
+}
