@@ -61,9 +61,9 @@ class Chat extends React.Component{
                 <div className="input-container">
                     {//<button onClick={this.props.displayText} className="add-button"><a className="plus_sign">+</a></button>
                     }
-                    <input id="f02" class="btnProfilePic" type="file" placeholder="+" onChange={(e)=>this.handleImageUpload(e)}/>
+                    <input id="f03" class="btnImageSend" type="file" placeholder="+" onChange={(e)=>this.handleImageUpload(e)}/>
                     <div id="alignMiddleImg">
-                        <label class="plusImg" htmlFor="f02"><p class="ThePlusSignImg">+</p></label>                                       
+                        <label class="plusImg" htmlFor="f03"><p class="ThePlusSignImg">+</p></label>                                       
                     </div>
                     <br/>
                     <div className="input-Space">

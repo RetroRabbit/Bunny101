@@ -95,3 +95,21 @@ label.plusImg {
 	margin-bottom: 0px;
     text-align: center;
 }
+
+.btnImageSend{
+	height: 72px;
+    width: 72px;
+    border-radius: 200px;
+    border-width: 0px;
+    background-color: #D8D8D8;
+    font-size: 56px;
+    color: #979797;
+    text-align: center;
+    cursor: pointer;
+}
+
+[type=file].btnImageSend{
+    position: absolute;
+    filter: alpha(opacity=0);
+    opacity: 0;
+}
