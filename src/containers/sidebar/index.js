@@ -12,7 +12,6 @@ import {List, makeSelectable} from 'material-ui/List';
 import TextField from 'material-ui/TextField';
 import ListItem from 'material-ui/List/ListItem';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import SearchBar from 'material-ui-search-bar';
 import FloatingActionButton from 'material-ui/FloatingActionButton';
 import NavigationCancel from 'material-ui/svg-icons/navigation/cancel';
 import Chip from 'material-ui/Chip';
@@ -27,7 +26,7 @@ import {
     change_chat,
 } from '../../modules/chats'
 
-let SelectableList = makeSelectable(List);
+var SelectableList = makeSelectable(List);
 
 function wrapState(ComposedComponent) {
     return class SelectableList extends React.Component {
@@ -67,15 +66,18 @@ class ChatBar extends React.Component{
         super(props)
         this.state = {
             chats: [],
+            search: ''
         }
         this._handleChatChange = this._handleChatChange.bind(this)
     }
     _handleChatChange(chatID){
         this.props.changeChat(chatID)
     }
-
+    _handleSearchChange(event) {
+        this.state.search = event.target.value.substr(0, 20);
+        this.updateSidebar();
+    }
     componentWillMount(props){
-        console.log("Mounting side bar")
         //console.log(this.props.chatList);
         var chatItems = this.props.chatList;
         var msgs = [];
@@ -100,13 +102,36 @@ class ChatBar extends React.Component{
             chats: msgs
         })
     }
+    updateSidebar(){
+        var chatItems = this.props.chatList.filter((chats) => {
+             return chats.name.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1;
+        });
 
+        var msgs = [];
+
+        for(var item in chatItems){
+            msgs.push(
+                <ListItem value = {item}>
+                    <Chip className="person">
+                        <Avatar className="lower" src={Avi} />
+                        <p class="name"> {chatItems[item].name}</p>
+                    </Chip>
+                    <p class="status">
+                        {chatItems[item].msgPreve}
+                    </p>
+                    <Divider />
+                </ListItem>
+            )
+        }
+
+        this.setState( {chats : msgs});
+    }
     render(){
         return (
             <MuiThemeProvider>
                 <SelectableList defaultValue={0} changeChat={this._handleChatChange}>
                     <ListItem disabled={true}>
-                        <SearchBar hintText="Search Chats" />
+                        <TextField className="searchbar" hintText="Search Chats" value={this.state.search} onChange={this._handleSearchChange.bind(this)} />
                     </ListItem>
                     <Divider />
                         {/*sideBarMessage*/}
@@ -125,12 +150,12 @@ class NewChat extends React.Component{
             <MuiThemeProvider>
                 <List>
                 <ListItem disabled={true}>
-                    <FloatingActionButton mini={true} style={{marginLeft: 335}} backgroundColor="Grey" onClick={this.props.new_Chat}>
+                    <FloatingActionButton mini={true} style={{ "marginLeft": "85%" }} backgroundColor="Grey" onClick={this.props.new_Chat}>
                         <NavigationCancel />
                     </FloatingActionButton>
                     <br />
                     <br />
-                    <TextField hintText="Friends Email" style={{marginLeft: 55}} errorText="" onChange={this.showFriends}/>
+                    <TextField hintText="Friends Email" style={{ "marginLeft": "15%" }} errorText="" onChange={this.showFriends} />
                     <br />
                     <br />
                     <Divider />
@@ -167,7 +192,7 @@ class Sidebar extends React.Component{
         return(
             <div>
                 {!this.state.newChat && <ChatBar chatList={this.state.userChats} changeChat={this._handleChatChange}/>}
-                {this.state.newChat && <NewChat />}
+                {this.state.newChat && <NewChat  newchat={this.props.new_Chat}/>}
             </div>
         )
     }
