@@ -222,7 +222,7 @@ class Sidebar extends React.Component{
         this.props.change_chat(chatID)
     }
     componentWillReceiveProps(nextProps){
-        console.log("chat list",nextProps.chatList);
+        //console.log("chat list",nextProps.chatList);
         this.setState({
             newChat: nextProps.NewChat
         })
