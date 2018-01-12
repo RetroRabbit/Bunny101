@@ -1,6 +1,10 @@
 .body{
     background-color: white;
 }
+.message-container{
+    height: 100;
+    display: table;
+}
 .message-text{
     color: #FFFFFF;
     font-family: "Helvetica";
@@ -10,6 +14,18 @@
     padding: 20px;
     max-width: 60%;
     display: block;
+}
+.no-chats{
+    color: gray;
+    display: table-cell;
+    vertical-align: middle;
+}
+.no-chats h1{
+    text-align: center;
+}
+.no-chats h2{
+    font-weight: lighter;
+    text-align: center;
 }
 .received-message-box{
     height: auto;

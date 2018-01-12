@@ -1,6 +1,23 @@
 .searchbar {
     margin-left: 10%;
 }
+.search-results{
+	max-height: 95%;
+	overflow-y: auto;
+}
+.search-result{
+	padding: 10px;	
+}
+.search-result:hover{
+	background-color: #01b9bd;
+}
+.search-result h3{
+	margin-bottom: 0;
+}
+.search-result p{
+	margin-top: 5px;
+	padding-left: 5px;
+}
 .SidebarParent{
 	overflow-y: auto;
 	width: 100%;
@@ -14,7 +31,7 @@
 	font-family: "Roboto";
 	font-size: 17px;
 	line-height: 22px;
-	overflow: hidden; 
+	overflow: hidden;
 }
 
 .person {

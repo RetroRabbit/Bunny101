@@ -28,14 +28,14 @@ class FirstChat extends React.Component {
     render() {
         return (
             <div class="registerForms">
-                <Form onChange={fields => this.onChange(fields)} />    
+                <Form onChange={fields => this.onChange(fields)} />
             </div>
         );
     }
 }
 
 const mapStateToProps = state => ({
-    
+
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({
