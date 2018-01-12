@@ -34,6 +34,8 @@ namespace Bunny101APICore.Controllers
         [HttpGet("{id:int}")]
         public ChatMessage Get(int id)
         {
+
+            int testVariable = 0;
             var chatMessage = db.ChatMessages.Find(id);
 
             return chatMessage;
@@ -60,19 +62,6 @@ namespace Bunny101APICore.Controllers
 
             return conversation;
         }
-
-        //[HttpGet("{id}")]
-        //[Route("GetRecentMessage")]
-        //public List<ChatMessage> Get(string id)
-        //{
-        //    //get conversation between two users 
-        //    List<ChatMessage> conversation = new List<ChatMessage>();
-
-        //    conversation = db.ChatMessages.Where(e => (e.RecieverEmail == r && e.SenderEmail == s) || (e.RecieverEmail == s && e.SenderEmail == r)).ToList();
-
-        //    return conversation;
-        //}
-
     }
 }
  
