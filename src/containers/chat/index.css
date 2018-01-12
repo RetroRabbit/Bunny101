@@ -64,3 +64,34 @@
 	height: 10px;
 	cursor: pointer;
 }
+#alignMiddleImg{
+    width: 56px;
+    height: 54px;
+}
+
+label.plusImg {
+    display: inline-block;
+    font-size: 50px; 
+    font-weight: 100;
+    
+    position: absolute;
+    margin-top: 98px;
+    margin-left: 6.5%;
+    text-align: center;
+    width: 54px;
+    height: 54px;   
+    background-color: #D8D8D8; 
+    color: #979797;
+    cursor: pointer;
+    border-radius: 100%;
+    margin: auto;
+}
+
+.ThePlusSignImg{
+    color: #979797;
+    font-size: 50px; 
+    font-weight: 100;
+	margin-top: 0px;
+	margin-bottom: 0px;
+    text-align: center;
+}

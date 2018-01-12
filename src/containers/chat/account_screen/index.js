@@ -43,6 +43,19 @@ const Message = (props) => {
             </div>
         )
     }
+    else if(props.type === "image"){
+        let $imagePreview = null;
+        if (props.message) {
+            $imagePreview = (<div class="sent-message-box"><img src={props.message} id="sentImg" width="236px" height="236px" /><p class="sent-time">{props.time}</p></div>);         
+        } else {
+            $imagePreview = (<div className="previewText"></div>);
+        }
+        message = (
+            <div className="user-msg">
+                {$imagePreview}
+            </div>
+        )
+    }
     return( message )
 }
 
@@ -91,7 +104,8 @@ class Account_Screen extends React.Component {
 const mapStateToProps = (state) => ({
     newMessage: state.chats.newMessage,
     chatItem: state.chats.chatItem,
-    activeChat: state.chats.activeChat
+    activeChat: state.chats.activeChat,
+    imageUrl: state.chats.imageUrl
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({
