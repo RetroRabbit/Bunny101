@@ -53,7 +53,7 @@ class Chat extends React.Component{
         return(
             <div className="chat-container">
 
-                <div id="Chat_Messages" className="message-container">
+                <div id="Chat_Messages" className="message-container1">
                     <Account_Screen newMessage={this.state.newMessage} />
                     
                 </div>
