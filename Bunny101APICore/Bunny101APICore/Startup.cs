@@ -31,8 +31,7 @@ namespace Bunny101APICore
             services.AddSingleton(Configuration);
             services.AddScoped<ChatsController>();
 
-            var connection = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=MessagesDB;Integrated Security=True;Connect Timeout=30;";
-            services.AddDbContext<ApplicationDBContext>(options => options.UseSqlServer(connection));
+            services.AddDbContext<ApplicationDBContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
