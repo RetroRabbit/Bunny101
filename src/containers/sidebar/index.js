@@ -12,7 +12,6 @@ import {List, makeSelectable} from 'material-ui/List';
 import TextField from 'material-ui/TextField';
 import ListItem from 'material-ui/List/ListItem';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import SearchBar from 'material-ui-search-bar';
 import FloatingActionButton from 'material-ui/FloatingActionButton';
 import NavigationCancel from 'material-ui/svg-icons/navigation/cancel';
 import Chip from 'material-ui/Chip';
@@ -74,7 +73,7 @@ class ChatBar extends React.Component{
         this.props.changeChat(chatID)
     }
     _handleSearchChange(event) {
-        this.setState({ search: event.target.value.substr(0, 20) });
+        this.state.search = event.target.value.substr(0, 20);
         this.updateSidebar();
     }
     componentWillMount(props){
@@ -102,8 +101,7 @@ class ChatBar extends React.Component{
             chats: msgs
         })
     }
-    updateSidebar()
-    {
+    updateSidebar(){
         var chatItems = this.props.chatList.filter((chats) => {
              return chats.name.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1;
         });
@@ -126,22 +124,6 @@ class ChatBar extends React.Component{
         }
 
         this.setState( {chats : msgs});
-    }
-    componentDidUpdate()
-    {
-        return (
-            <MuiThemeProvider>
-                <SelectableList defaultValue={0} changeChat={this._handleChatChange}>
-                    <ListItem disabled={true}>
-                        <TextField className="searchbar" hintText="Search Chats" value={this.state.search} onChange={this._handleSearchChange.bind(this)} />
-                    </ListItem>
-                    <Divider />
-                        {/*sideBarMessage*/}
-                        {this.state.chats}
-                    <Divider />
-                </SelectableList>
-            </MuiThemeProvider>
-        );
     }
     render(){
         return (
