@@ -124,3 +124,27 @@ module.exports.getChatList = (userID) => {
         return chatLists[userID];
     }
 }
+
+module.exports.createNewChat = (withUser) => {
+    var chatListItem = {
+        name: withUser.name,
+        msgPreve: "",
+    }
+
+    if(withUser.id < chatLists.length){ //user alreadt has chat list => append new chat item
+        chatLists[withUser.id].push(chatListItem);
+        return {
+            status: true,
+            msg: "Appended to chat list " + withUser.id,
+        }
+    }
+
+    var chatList = []
+    chatLists.push(chatList)
+    chatLists[withUser.id].push(chatListItem);
+
+    return {
+        status: true,
+        msg: "Created new chat list!"
+    }
+}

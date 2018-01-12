@@ -46,7 +46,7 @@ const Message = (props) => {
     else if(props.type === "image"){
         let $imagePreview = null;
         if (props.message) {
-            $imagePreview = (<div class="sent-message-box"><img src={props.message} id="sentImg" width="236px" height="236px" /><p class="sent-time">{props.time}</p></div>);         
+            $imagePreview = (<div class="sent-message-box"><img src={props.message} id="sentImg" width="236px" height="236px" /><p class="sent-time">{props.time}</p></div>);
         } else {
             $imagePreview = (<div className="previewText"></div>);
         }
@@ -82,7 +82,7 @@ class Account_Screen extends React.Component {
         //console.log(msgList);
         let msg;
         let msgComponents = []
-        if(!msgList) {
+        if(!this.props.chatList) {
             msgComponents.push(<NoChats />)
         }
         else{
@@ -109,6 +109,7 @@ class Account_Screen extends React.Component {
 const mapStateToProps = (state) => ({
     newMessage: state.chats.newMessage,
     chatItem: state.chats.chatItem,
+    chatList: state.chats.chatList,
     activeChat: state.chats.activeChat,
     imageUrl: state.chats.imageUrl
 })

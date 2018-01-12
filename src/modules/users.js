@@ -142,7 +142,7 @@ export const refactor_user = (userDetails) => {
 }
 export const find_user = (email) => {
     console.log("Searching for: " + email);
-    var res = require("./data/user").findUser(email)
+    var res = require("./data/user").findUsersLike(email)
     //console.log(res);
     return dispatch => {
         dispatch({

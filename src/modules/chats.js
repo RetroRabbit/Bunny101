@@ -36,13 +36,13 @@ export default (state = initialState, action) =>{
         case Make_New_Chat_REQUESTED:
             return{
                 ...state,
-                NewChat: !state.NewChat
+                NewChat: !state.NewChat,
             }
         case Make_New_Chat:
             return{
                 ...state,
                 numChats: state.numChats +1,
-                NewChat: !state.NewChat
+                NewChat: false,
             }
         case Get_Chat_List:
             return{
@@ -108,12 +108,24 @@ export default (state = initialState, action) =>{
 }
 
 export const new_Chat = () => {
-    console.log("Creating new chat.");
+    console.log("New Chat.");
     return dispatch => {
         dispatch({
             type: Make_New_Chat_REQUESTED
         })
 
+    }
+}
+
+export const create_new_chat = (withUser) => {
+    console.log("Creating new chat with user " + withUser);
+    var user = require('./data/user').findUserByEmail(withUser);
+    console.log(user,user);
+    var newChatList = require('./data/chats').createNewChat(user)
+    return dispatch => {
+        dispatch({
+            type: Make_New_Chat,
+        })
     }
 }
 
