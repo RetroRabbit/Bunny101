@@ -189,7 +189,7 @@ class Sidebar extends React.Component{
         return(
             <div>
                 {!this.state.newChat && <ChatBar chatList={this.state.userChats} changeChat={this._handleChatChange}/>}
-                {this.state.newChat && <NewChat />}
+                {this.state.newChat && <NewChat  newchat={this.props.new_Chat}/>}
             </div>
         )
     }
