@@ -3,6 +3,7 @@ export const LOGIN_USER = 'users/loginUser' //Me
 export const LOGIN_FAIL = 'users/LOGIN_FAIL' //Me
 export const UPDATE_USER_DETAILS = 'users/UPDATE_USER_DETAILS'
 export const UPDATE_USER_DETAILS_REQUESTED = 'users/UPDATE_USER_DETAILS_REQUESTED'
+export const FIND_USER = 'user/FIND_USER'
 export const LOGOUT = 'users/LOGOUT' //Me
 
 export let curr_user = -1;
@@ -16,7 +17,8 @@ const initialState = {
     passwordError: "",
 	updateUser: false,
 	saveChanges: false,
-    validLogin: false
+    validLogin: false,
+    search_res: [],
 };
 
 export default (state = initialState, action) =>{
@@ -55,6 +57,11 @@ export default (state = initialState, action) =>{
                 firstName: action.name,
                 email: action.email,
                 updateUser: false,
+            }
+        case FIND_USER:
+            return{
+                ...state,
+                search_res: action.search_res
             }
         case LOGOUT:
             return{
@@ -133,7 +140,17 @@ export const refactor_user = (userDetails) => {
         })
     }
 }
-
+export const find_user = (email) => {
+    console.log("Searching for: " + email);
+    var res = require("./data/user").findUser(email)
+    //console.log(res);
+    return dispatch => {
+        dispatch({
+            type: FIND_USER,
+            search_res: res,
+        })
+    }
+}
 export const logout_user = () => {
     console.log("Loging out");
     curr_user = -1

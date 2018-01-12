@@ -38,3 +38,15 @@ module.exports.addUser = (name, email, password) => {
         userID,
     }
 }
+module.exports.findUser = (email) => {
+    //console.log("Searching for: " + email);
+    var search_res = []
+    var len = userList.length
+    for(var i = 0; i < len; i++){
+        //console.log(i + ". " +userList[i].email.includes(email));
+        if(userList[i].email.includes(email)){
+            search_res.push(userList[i])
+        }
+    }
+    return search_res
+}

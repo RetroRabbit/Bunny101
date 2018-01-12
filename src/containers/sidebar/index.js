@@ -26,6 +26,9 @@ import {
     get_chat_list_done,
     change_chat,
 } from '../../modules/chats'
+import {
+    find_user
+} from '../../modules/users'
 
 let SelectableList = makeSelectable(List);
 
@@ -119,7 +122,40 @@ class ChatBar extends React.Component{
 }
 
 class NewChat extends React.Component{
+    constructor(props){
+        super(props);
+        this.state = {
+            search: []
+        }
+    }
+    _handleSearchUser(e){
+        //console.log("Search: " + e.target.value);
+        this.props.find_user(e.target.value.toString())
+    }
+    _handleCreateChat(){
+        console.log("create new chat!");
+    }
+    componentWillReceiveProps(nextProps){
+        //console.log(nextProps);
+        var list = nextProps.search;
+        var users = []
 
+        if(list){
+            for(var i = 0; i < list.length; i++){
+                var user = (
+                    <div class="search-result" onClick={() => this._handleCreateChat()}>
+                        <h3>{list[i].name}</h3>
+                        <p>{list[i].email}</p>
+                    </div>
+                )
+                users.push(user)
+            }
+        }
+
+        this.setState({
+            search: users
+        })
+    }
     render(){
         return(
             <MuiThemeProvider>
@@ -130,11 +166,14 @@ class NewChat extends React.Component{
                     </FloatingActionButton>
                     <br />
                     <br />
-                    <TextField hintText="Friends Email" style={{marginLeft: 55}} errorText="" onChange={this.showFriends}/>
+                    <TextField hintText="Friends Email" errorText="" onChange={this.showFriends} onChange={(e) => this._handleSearchUser(e)}/>
                     <br />
                     <br />
                     <Divider />
                 </ListItem>
+                <div class="search-results">
+                    {this.state.search}
+                </div>
 
                 </List>
             </MuiThemeProvider>
@@ -158,7 +197,7 @@ class Sidebar extends React.Component{
         this.props.change_chat(chatID)
     }
     componentWillReceiveProps(nextProps){
-        console.log(nextProps.chatList);
+        console.log("chat list",nextProps.chatList);
         this.setState({
             newChat: nextProps.NewChat
         })
@@ -167,7 +206,7 @@ class Sidebar extends React.Component{
         return(
             <div>
                 {!this.state.newChat && <ChatBar chatList={this.state.userChats} changeChat={this._handleChatChange}/>}
-                {this.state.newChat && <NewChat />}
+                {this.state.newChat && <NewChat find_user={this.props.find_user} search={this.props.search_res}/>}
             </div>
         )
     }
@@ -179,6 +218,7 @@ const mapStateToProps = (state) => ({
     NewChat: state.chats.NewChat,
     chatList: state.chats.chatList,
     user: state.users.userID,
+    search_res: state.users.search_res,
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({
@@ -186,6 +226,7 @@ const mapDispatchToProps = dispatch => bindActionCreators({
     get_chat_list,
     get_chat_list_done,
     change_chat,
+    find_user,
 }, dispatch)
 
 export default connect(
