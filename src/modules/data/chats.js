@@ -114,9 +114,13 @@ const chatLists = [
 /****************************************************/
 
 module.exports = (userID,chatID) => {
-    return all_chats[userID][chatID]
+    if(userID >= 0 || chatID >= 0){
+        return all_chats[userID][chatID]
+    }
 };
 module.exports.getChatList = (userID) => {
-    console.log("retriving chats for user " + userID);
-    return chatLists[userID];
+    if(userID >= 0){
+        console.log("retriving chats for user " + userID);
+        return chatLists[userID];
+    }
 }

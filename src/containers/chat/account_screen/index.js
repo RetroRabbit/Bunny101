@@ -8,9 +8,9 @@ import {
 
 const NoChats = props => {
     return(
-        <div>
-            <h2>Not a chatty cathy yet?</h2>
-            <p>Chatter away on the left</p>
+        <div className="no-chats">
+            <h1>Not a chatty cathy yet?</h1>
+            <h2>Chatter away on the left</h2>
         </div>
     )
 }
@@ -69,9 +69,14 @@ class Account_Screen extends React.Component {
         //console.log(msgList);
         let msg;
         let msgComponents = []
-        for(msg in msgList){
-            //console.log(msgList[msg]);
-            msgComponents.push(<Message message={msgList[msg].msg} time={msgList[msg].time} type={msgList[msg].type} />)
+        if(!msgList) {
+            msgComponents.push(<NoChats />)
+        }
+        else{
+            for(msg in msgList){
+                //console.log(msgList[msg]);
+                msgComponents.push(<Message message={msgList[msg].msg} time={msgList[msg].time} type={msgList[msg].type} />)
+            }
         }
         this.setState({
             messages: msgComponents
@@ -79,7 +84,7 @@ class Account_Screen extends React.Component {
     }
     render(){
         return(
-            <div>
+            <div class="message-container">
                 {this.state.messages}
             </div>
         )

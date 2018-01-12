@@ -23,9 +23,8 @@ const styles = {
         email: "",
         emailError: ""
     };
-      
-    constructor(props)
-    {  
+
+    constructor(props){  
         super(props);
     }
 
@@ -46,7 +45,7 @@ const styles = {
         {
             isError = false;
         }
-        
+
         if(!isError)
         {
             this.props.changeToBody();
@@ -77,28 +76,28 @@ const styles = {
     render() {
         return (
             <div class="heading1">
-                <p class="stepThree">Step Three</p>  
-                <p class="firstChat">YOUR FIRST CHAT</p>     
-                <div class="theForm1">                       
+                <p class="stepThree">Step Three</p>
+                <p class="firstChat">YOUR FIRST CHAT</p>
+                <div class="theForm1">
                     <form onSubmit={e => this.onSubmit(e)}>
                         <MuiThemeProvider>
                             <div class="friendEmailContainer">
                                 <TextField name="email" floatingLabelStyle={styles.floatingLabelStyle} hintText="janedoe@example.com" floatingLabelText="Friends Email" class="friendEmail" fullWidth="true" onChange={e => this.change(e)} errorText={this.state.emailError} /><br /><br />
                             </div>
                             <div class="skipForNowContainer">
-                                <button type="submit" class="btnNextStep">NEXT STEP</button> 
+                                <button type="submit" class="btnNextStep">NEXT STEP</button>
                                 <p onClick={this.props.changeToBody} class="skipForNow">Skip for now</p>
                             </div>
                         </MuiThemeProvider>
-                    </form> 
-                </div>           
+                    </form>
+                </div>
             </div>
         );
     }
 }
 
 const mapStateToProps = state => ({
-    
+
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({

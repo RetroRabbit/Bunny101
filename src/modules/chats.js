@@ -13,8 +13,8 @@ export const UNSaved_User = 'chats/UNSaved_User'
 export const Profile_Pic = 'chats/Save_Profile_Pic'
 
 //var data = require("./data")
-var curr_chat = 0;
-var curr_user = 0;
+var curr_chat = -1;
+var curr_user = -1;
 //var chat = require('./data/chats')(curr_chat)
 
 const initialState = {

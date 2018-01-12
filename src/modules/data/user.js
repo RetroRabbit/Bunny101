@@ -24,3 +24,17 @@ module.exports.login = (userDetails) => {
     }
     return default_Result;
 }
+module.exports.addUser = (name, email, password) => {
+    var userID = userList.length;
+    var newUser = {
+        id: userID,
+        name,
+        email,
+        password
+    }
+    userList.push(newUser)
+    return {
+        status: true,
+        userID,
+    }
+}

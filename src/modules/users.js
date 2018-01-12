@@ -25,6 +25,7 @@ export default (state = initialState, action) =>{
         case REGISTER_USER:
             return {
                 ...state,
+                userID: action.id,
                 firstName : action.firstName,
                 email : action.email,
                 password : action.password,
@@ -72,10 +73,15 @@ export default (state = initialState, action) =>{
 export const addUser = (userDetails) =>{
     console.log("Adding a new user");
     //console.log(userDetails);
-
+    var res = require('./data/user').addUser(
+        userDetails.firstName,
+        userDetails.email,
+        userDetails.password,
+    );
     return dispatch => {
       dispatch({
           type:REGISTER_USER,
+          id: res.userID,
           firstName : userDetails.firstName,
           email : userDetails.email,
           password : userDetails.password
