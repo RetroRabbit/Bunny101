@@ -26,7 +26,7 @@ import {
     change_chat
 } from '../../modules/chats'
 
-let SelectableList = makeSelectable(List);
+var SelectableList = makeSelectable(List);
 
 function wrapState(ComposedComponent) {
     return class SelectableList extends React.Component {
@@ -75,13 +75,11 @@ class ChatBar extends React.Component{
     }
     _handleSearchChange(event) {
         this.setState({ search: event.target.value.substr(0, 20) });
-        this.componentWillMount(this.props);
+        this.updateSidebar();
     }
     componentWillMount(props){
-        console.log("Mounting side bar")
         //console.log(this.props.chatList);
-        let filteredChats = this.props.chatList.filter((chats) => { return chats.name.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1; });
-        var chatItems = filteredChats;
+        var chatItems = this.props.chatList;
         var msgs = [];
 
         for(var item in chatItems){
@@ -104,13 +102,53 @@ class ChatBar extends React.Component{
             chats: msgs
         })
     }
+    updateSidebar()
+    {
+        var chatItems = this.props.chatList.filter((chats) => {
+             return chats.name.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1;
+        });
 
+        var msgs = [];
+
+        for(var item in chatItems){
+            msgs.push(
+                <ListItem value = {item}>
+                    <Chip className="person">
+                        <Avatar className="lower" src={Avi} />
+                        <p class="name"> {chatItems[item].name}</p>
+                    </Chip>
+                    <p class="status">
+                        {chatItems[item].msgPreve}
+                    </p>
+                    <Divider />
+                </ListItem>
+            )
+        }
+
+        this.setState( {chats : msgs});
+    }
+    componentDidUpdate()
+    {
+        return (
+            <MuiThemeProvider>
+                <SelectableList defaultValue={0} changeChat={this._handleChatChange}>
+                    <ListItem disabled={true}>
+                        <TextField className="searchbar" hintText="Search Chats" value={this.state.search} onChange={this._handleSearchChange.bind(this)} />
+                    </ListItem>
+                    <Divider />
+                        {/*sideBarMessage*/}
+                        {this.state.chats}
+                    <Divider />
+                </SelectableList>
+            </MuiThemeProvider>
+        );
+    }
     render(){
         return (
             <MuiThemeProvider>
                 <SelectableList defaultValue={0} changeChat={this._handleChatChange}>
                     <ListItem disabled={true}>
-                        <TextField className="searchbar" hintText="Search Chats" value={this.setState.search} onChange={this._handleSearchChange.bind(this)} />
+                        <TextField className="searchbar" hintText="Search Chats" value={this.state.search} onChange={this._handleSearchChange.bind(this)} />
                     </ListItem>
                     <Divider />
                         {/*sideBarMessage*/}
