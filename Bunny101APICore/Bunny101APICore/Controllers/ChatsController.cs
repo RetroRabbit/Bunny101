@@ -31,6 +31,16 @@ namespace Bunny101APICore.Controllers
             return chats;
         }
 
+        //Currently working on this method
+        [Route("GetAllConversations")]
+        public IEnumerable<ChatMessage> Get(string email)
+        {
+            //Group Messages to conversations
+            var chats = db.ChatMessages.ToList();
+
+            return chats;
+        }
+
         [HttpGet("{id:int}")]
         public ChatMessage Get(int id)
         {
@@ -51,12 +61,12 @@ namespace Bunny101APICore.Controllers
 
         [HttpGet("{id}")]
         [Route("GetConversation")]
-        public List<ChatMessage> Get(string r, string s)
+        public List<ChatMessage> Get(string receiverEmail, string senderEmail)
         {
             //get conversation between two users 
             List<ChatMessage> conversation = new List<ChatMessage>();
 
-            conversation = db.ChatMessages.Where(e => (e.RecieverEmail == r && e.SenderEmail == s) || (e.RecieverEmail == s && e.SenderEmail == r)).ToList();
+            conversation = db.ChatMessages.Where(e => (e.RecieverEmail == receiverEmail && e.SenderEmail == senderEmail) || (e.RecieverEmail == senderEmail && e.SenderEmail == receiverEmail)).ToList();
 
             return conversation;
         }
