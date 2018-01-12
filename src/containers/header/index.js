@@ -8,8 +8,11 @@ import Register from '../register'
 import Body from '../body'
 import imageProfile from './user.png'
 import {
-    new_Chat
+    new_Chat,
 } from '../../modules/chats'
+import {
+    logout_user,
+} from '../../modules/users'
 import imageAbout from './Icon.png'
 import FaSearch from 'react-icons/lib/fa/search';
 
@@ -25,7 +28,10 @@ class HelloMessage extends React.Component {
             name: this.props.name,
 		}
     }
-
+    _handleLogOut(){
+        this.props.logout_user();
+        this.props.changeToLogin()
+    }
     render() {
 		let $ProfileImage = null;
 		if(this.state.image == 0)
@@ -55,7 +61,7 @@ class HelloMessage extends React.Component {
         				</button>
         				<div className="dropDownContent">
         					<a href="#" onClick={this.props.changeToSettings}>Settings</a>
-        					<a href="#" onClick={this.props.changeToLogin}>Logout</a>
+        					<a href="#" onClick={() => this._handleLogOut()}>Logout</a>
         				</div>
         			</div>
         			<div className="buttonCircular">
@@ -78,6 +84,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = dispatch => bindActionCreators({
 	new_Chat,
+    logout_user,
 	changeToSettings: () => push('/settings'),
 	changeToLogin: () => push('/login')
 }, dispatch)

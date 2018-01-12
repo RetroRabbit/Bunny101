@@ -18,9 +18,6 @@ class Chat extends React.Component{
         this.state = {
             newMessage: this.props.newMessage
         }
-        this.props.send_message("Beefy beef");
-        /*var msgContainer = document.getElementById("Chat_Messages");
-        msgContainer.scrollTop = msgContainer.scrollHeight;*/
     }
     _handleSendMessage(e){
         if (e.key === 'Enter') {

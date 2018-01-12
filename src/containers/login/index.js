@@ -11,6 +11,11 @@ import Icon from './FullLogo.png'
 import { orange500, blue500, blue100, fullWhite } from 'material-ui/styles/colors';
 import "./index.css"
 import {loginUser} from "../../modules/users"
+import {
+    save_user_id,
+    get_chat_list,
+    get_chat_list_done
+} from '../../modules/chats'
 
 const styles = {
     floatingLabelStyle: {
@@ -44,6 +49,9 @@ class Login extends React.Component {
             this.props.changeToBody();
         }*/
         if(this.props.validLogin === true){
+            save_user_id(this.props.id);
+            this.props.get_chat_list(this.props.id)
+            this.props.get_chat_list_done()
             this.props.changeToBody();
         }
 
@@ -57,7 +65,9 @@ class Login extends React.Component {
     handlePassword(event) {
         this.setState({password: event.target.value});
     }
-
+    componentWillReceiveProps(nextProps){
+        console.log(nextProps);
+    }
     render() {
         return (
             <div class="mainComponent">
@@ -112,11 +122,15 @@ class Login extends React.Component {
 const mapStateToProps = state => ({
     email : state.users.email,
     password : state.users.password,
-    validLogin: state.users.validLogin
+    validLogin: state.users.validLogin,
+    id: state.users.userID,
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({
     loginUser,
+    save_user_id,
+    get_chat_list,
+    get_chat_list_done,
     changeToBody: () => push('/body'),
     changeToRegister: () => push('/register')
 }, dispatch)

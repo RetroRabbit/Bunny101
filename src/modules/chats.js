@@ -1,33 +1,32 @@
 export const Make_New_Chat_REQUESTED = 'chats/Make_New_Chat_REQUESTED'
 export const Make_New_Chat = 'chats/Make_New_Chat'
 export const Get_Chat_List = 'chats/Get_Chat_List'
+export const Get_Chat_List_Done = 'chats/Get_Chat_List_Done'
 export const Get_Chat = 'chats/Get_Chat'
 export const Change_Chat = 'chats/Change_Active_Chat'
 export const New_Message = 'chats/New_Message'
 export const New_Message_Rendered = "chats/New_Message_Rendered"
 export const Send_Message = 'chats/Send_Message'
+export const Saved_User = 'chats/Save_User'
+export const UNSaved_User = 'chats/UNSaved_User'
 
 export const Profile_Pic = 'chats/Save_Profile_Pic'
 
-const chatList = [
-    {name: "Steve Jones", msgPreve: "Good day John, I heard from tim that you..."},
-    {name: "John Tina", msgPreve: "I wonder why he did that. I mean I for one..."},
-    {name: "Bunny 102 Member", msgPreve: "The practice of cigar smoking has been on the rise in the U.S. since the early 90’s..."},
-    {name: "Bunny 101 Member", msgPreve: "The was once a little bunny that lived in the montains and he..."}
-]
-
 //var data = require("./data")
 var curr_chat = 0;
+var curr_user = 0;
 //var chat = require('./data/chats')(curr_chat)
 
 const initialState = {
     numChats: 0,
     NewChat: false,
     activeChat: 0,
-    chatList: chatList,
+    chatList: require('./data/chats').getChatList(curr_user),
     profilePic: '0',
-    chatItem: require('./data/chats')(curr_chat),
-    newMessage: false
+    chatItem: require('./data/chats')(curr_user,curr_chat),
+    newMessage: false,
+    savedUser: false,
+    gotChatList: false,
 }
 
 export default (state = initialState, action) =>{
@@ -46,13 +45,18 @@ export default (state = initialState, action) =>{
         case Get_Chat_List:
             return{
                 ...state,
-                chatList: chatList
+                chatList: require('./data/chats').getChatList(curr_user)
+            }
+        case Get_Chat_List_Done:
+            return{
+                ...state,
+                gotChatList: false,
             }
         case Change_Chat:
             return{
                 ...state,
                 activeChat: action.chatID,
-                chatItem: require('./data/chats')(action.chatID)
+                chatItem: require('./data/chats')(curr_user,curr_chat)
             }
         case Profile_Pic:
             return{
@@ -62,12 +66,12 @@ export default (state = initialState, action) =>{
         case Get_Chat:
             return{
                 ...state,
-                chatItem: require('./data/chats')(curr_chat)
+                chatItem: require('./data/chats')(curr_user,curr_chat)
             }
         case Send_Message:
             return{
                 ...state,
-                chatItem:require('./data/chats')(curr_chat),
+                chatItem:require('./data/chats')(curr_user,curr_chat),
                 newMessage: action.msg
             }
         case New_Message:
@@ -79,6 +83,16 @@ export default (state = initialState, action) =>{
             return{
                 ...state,
                 newMessage: false
+            }
+        case Saved_User:
+            return{
+                ...state,
+                savedUser: true
+            }
+        case UNSaved_User:
+            return{
+                ...state,
+                savedUser: false
             }
         default:
             return state
@@ -95,12 +109,21 @@ export const new_Chat = () => {
     }
 }
 
-export const get_chat_list = () => {
-    console.log("Retrieving Chats");
-
+export const get_chat_list = (userID) => {
+    console.log("Retrieving Chats for :" + userID);
+    curr_user = userID;
     return dispatch =>{
         dispatch({
             type: Get_Chat_List
+        })
+    }
+}
+
+export const get_chat_list_done = () => {
+    console.log("Got Chat List");
+    return dispatch => {
+        dispatch({
+            type:Get_Chat_List_Done,
         })
     }
 }
@@ -145,7 +168,9 @@ export const new_message = () => {
 export const new_message_rendered = () => {
     console.log("New Message Rendered");
     return dispatch => {
-        type: New_Message_Rendered
+        dispatch({
+            type: New_Message_Rendered
+        })
     }
 }
 
@@ -157,13 +182,34 @@ export const send_message = (new_msg) => {
         msg: new_msg,
         time: dt.getHours()+"h"+dt.getMinutes()
     }
-    var chat = require('./data/chats')(curr_chat)
+    var chat = require('./data/chats')(curr_user,curr_chat)
     chat.push(newMessage)
     //console.log("chat" ,chat);
     return dispatch => {
         dispatch({
             type: Send_Message,
             msg: new_msg,
+        })
+    }
+}
+
+export const save_user_id = (userID) => {
+    console.log("Saving user ID to chat store." + userID);
+    curr_user = userID
+    console.log("curr user = " + userID);
+    return dispatch => {
+        dispatch({
+            type: Saved_User,
+        })
+    }
+}
+
+export const unsaved_sser = () => {
+    console.log("Unsaving user ID from chat.");
+    curr_user = -1
+    return dispatch => {
+        dispatch({
+            type: UNSaved_User
         })
     }
 }
