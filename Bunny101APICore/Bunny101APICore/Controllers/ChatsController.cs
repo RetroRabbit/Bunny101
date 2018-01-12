@@ -34,8 +34,6 @@ namespace Bunny101APICore.Controllers
         [HttpGet("{id:int}")]
         public ChatMessage Get(int id)
         {
-
-            int testVariable = 0;
             var chatMessage = db.ChatMessages.Find(id);
 
             return chatMessage;
