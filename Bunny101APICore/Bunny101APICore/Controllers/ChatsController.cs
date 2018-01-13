@@ -7,10 +7,10 @@ using Bunny101APICore.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Bunny101APICore.Controllers
 {
-
     [EnableCors("AllowSpecificOrigin")]
     [Produces("application/json")]
     [Route("api/Chats")]
@@ -22,7 +22,6 @@ namespace Bunny101APICore.Controllers
         /* Add method to change read message */
         public ChatsController(ApplicationDBContext context)
         {
-            //By dependency injection rules we get this context in the startup file 
             db = context;
         }
 
@@ -53,6 +52,7 @@ namespace Bunny101APICore.Controllers
             return chatMessage;
         }
 
+        [AllowAnonymous]
         [HttpPost]
         public int Add([FromBody]ChatMessage message)
         {

@@ -12,8 +12,14 @@ const initialState = {
   };
   var dataUrl;
   //let url = `http://192.168.0.146:61985/api/Chats`;
-  let url = `http://192.168.0.146:61985/api/Chats`;
-  let promise = axios.get(url).then(function(Response){
+  let url = `http://192.168.43.100:61985/api/Chats/`;
+  let promise = axios.post(url, {
+    "msg": "Enabling cors ",
+    "time": "11:30",
+    "senderEmail": "kokw@gmail.com",
+    "recieverEmail": "batso@gmail.com",
+    "read": false
+}).then(function(Response){
      console.log(Response.data);
 
         dataUrl = Response.data[0].email

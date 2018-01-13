@@ -26,13 +26,23 @@ namespace Bunny101APICore
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
-            services.AddCors();
+            //services.AddCors();
+
+            //services.AddCors(options =>
+            //{
+            //    options.AddPolicy("AllowSpecificOrigin",
+            //        builder => builder.AllowAnyOrigin()
+            //         .AllowAnyHeader());
+
+            //});
+
             services.AddCors(options =>
             {
                 options.AddPolicy("AllowSpecificOrigin",
                     builder => builder.AllowAnyOrigin()
-                     .AllowAnyHeader());
-
+                    .AllowAnyMethod()
+                    .AllowAnyHeader()
+                    .AllowCredentials());
             });
 
             services.AddSingleton(Configuration);

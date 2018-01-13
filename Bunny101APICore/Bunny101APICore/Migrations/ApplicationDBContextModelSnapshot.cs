@@ -25,15 +25,19 @@ namespace Bunny101APICore.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Message");
-
                     b.Property<bool>("Read");
 
-                    b.Property<string>("RecieverEmail");
+                    b.Property<string>("RecieverEmail")
+                        .IsRequired();
 
-                    b.Property<string>("SenderEmail");
+                    b.Property<string>("SenderEmail")
+                        .IsRequired();
 
-                    b.Property<string>("Time");
+                    b.Property<string>("Time")
+                        .IsRequired();
+
+                    b.Property<string>("msg")
+                        .IsRequired();
 
                     b.HasKey("Id");
 
