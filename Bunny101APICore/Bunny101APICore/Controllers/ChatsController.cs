@@ -66,14 +66,31 @@ namespace Bunny101APICore.Controllers
 
         [HttpGet("{id}")]
         [Route("GetConversation")]
-        public List<ChatMessage> Get(string receiverEmail, string senderEmail)
+        public Conversation Get(string receiverEmail, string senderEmail)
         {
             //get conversation between two users 
-            List<ChatMessage> conversation = new List<ChatMessage>();
+            List<ChatMessage> messages = new List<ChatMessage>();
 
-            conversation = db.ChatMessages.Where(e => (e.RecieverEmail == receiverEmail && e.SenderEmail == senderEmail) || (e.RecieverEmail == senderEmail && e.SenderEmail == receiverEmail)).ToList();
+            messages = db.ChatMessages.Where(e => (e.RecieverEmail == receiverEmail && e.SenderEmail == senderEmail) || (e.RecieverEmail == senderEmail && e.SenderEmail == receiverEmail)).ToList();
 
-            return conversation;
+            Conversation conversation = new Conversation();
+
+            if(messages.Count > 0)
+            {
+                conversation.Messages = messages;
+                conversation.SenderEmail = messages.Last().SenderEmail;
+                conversation.RecieverEmail = messages.Last().RecieverEmail;
+                conversation.PreviousMessage = messages.Last().msg;
+
+                return conversation;
+            }
+            else
+            {
+                conversation.SenderEmail = senderEmail;
+                conversation.RecieverEmail = receiverEmail;
+
+                return conversation;
+            }
         }
     }
 }

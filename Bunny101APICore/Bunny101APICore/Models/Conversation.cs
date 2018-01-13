@@ -7,7 +7,6 @@ namespace Bunny101APICore.Models
 {
     public class Conversation
     {
-        public int Id { get; set; }
         public string SenderEmail { get; set; }
         public string RecieverEmail { get; set; }
         public string PreviousMessage { get; set; }
