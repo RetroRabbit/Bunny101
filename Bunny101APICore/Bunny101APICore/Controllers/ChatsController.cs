@@ -15,14 +15,24 @@ namespace Bunny101APICore.Controllers
     [Produces("application/json")]
     [Route("api/Chats")]
 
+    
     public class ChatsController : Controller
     {
+        List<User> users = new List<User>();
+
         private ApplicationDBContext db;
 
         /* Add method to change read message */
         public ChatsController(ApplicationDBContext context)
         {
             db = context;
+
+            users.Add(new User(1,"ts@gmail.com","Thabang"));
+            users.Add(new User(2,"nard@gmail.com","Nardus"));
+            users.Add(new User(3,"bonga@gmail.com","Bongani"));
+            users.Add(new User(4,"sea@gmail.com","seal"));
+            users.Add(new User(5,"tsep@gmail.com","Tshepo"));
+            users.Add(new User(5,"Dzi@gmail.com","Dzi"));
         }
 
         [HttpGet]
@@ -34,14 +44,28 @@ namespace Bunny101APICore.Controllers
             return chats;
         }
 
-        //Currently working on this method
         [Route("GetAllConversations")]
-        public IEnumerable<ChatMessage> Get(string email)
+        public List<Conversation> Get(string email)
         {
-            //Group Messages to conversations
-            var chats = db.ChatMessages.ToList();
+            List<Conversation> conversations = new List<Conversation>();
+            
+            List<ChatMessage> AllMessages = db.ChatMessages.ToList();
 
-            return chats;
+            foreach(User user in users)
+            {
+                List<ChatMessage> messages = db.ChatMessages.Where(e => (e.RecieverEmail == users[0].Email && e.SenderEmail == user.Email) || (e.RecieverEmail == user.Email && e.SenderEmail == users[0].Email)).ToList();
+
+                if(messages.Count > 0)
+                conversations.Add(new Conversation
+                {
+                    Id = messages.Last().Id,
+                    SenderEmail = messages.Last().SenderEmail,
+                    RecieverEmail = messages.Last().RecieverEmail,
+                    Messages = messages
+                });
+            }
+
+            return conversations;
         }
 
         [HttpGet("{id:int}")]
@@ -77,6 +101,7 @@ namespace Bunny101APICore.Controllers
 
             if(messages.Count > 0)
             {
+                conversation.Id = messages.Last().Id;
                 conversation.Messages = messages;
                 conversation.SenderEmail = messages.Last().SenderEmail;
                 conversation.RecieverEmail = messages.Last().RecieverEmail;
