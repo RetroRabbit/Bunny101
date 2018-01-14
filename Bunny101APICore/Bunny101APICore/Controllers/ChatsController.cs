@@ -117,5 +117,13 @@ namespace Bunny101APICore.Controllers
                 return conversation;
             }
         }
+
+        [HttpPost]
+        [Route("MessageRead")]
+        public void ChangeMessageToRead(string receiverEmail, string senderEmail)
+        {
+            db.ChatMessages.First(e => (e.RecieverEmail == receiverEmail && e.SenderEmail == senderEmail) || (e.RecieverEmail == senderEmail && e.SenderEmail == receiverEmail)).Read = true;
+            db.SaveChanges();
+        }
     }
 }
