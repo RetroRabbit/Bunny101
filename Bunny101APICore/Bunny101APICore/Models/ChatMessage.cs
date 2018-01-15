@@ -11,7 +11,7 @@ namespace Bunny101APICore.Models
         [Key]
         public int Id { get; set; }
         [Required]
-        public string Message { get; set; }
+        public string msg { get; set; }
         [Required]
         public string Time { get; set; }
         [Required]

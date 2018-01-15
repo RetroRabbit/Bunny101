@@ -14,6 +14,7 @@ const initialState = {
     email: "steve@gmail.com",
     emailError: "",
     password: "",
+
     passwordError: "",
 	updateUser: false,
 	saveChanges: false,
