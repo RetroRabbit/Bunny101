@@ -8,8 +8,20 @@ import Body from '../body'
 import TextField from 'material-ui/TextField'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import Icon from './FullLogo.png'
+import { orange500, blue500, blue100, fullWhite } from 'material-ui/styles/colors';
 import "./index.css"
 import {loginUser} from "../../modules/users"
+import {
+    save_user_id,
+    get_chat_list,
+    get_chat_list_done
+} from '../../modules/chats'
+
+const styles = {
+    floatingLabelStyle: {
+        color: fullWhite,
+    },
+};
 
 class Login extends React.Component {
     constructor(props){
@@ -27,17 +39,23 @@ class Login extends React.Component {
     }
 
     onSubmit = e => {
-        
+
         this.props.loginUser({email:this.state.email, password: this.state.password})
         this.setState({
             active : true,
             ...this.state
         })
-        if(this.props.active != true){
+        /*if(this.props.active != true){
+            this.props.changeToBody();
+        }*/
+        if(this.props.validLogin === true){
+            save_user_id(this.props.id);
+            this.props.get_chat_list(this.props.id)
+            this.props.get_chat_list_done()
             this.props.changeToBody();
         }
-        
-       
+
+
     }
 
     handleChange(event) {
@@ -47,7 +65,9 @@ class Login extends React.Component {
     handlePassword(event) {
         this.setState({password: event.target.value});
     }
-
+    componentWillReceiveProps(nextProps){
+        console.log(nextProps);
+    }
     render() {
         return (
             <div class="mainComponent">
@@ -59,23 +79,23 @@ class Login extends React.Component {
                         <div className="theForm">
                             <form>
                                 <MuiThemeProvider>
-                                    
+
                                     <div class="textField">
-                                        <TextField 
-                                        placeholder="Email" 
-                                        class="field" 
+                                        <TextField
+                                        placeholder="Email"
+                                        class="field"
                                         fullWidth="true"
                                         name="email"
-                                        value={this.state.value} 
+                                        value={this.state.value}
                                         onChange={this.handleChange}
                                         />
                                     </div>
                                     <div class="textField">
-                                        <TextField 
-                                        placeholder="Password" 
-                                        type="password" 
-                                        className="field" 
-                                        fullWidth="true" 
+                                        <TextField
+                                        placeholder="Password"
+                                        type="password"
+                                        className="field"
+                                        fullWidth="true"
                                         name="password"
                                         value={this.state.value}
                                         onChange={this.handlePassword}
@@ -106,11 +126,16 @@ class Login extends React.Component {
 
 const mapStateToProps = state => ({
     email : state.users.email,
-    password : state.users.password
+    password : state.users.password,
+    validLogin: state.users.validLogin,
+    id: state.users.userID,
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({
     loginUser,
+    save_user_id,
+    get_chat_list,
+    get_chat_list_done,
     changeToBody: () => push('/body'),
     changeToRegister: () => push('/register')
 }, dispatch)
@@ -119,5 +144,3 @@ export default connect(
     mapStateToProps,
     mapDispatchToProps
 )(Login)
-
-

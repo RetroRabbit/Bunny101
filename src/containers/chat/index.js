@@ -8,7 +8,8 @@ import TextField from 'material-ui/TextField';
 import { withStyles } from 'material-ui/styles';
 import {
     new_message,
-    send_message
+    send_message,
+    Image_Send
 } from '../../modules/chats'
 import './index.css'
 
@@ -16,11 +17,9 @@ class Chat extends React.Component{
     constructor(props){
         super(props)
         this.state = {
-            newMessage: this.props.newMessage
+            newMessage: this.props.newMessage,
+            newImage: this.props.newImage
         }
-        this.props.send_message("Beefy beef");
-        /*var msgContainer = document.getElementById("Chat_Messages");
-        msgContainer.scrollTop = msgContainer.scrollHeight;*/
     }
     _handleSendMessage(e){
         if (e.key === 'Enter') {
@@ -36,16 +35,36 @@ class Chat extends React.Component{
         }
     }
 
+    handleImageUpload(e) {
+        let reader = new FileReader();
+        let file = e.target.files[0];
+    
+        reader.onloadend = () => {
+            this.props.new_message()
+            this.props.Image_Send(reader.result);
+            this.setState({
+                newImage: this.props.newImage
+            }) 
+        }
+        reader.readAsDataURL(file)
+    }
+
     render(){
         return(
             <div className="chat-container">
 
-                <div id="Chat_Messages" className="message-container">
+                <div id="Chat_Messages" className="message-container1">
                     <Account_Screen newMessage={this.state.newMessage} />
+                    
                 </div>
 
                 <div className="input-container">
-                    <button onClick={this.props.displayText} className="add-button"><a className="plus_sign">+</a></button>
+                    {//<button onClick={this.props.displayText} className="add-button"><a className="plus_sign">+</a></button>
+                    }
+                    <input id="f03" class="btnImageSend" type="file" placeholder="+" onChange={(e)=>this.handleImageUpload(e)}/>
+                    <div id="alignMiddleImg">
+                        <label class="plusImg" htmlFor="f03"><p class="ThePlusSignImg">+</p></label>                                       
+                    </div>
                     <br/>
                     <div className="input-Space">
                         <input id="MessageInput" name="message-input" type="text" className="message-input" placeholder="Enter message here..."
@@ -60,12 +79,14 @@ class Chat extends React.Component{
 
 const mapStateToProps = (state) => ({
     chatItem: state.chats.chatItem,
-    newMessage: state.chats.newMessage
+    newMessage: state.chats.newMessage,
+    newImage: state.chats.newImage
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({
 	new_message,
-    send_message
+    send_message,
+    Image_Send
 }, dispatch)
 
 export default connect(

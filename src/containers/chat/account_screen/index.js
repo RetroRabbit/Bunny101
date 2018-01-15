@@ -6,17 +6,26 @@ import {
     get_chat
 } from '../../../modules/chats'
 
+const NoChats = props => {
+    return(
+        <div className="no-chats">
+            <h1>Not a chatty cathy yet?</h1>
+            <h2>Chatter away on the left</h2>
+        </div>
+    )
+}
+
 const Message = (props) => {
     let message;
     if(props.type === "in"){
         //console.log("Coming in");
         message = (
             <div className="user-msg">
-                <div class="received-message-box">
-                    <p class="message-text">
+                <div className="received-message-box">
+                    <p className="message-text">
                         {props.message}
                     </p>
-                    <p class="received-time">{props.time}</p>
+                    <p className="received-time">{props.time}</p>
                  </div>
             </div>
         )
@@ -25,12 +34,25 @@ const Message = (props) => {
         //console.log("Going out");
         message = (
             <div className="user-msg">
-                <div class="sent-message-box">
-                    <p class="message-text">
+                <div className="sent-message-box">
+                    <p className="message-text">
                         {props.message}
                     </p>
-                    <p class="sent-time">{props.time}</p>
+                    <p className="sent-time">{props.time}</p>
                 </div>
+            </div>
+        )
+    }
+    else if(props.type === "image"){
+        let $imagePreview = null;
+        if (props.message) {
+            $imagePreview = (<div className="sent-message-box"><img src={props.message} id="sentImg" width="236px" height="236px" /><p className="sent-time">{props.time}</p></div>);
+        } else {
+            $imagePreview = (<div className="previewText"></div>);
+        }
+        message = (
+            <div className="user-msg">
+                {$imagePreview}
             </div>
         )
     }
@@ -60,9 +82,14 @@ class Account_Screen extends React.Component {
         //console.log(msgList);
         let msg;
         let msgComponents = []
-        for(msg in msgList){
-            //console.log(msgList[msg]);
-            msgComponents.push(<Message message={msgList[msg].msg} time={msgList[msg].time} type={msgList[msg].type} />)
+        if(!this.props.chatList) {
+            msgComponents.push(<NoChats />)
+        }
+        else{
+            for(msg in msgList){
+                //console.log(msgList[msg]);
+                msgComponents.push(<Message message={msgList[msg].msg} time={msgList[msg].time} type={msgList[msg].type} />)
+            }
         }
         this.setState({
             messages: msgComponents
@@ -70,7 +97,7 @@ class Account_Screen extends React.Component {
     }
     render(){
         return(
-            <div>
+            <div class="message-container">
                 {this.state.messages}
             </div>
         )
@@ -82,7 +109,9 @@ class Account_Screen extends React.Component {
 const mapStateToProps = (state) => ({
     newMessage: state.chats.newMessage,
     chatItem: state.chats.chatItem,
-    activeChat: state.chats.activeChat
+    chatList: state.chats.chatList,
+    activeChat: state.chats.activeChat,
+    imageUrl: state.chats.imageUrl
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({

@@ -1,24 +1,11 @@
-.controls button{
-    background-color: #FF6200;
-    border: none;
-    border-radius: 5px;
-    box-shadow: 4px 4px 4px #AAA;
-    color: white;
-    font-size: 1.2em;
-    padding: 10px 30px;
-    outline: none;
-}
 .profile-pic{
     height: 250px;
-}
-.profile-pic img{
-    height: 100%;
 }
 .profile-pic-selected{
     height: 250px;
     width: 250px;
 }
-.profPic{
+#profPic{
     height: 250px !important;
     width: 250px !important;
     border-radius: 100%;
@@ -33,18 +20,18 @@
 }
 .settings{
     background-color: white;
-    display: table;;
+    display: table;
     height: 100%;
     position: absolute;
     width: 100%;
 }
-.settings-wrapper{
+.settingsWrapper{
     display: table-cell;
     vertical-align: middle;
     margin-top: 100px;
     top: 210px;
 }
-.settings-content{
+.settingsContent{
     /*background-color: #D3D3D3;*/
     height: fit-content;
     margin: auto;
@@ -52,8 +39,8 @@
     text-align: center;
     width: 40%;
 }
-.user-details{
-    color: #0000FF;
+.userDetails{
+    color: #004853;
 }
 
 .header{
@@ -69,6 +56,37 @@
 	visibility: visible;
 }
 
-#buttonDone{
+#buttonSubmit{
 	cursor: pointer;
+	background-color: #FF6200;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 4px 4px 4px #AAA;
+    color: white;
+    font-size: 1.2em;
+    padding: 10px 30px;
+    outline: none;
+}
+
+#alignBtn{
+    position: absolute;
+    filter: alpha(opacity=0);
+}
+
+.changePic{
+    display: inline-block;
+    font-size: 50px;
+    font-weight: 100;
+
+    position: absolute;
+    margin-top: 98px;
+    margin-left: 6.5%;
+    text-align: center;
+    width: 250px;
+    height: 250px;
+
+    cursor: pointer;
+    border-radius: 100%;
+    margin: auto;
+
 }

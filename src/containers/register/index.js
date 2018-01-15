@@ -11,6 +11,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import { orange500, blue500, blue100, fullWhite } from 'material-ui/styles/colors';
 import "./index.css"
 import Form from "./Form"
+
 const styles = {
     floatingLabelStyle: {
         color: fullWhite,
@@ -18,7 +19,7 @@ const styles = {
 };
 
 class RegisterFirst extends React.Component {
-    state = {
+      state = {
         fields: {}
       };
     

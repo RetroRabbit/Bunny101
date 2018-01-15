@@ -8,6 +8,7 @@
     padding-right: 0px;
     display: block;
     background-color: #FFFFFF;
+    border-bottom: 30px solid white;
 }
 .sidebar {
     width: 25%;

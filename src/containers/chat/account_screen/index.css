@@ -1,6 +1,11 @@
 .body{
     background-color: white;
 }
+.message-container{
+    height: 100;
+    width: 100%;
+    display: table;
+}
 .message-text{
     color: #FFFFFF;
     font-family: "Helvetica";
@@ -10,6 +15,19 @@
     padding: 20px;
     max-width: 60%;
     display: block;
+    box-shadow: 5px 5px 2px #D3D3D3;
+}
+.no-chats{
+    color: gray;
+    display: table-cell;
+    vertical-align: middle;
+}
+.no-chats h1{
+    text-align: center;
+}
+.no-chats h2{
+    font-weight: lighter;
+    text-align: center;
 }
 .received-message-box{
     height: auto;
@@ -56,4 +74,21 @@
 .chatbox{
     height: 100%;
     overflow: auto;
+}
+img#sentImg{
+    height: 200px;
+    width: 200px;
+    display: block;
+    margin-left: auto;
+    border-radius: 24px;
+    border: 10px solid #007D80;
+    box-shadow: 5px 5px 2px #D3D3D3;
+}
+
+#sentImg:hover{
+	-ms-transform: scale(1.8);
+    -webkit-transform: scale(1.8);
+    transform: scale(1.8);
+	margin-right: 100px;
+	margin-bottom: 100px;
 }
