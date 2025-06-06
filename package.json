@@ -10,7 +10,7 @@
     "material-ui-search-bar": "^0.4.1",
     "prettier": "^1.9.2",
     "react": "^16.2.0",
-    "react-dom": "^16.2.0",
+    "react-dom": "^16.2.1",
     "react-dropdown-menu": "0.0.2",
     "react-fa-icon": "^0.1.4",
     "react-fontawesome": "^1.6.1",
